@@ -1,0 +1,38 @@
+        <top_mass>              173.21000000d00          </top_mass>
+        <top_width>               0.0d0 </top_width>
+        <bottom_mass>             0.0d0                </bottom_mass>
+        <bottom_width>            0.d0                 </bottom_width>
+        <tau_mass>                0.d0                 </tau_mass>
+        <z0_mass>                91.1534806191827d+00  </z0_mass>
+        <z0_width>                2.494266378772824d+00 </z0_width>
+        <w_mass>                 80.3579736098775d+00 </w_mass>
+        <w_width>                 2.084298998278219d+00 </w_width>
+        <higgs_mass>            125.0d00                 </higgs_mass>
+        <higgs_width>             4.07d-03                  </higgs_width>
+        <fermi_constant>          1.1663787000000d-05  </fermi_constant>
+        <alpha>          7.555310522369d-03  </alpha>
+        <renormalization_scale>  80.3579736098775d0                  </renormalization_scale>
+        <infrared_scale>         80.3579736098775d0                  </infrared_scale>
+        <factorization_scale>    80.3579736098775d0                  </factorization_scale>
+        <active_flavours>        5d0                  </active_flavours>
+
+NNPDF30_nlo_as_0118_qed
+
+Cuts
+----
+
+pTj > 30 GeV, eta < 4.7
+dr jl > 0.4
+ml+l- (of the Z) = [76; 106] GeV
+pTl > 20
+mjj > 500 GeV
+delta jj > 2.5
+
+Cross section:
+--------------
+
+LO:
+alpha6
+2.719090139803E-01   3.558206013780E-05
+
+
