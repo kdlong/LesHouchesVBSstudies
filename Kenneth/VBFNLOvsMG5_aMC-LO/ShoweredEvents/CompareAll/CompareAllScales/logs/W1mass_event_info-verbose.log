@@ -1,0 +1,60 @@
+________________________________________________________________________________
+Results for file wlljj-ewk__notaus in plot group wzjj-ewk__notaus
+Number of events in analyzeWZ/Ntuple channel: 0.80
+Number of entries is 45437
+Total number of events: 0.80
+Cross section is 0.0176
+Sum of weights is 422192.00
+********************************************************************************
+    Summary for plot group wzjj-ewk__notaus
+    Total entries in all states: 0.80
+    0.80 events in state analyzeWZ/Ntuple
+********************************************************************************
+________________________________________________________________________________
+Results for file wlljj-ewk-allscales in plot group wzjj-ewk-allscales__maxptj
+Number of events in analyzeWZ/Ntuple channel: 0.76
+Number of entries is 64510
+Total number of events: 0.76
+Cross section is 0.0071
+Sum of weights is 599000.00
+********************************************************************************
+    Summary for plot group wzjj-ewk-allscales__maxptj
+    Total entries in all states: 0.76
+    0.76 events in state analyzeWZ/Ntuple
+********************************************************************************
+________________________________________________________________________________
+Results for file wzjj-vbfnlo-lo in plot group wzjj-vbfnlo-lo
+Number of events in analyzeWZ/Ntuple channel: 0.48
+Number of entries is 15675
+Total number of events: 0.48
+Cross section is 0.0031
+Sum of weights is 100000.00
+********************************************************************************
+    Summary for plot group wzjj-vbfnlo-lo
+    Total entries in all states: 0.48
+    0.48 events in state analyzeWZ/Ntuple
+********************************************************************************
+________________________________________________________________________________
+Results for file wzjj-vbfnlo-lo-fixedscale in plot group wzjj-vbfnlo-lo-fixedscale
+Number of events in analyzeWZ/Ntuple channel: 0.55
+Number of entries is 16678
+Total number of events: 0.55
+Cross section is 0.0033
+Sum of weights is 100000.00
+********************************************************************************
+    Summary for plot group wzjj-vbfnlo-lo-fixedscale
+    Total entries in all states: 0.55
+    0.55 events in state analyzeWZ/Ntuple
+********************************************************************************
+________________________________________________________________________________
+Results for file wlljj-ewk-fixedscale in plot group wzjj-ewk-fixedscale
+Number of events in analyzeWZ/Ntuple channel: 0.87
+Number of entries is 99450
+Total number of events: 0.87
+Cross section is 0.0076
+Sum of weights is 868000.00
+********************************************************************************
+    Summary for plot group wzjj-ewk-fixedscale
+    Total entries in all states: 0.87
+    0.87 events in state analyzeWZ/Ntuple
+********************************************************************************
