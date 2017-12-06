@@ -1,14 +1,4 @@
 <html>
-<head>
-  <title>WZGenAnalysis/rivetParticles</title>
-  <style type="text/css">
-    .autoResizeImage {
-      max-width: 100%;
-      height: auto;
-      width: auto;
-   }
-   </style>
-</head>
 <body>
   <div style="text-align: center;"><b>WZGenAnalysis/rivetParticles</b></div>
   <table>
