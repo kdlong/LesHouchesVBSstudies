@@ -4,120 +4,120 @@
   <table>
   <tr style="text-align: center;">
     <td style="text-align: center;">
-        <img src="hmqq.png" class="autoResizeImage" /><br/>
-        <a href="hmqq.pdf">[pdf]</a>
+        <img src="plots/hmqq.png" class="autoResizeImage" /><br/>
+        <a href="plots/hmqq.pdf">[pdf]</a>
     </td>
     <td style="text-align: center;">
-        <img src="heta.png" class="autoResizeImage" /><br/>
-        <a href="heta.pdf">[pdf]</a>
+        <img src="plots/heta.png" class="autoResizeImage" /><br/>
+        <a href="plots/heta.pdf">[pdf]</a>
     </td>
     <td style="text-align: center;">
-        <img src="hdeta.png" class="autoResizeImage" /><br/>
-        <a href="hdeta.pdf">[pdf]</a>
-    </td>
-  </tr>
-  <tr style="text-align: center;">
-    <td style="text-align: center;">
-        <img src="hpt.png" class="autoResizeImage" /><br/>
-        <a href="hpt.pdf">[pdf]</a>
-    </td>
-    <td style="text-align: center;">
-        <img src="hptq1.png" class="autoResizeImage" /><br/>
-        <a href="hptq1.pdf">[pdf]</a>
-    </td>
-    <td style="text-align: center;">
-        <img src="hptq2.png" class="autoResizeImage" /><br/>
-        <a href="hptq2.pdf">[pdf]</a>
+        <img src="plots/hdeta.png" class="autoResizeImage" /><br/>
+        <a href="plots/hdeta.pdf">[pdf]</a>
     </td>
   </tr>
   <tr style="text-align: center;">
     <td style="text-align: center;">
-        <img src="hetaq1.png" class="autoResizeImage" /><br/>
-        <a href="hetaq1.pdf">[pdf]</a>
+        <img src="plots/hpt.png" class="autoResizeImage" /><br/>
+        <a href="plots/hpt.pdf">[pdf]</a>
     </td>
     <td style="text-align: center;">
-        <img src="hetaq2.png" class="autoResizeImage" /><br/>
-        <a href="hetaq2.pdf">[pdf]</a>
+        <img src="plots/hptq1.png" class="autoResizeImage" /><br/>
+        <a href="plots/hptq1.pdf">[pdf]</a>
     </td>
     <td style="text-align: center;">
-        <img src="hptlw.png" class="autoResizeImage" /><br/>
-        <a href="hptlw.pdf">[pdf]</a>
-    </td>
-  </tr>
-  <tr style="text-align: center;">
-    <td style="text-align: center;">
-        <img src="hptnw.png" class="autoResizeImage" /><br/>
-        <a href="hptnw.pdf">[pdf]</a>
-    </td>
-    <td style="text-align: center;">
-        <img src="hptzp.png" class="autoResizeImage" /><br/>
-        <a href="hptzp.pdf">[pdf]</a>
-    </td>
-    <td style="text-align: center;">
-        <img src="hptzm.png" class="autoResizeImage" /><br/>
-        <a href="hptzm.pdf">[pdf]</a>
+        <img src="plots/hptq2.png" class="autoResizeImage" /><br/>
+        <a href="plots/hptq2.pdf">[pdf]</a>
     </td>
   </tr>
   <tr style="text-align: center;">
     <td style="text-align: center;">
-        <img src="hetalw.png" class="autoResizeImage" /><br/>
-        <a href="hetalw.pdf">[pdf]</a>
+        <img src="plots/hetaq1.png" class="autoResizeImage" /><br/>
+        <a href="plots/hetaq1.pdf">[pdf]</a>
     </td>
     <td style="text-align: center;">
-        <img src="hetanw.png" class="autoResizeImage" /><br/>
-        <a href="hetanw.pdf">[pdf]</a>
+        <img src="plots/hetaq2.png" class="autoResizeImage" /><br/>
+        <a href="plots/hetaq2.pdf">[pdf]</a>
     </td>
     <td style="text-align: center;">
-        <img src="hetazp.png" class="autoResizeImage" /><br/>
-        <a href="hetazp.pdf">[pdf]</a>
-    </td>
-  </tr>
-  <tr style="text-align: center;">
-    <td style="text-align: center;">
-        <img src="hetazm.png" class="autoResizeImage" /><br/>
-        <a href="hetazm.pdf">[pdf]</a>
-    </td>
-    <td style="text-align: center;">
-        <img src="hmz.png" class="autoResizeImage" /><br/>
-        <a href="hmz.pdf">[pdf]</a>
-    </td>
-    <td style="text-align: center;">
-        <img src="hyz.png" class="autoResizeImage" /><br/>
-        <a href="hyz.pdf">[pdf]</a>
+        <img src="plots/hptlw.png" class="autoResizeImage" /><br/>
+        <a href="plots/hptlw.pdf">[pdf]</a>
     </td>
   </tr>
   <tr style="text-align: center;">
     <td style="text-align: center;">
-        <img src="hptz.png" class="autoResizeImage" /><br/>
-        <a href="hptz.pdf">[pdf]</a>
+        <img src="plots/hptnw.png" class="autoResizeImage" /><br/>
+        <a href="plots/hptnw.pdf">[pdf]</a>
     </td>
     <td style="text-align: center;">
-        <img src="hmw.png" class="autoResizeImage" /><br/>
-        <a href="hmw.pdf">[pdf]</a>
+        <img src="plots/hptzp.png" class="autoResizeImage" /><br/>
+        <a href="plots/hptzp.pdf">[pdf]</a>
     </td>
     <td style="text-align: center;">
-        <img src="hmwz.png" class="autoResizeImage" /><br/>
-        <a href="hmwz.pdf">[pdf]</a>
-    </td>
-  </tr>
-  <tr style="text-align: center;">
-    <td style="text-align: center;">
-        <img src="hyw.png" class="autoResizeImage" /><br/>
-        <a href="hyw.pdf">[pdf]</a>
-    </td>
-    <td style="text-align: center;">
-        <img src="hptw.png" class="autoResizeImage" /><br/>
-        <a href="hptw.pdf">[pdf]</a>
-    </td>
-    <td style="text-align: center;">
-        <img src="hmwq1.png" class="autoResizeImage" /><br/>
-        <a href="hmwq1.pdf">[pdf]</a>
+        <img src="plots/hptzm.png" class="autoResizeImage" /><br/>
+        <a href="plots/hptzm.pdf">[pdf]</a>
     </td>
   </tr>
   <tr style="text-align: center;">
     <td style="text-align: center;">
-        <img src="hmwq2.png" class="autoResizeImage" /><br/>
-        <a href="hmwq2.pdf">[pdf]</a>
+        <img src="plots/hetalw.png" class="autoResizeImage" /><br/>
+        <a href="plots/hetalw.pdf">[pdf]</a>
+    </td>
+    <td style="text-align: center;">
+        <img src="plots/hetanw.png" class="autoResizeImage" /><br/>
+        <a href="plots/hetanw.pdf">[pdf]</a>
+    </td>
+    <td style="text-align: center;">
+        <img src="plots/hetazp.png" class="autoResizeImage" /><br/>
+        <a href="plots/hetazp.pdf">[pdf]</a>
+    </td>
+  </tr>
+  <tr style="text-align: center;">
+    <td style="text-align: center;">
+        <img src="plots/hetazm.png" class="autoResizeImage" /><br/>
+        <a href="plots/hetazm.pdf">[pdf]</a>
+    </td>
+    <td style="text-align: center;">
+        <img src="plots/hmz.png" class="autoResizeImage" /><br/>
+        <a href="plots/hmz.pdf">[pdf]</a>
+    </td>
+    <td style="text-align: center;">
+        <img src="plots/hyz.png" class="autoResizeImage" /><br/>
+        <a href="plots/hyz.pdf">[pdf]</a>
+    </td>
+  </tr>
+  <tr style="text-align: center;">
+    <td style="text-align: center;">
+        <img src="plots/hptz.png" class="autoResizeImage" /><br/>
+        <a href="plots/hptz.pdf">[pdf]</a>
+    </td>
+    <td style="text-align: center;">
+        <img src="plots/hmw.png" class="autoResizeImage" /><br/>
+        <a href="plots/hmw.pdf">[pdf]</a>
+    </td>
+    <td style="text-align: center;">
+        <img src="plots/hmwz.png" class="autoResizeImage" /><br/>
+        <a href="plots/hmwz.pdf">[pdf]</a>
+    </td>
+  </tr>
+  <tr style="text-align: center;">
+    <td style="text-align: center;">
+        <img src="plots/hyw.png" class="autoResizeImage" /><br/>
+        <a href="plots/hyw.pdf">[pdf]</a>
+    </td>
+    <td style="text-align: center;">
+        <img src="plots/hptw.png" class="autoResizeImage" /><br/>
+        <a href="plots/hptw.pdf">[pdf]</a>
+    </td>
+    <td style="text-align: center;">
+        <img src="plots/hmwq1.png" class="autoResizeImage" /><br/>
+        <a href="plots/hmwq1.pdf">[pdf]</a>
+    </td>
+  </tr>
+  <tr style="text-align: center;">
+    <td style="text-align: center;">
+        <img src="plots/hmwq2.png" class="autoResizeImage" /><br/>
+        <a href="plots/hmwq2.pdf">[pdf]</a>
     </td>
 </body>
 </html>
