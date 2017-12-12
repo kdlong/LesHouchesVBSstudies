@@ -2,7 +2,7 @@
   <div style="text-align: center;"><b>WZGenAnalysis/rivetParticles</b></div>
   <table>
   <div style="text-align: center;">Plots by channel: 
-  <a href="eee">[eee]</a> -   <a href="eem">[eem]</a> -   <a href="emm">[emm]</a> -   <a href="mmm">[mmm]</a></div>
+  <a href="../eee">[eee]</a> -   <a href="../eem">[eem]</a> -   <a href="../emm">[emm]</a> -   <a href="../mmm">[mmm]</a></div>
   <table>
   <tr style="text-align: center;">
     <td style="text-align: center;">

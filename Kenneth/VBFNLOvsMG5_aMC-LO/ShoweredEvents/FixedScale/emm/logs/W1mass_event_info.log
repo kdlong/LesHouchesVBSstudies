@@ -1,0 +1,20 @@
+--------------------------------------------------------------------------------
+Script called at 2017-12-12 15:54:51.263013
+The command was: ./makeHistStack.py --nostack --no_data --simulation -s WZGenAnalysis/rivetParticles -f wzjj-ewk-fixedscale,wzjj-vbfnlo-lo-fixedscale --folder_name CompareFixedScales/emm -l 1 -m mjj > 500 && dEtajj > 2.5 && l1Pt > 20 && l2Pt > 20 && l3Pt > 20 && abs(l1Eta) < 2.5 && abs(l3Eta) < 2.5 && abs(l2Eta) < 2.5 && Z1mass < 106 && Z1mass > 76 -u none -r EWK-VBS --scaleymax 0.08 --ratio_range 0.5 1.1 --ratio_text ratio to mg -c emm --extra_text #mu#mue chans -r EWK-VBS --no_decorations
+--------------------------------------------------------------------------------
+Selection: WZGenAnalysis/rivetParticles
+Additional cut: mjj > 500 && dEtajj > 2.5 && l1Pt > 20 && l2Pt > 20 && l3Pt > 20 && abs(l1Eta) < 2.5 && abs(l3Eta) < 2.5 && abs(l2Eta) < 2.5 && Z1mass < 106 && Z1mass > 76
+Luminosity: 1.00 fb^{-1}
+Plotting branch: W1mass
+
++---------------------------+-----------------+-------+------------+------------+
+|         Plot Group        | Weighted Events | Error | Stat Error | Raw Events |
++---------------------------+-----------------+-------+------------+------------+
+| wzjj-vbfnlo-lo-fixedscale |      0.289      |  0.0  |    0.0     |    8828    |
+|    wzjj-ewk-fixedscale    |      0.436      |  0.0  |    0.0     |   49865    |
++---------------------------+-----------------+-------+------------+------------+
+
+Total sum of Monte Carlo: 0.73 +/- 0.00
+Total sum of background Monte Carlo: 0.00 +/- 0.00
+Ratio S/(S+B): 1.00 +/- 0.01
+Ratio S/sqrt(S+B): 0.85 +/- 0.01
