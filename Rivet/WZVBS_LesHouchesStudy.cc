@@ -14,9 +14,6 @@
 #include "Rivet/Projections/PromptFinalState.hh"
 #include "Rivet/Projections/VisibleFinalState.hh"
 #include "Rivet/Projections/FastJets.hh"
-#include "TFile.h"
-#include "TH1.h"
-#include "FWCore/ParameterSet/interface/FileInPath.h"
 
 #include <iostream>
 #include <algorithm>
@@ -100,8 +97,9 @@ public:
             vetoEvent;
         }
 
-        bool sameFlavorState = (leptons.at(0).pdgId() == leptons.at(1).pdgId()) && 
-                    (leptons.at(2).pdgId() == leptons.at(2).pdgId());
+        bool sameFlavorState = (leptons.at(0).pdgId() == leptons.at(1).pdgId()) ||
+                    (leptons.at(0).pdgId() == leptons.at(2).pdgId()) ||
+                    (leptons.at(1).pdgId() == leptons.at(2).pdgId());
         // Sort as Leading Z lep, subleading Z lep, W lep
         if (!sameFlavorState) {
             // Leps 1 and 3 is best combo
@@ -133,7 +131,7 @@ public:
 
             // Leps 1 and 3 is best combo
             if (min_index == 1) {
-                std::iter_swap(leptons.begin(),leptons.begin()+2);
+                std::iter_swap(leptons.begin()+1,leptons.begin()+2);
             }
             // Leps 2 and 3 is best combo
             else if (min_index == 2) {
@@ -152,14 +150,12 @@ public:
         Jets jets;
         foreach (const Jet& jet, applyProjection<FastJets>(event, "jets").jetsByPt(30.0*GeV) ) {
             bool isolated = true;
-            if (isolated) {
-                foreach (const Particle& lepton, leptons) {
-                    if (deltaR(lepton, jet) < 0.4) {
-                        isolated = false;
-                        break;
-                    }
-                }
-            }
+	    foreach (const Particle& lepton, leptons) {
+	      if (deltaR(lepton, jet) < 0.4) {
+		isolated = false;
+		break;
+	      }
+	    }
             if (isolated)
                 jets.push_back(jet);
         }
@@ -176,8 +172,8 @@ public:
         float zep3l = leptonSystem.eta() - 0.5*(jets.at(0).momentum().eta()  + jets.at(1).momentum().eta());
 
         // Inconveniently reduces events for testing
-        //if (mjj < 500 || dEtajj < 2.5)
-        //    vetoEvent;
+        if (mjj < 500 || dEtajj < 2.5)
+            vetoEvent;
 
         // Primitive variables
         hists1D_["Zlep1_Pt"]->fill(leptons.at(0).pt(), weight);
@@ -218,3 +214,6 @@ public:
 private:
     std::map<std::string, Histo1DPtr> hists1D_;
 };
+
+DECLARE_RIVET_PLUGIN (WZVBS_LesHouchesStudy);
+}
