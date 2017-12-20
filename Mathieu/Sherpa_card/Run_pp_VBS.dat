@@ -1,0 +1,161 @@
+(run){
+  ### basic settings:
+  EVENTS 10000000;
+#  EVENTS 10;
+#  BATCH_MODE 2;
+#  OUTPUT 2;
+  EW_SCHEME=3;
+    # compute all EW parameters from W,Z,H mass and Gfermi using tree-level relations
+  WIDTHSCHEME=CMS;
+    # use the complex mass scheme for internal massive propagators
+#  VEV = 246.221;
+#  LAMBDA = 0.511737;
+  GF = 0.000011663787;
+#  1/ALPHAQED(0) = 132.358;
+#  SIN2THETAW = 0.222838;
+#   AMEGIC_ALLOW_MAPPING 0;
+   RANDOM_SEED RSeed;
+#   ANALYSIS Rivet;
+#   ANALYSIS_OUTPUT Analysis.ZZ.NLO.EW.RSeed
+#   RESULT_DIRECTORY Results.ZZ.NLO.EW  
+#   EVENT_OUTPUT=HepMC_Short
+}(run);
+
+(beam){
+  BEAM_1 2212; BEAM_ENERGY_1 6500;
+  BEAM_2 2212; BEAM_ENERGY_2 6500;
+  K_PERP_MEAN_1 0.0; K_PERP_SIGMA_1 0.0;
+  K_PERP_MEAN_2 0.0; K_PERP_SIGMA_2 0.0;
+  BEAM_REMNANTS 0;
+}(beam);
+
+(isr){
+  PDF_LIBRARY LHAPDFSherpa;
+  PDF_SET NNPDF30_nlo_as_0118_qed;
+  USE_PDF_ALPHAS=1; # Use alpha_s from the PDF set.
+}(isr);
+
+
+(model){
+  SM
+  MASS[2]  = 0.0;
+  MASS[11] = 0.0;
+  MASS[13] = 0.0;
+  MASS[23] = 91.1534806191827;
+  MASS[24] = 80.3579736098775;
+  MASS[25] = 125;
+  MASS[6] = 173.21;
+  WIDTH[6] = 0.0;
+  WIDTH[25] = 0.00407;
+  WIDTH[23] = 2.494266378772824;
+  WIDTH[24] = 2.084298998278219;
+  
+  YUKAWA[25] 125; # Fixed Yuakawa coupling
+  
+}(model)
+
+(me){
+# to have the 4 flavour scheme i.e. no bottom quarks in the PDF.
+ PARTICLE_CONTAINER 101 5FScheme 1 -1 2 -2 3 -3 4 -4 5 -5 21;
+
+# Matrix elements generator
+  LOOPGEN:=Recola;
+  ME_SIGNAL_GENERATOR Amegic LOOPGEN;
+#  ME_SIGNAL_GENERATOR Amegic LOOPGEN;
+#  ME_SIGNAL_GENERATOR Comix;
+  EVENT_GENERATION_MODE Weighted;
+  SCALES VAR{80.3579736098775*80.3579736098775}{80.3579736098775*80.3579736098775}
+#  SCALES VAR{Mass2(p[2]+p[3]+p[4]+p[5])}{Mass2(p[2]+p[3]+p[4]+p[5])}
+#	SCALES VAR{DM4L2(antikt,0.2)};
+  ### for fixed order perturbation theory:
+  ME_QED Off; 		     # switch off resummed QED corrections 
+  			     # onto the Z -> e- e+ decay
+}(me);
+
+(integration){
+#  ERROR 0.001;
+  ERROR 0.001;
+  PSI_ITMIN 10000;
+  Finish_Optimization On;
+}(integration);
+
+
+(mi){
+  MI_HANDLER None;   # switch off multi-parton interactions
+}(mi)
+
+(fragmentation){
+  FRAGMENTATION Off; # no fragmentation of final state hadrons
+}(fragmentation)
+
+(shower){
+  SHOWER_GENERATOR None;     # no parton shower selected
+}(shower)
+
+(processes){
+  Process 2 2 -> -11 12 -13 13 2 1;
+  Order (*,6);
+  NLO_QCD_Mode Fixed_Order;
+#  NLO_QCD_Part V;
+  NLO_QCD_Part B;
+  Loop_Generator LOOPGEN;
+  ME_Generator Amegic;
+  RS_ME_Generator Amegic;
+  RS_Enhance_Factor 10;
+  Integration_Error 0.001;
+  End process;
+}(processes);
+
+
+(selector){
+#  DressedParticleSelector {
+#  DressingAlgorithm Recombination 0.4 -1;
+#  JetFinder 2 25 0 0.4 -1 2.5 14000; # <n> <ptmin> <etmin> <D parameter> [<exponent>] [<eta max>] [<mass max>]
+#  FastjetFinder antikt 2 30.0 0 0.4 0.75 4.5 100 0 0; # FastjetFinder <algorithm> <n> <ptmin> <etmin> <dr> [<f(siscone)>=0.75] [<eta-max>] [<y-max>] [<nb>] [<nb2>]
+#  FastjetFinder antikt 2 100 0 0.4 0.75 5 1000 2 # FastjetFinder <algorithm> <n> <ptmin> <etmin> <dr> [<f(siscone)>=0.75] [<eta-max>] [<y-max>] [<bmode>]
+  PT 2 30 13000
+  PT 1 30 13000
+  PT  -11 20 E_CMS
+  PT   13 20 E_CMS
+  PT  -13 20 E_CMS
+  PseudoRapidity -11 -2.5 2.5
+  PseudoRapidity  13 -2.5 2.5  
+  PseudoRapidity -13 -2.5 2.5
+  PseudoRapidity   1 -4.7 4.7
+  PseudoRapidity   2 -4.7 4.7
+  DeltaR  1 -11 0.4 1000000
+  DeltaR  1  13 0.4 1000000
+  DeltaR  1 -13 0.4 1000000
+  DeltaR  2 -11 0.4 1000000
+  DeltaR  2  13 0.4 1000000
+  DeltaR  2 -13 0.4 1000000
+  DeltaEta 1 2 2.5 1000000
+  Mass 2 1 500 13000
+  Mass 13 -13 76 106
+#  "ET" 12 40,E_CMS
+#  FastjetSelector Mass(p[4]+p[5])>100. antikt 2 40. 0. 0.5
+#  }
+}(selector)
+
+
+
+#  PT  -11 20 E_CMS
+#  PseudoRapidity -11 -2.5 2.5
+#  PT   13 20 E_CMS
+#  PseudoRapidity  13 -2.5 2.5
+#  PT  -13 20 E_CMS
+#  PseudoRapidity -13 -2.5 2.5
+#  DeltaR  -13 -11 0.3 1000000
+#  DeltaR   13 -13 0.3 1000000
+#  DeltaR  -11 -13 0.3 1000000
+#  Mass 2 1 500 13000
+#  PT 2 10 13000
+#  PT 1 10 13000
+
+#(analysis){
+# BEGIN_RIVET{
+#   USE_HEPMC_SHORT 1;
+##   -a MC_ZZINC_mathieu
+#   -a MC_ZZINC_jennie
+# } END_RIVET
+#}(analysis) 
