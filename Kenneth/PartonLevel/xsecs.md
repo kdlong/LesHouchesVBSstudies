@@ -14,3 +14,9 @@ MadGraph LO -- no b quarks
 * Initial: 1.826 pb
 * Fiducial: 0.455697 fb
     * Fiducial (e+mm only): 0.288234 fb 
+
+* With no decay syntax (all cuts in run card)
+    * Fiducial: 0.4397 +- 0.0004 pb
+        * (e+mm only): 0.27827 +/- 0.00031
+        * (e-mm only): 0.16147 +/- 0.00024
+
