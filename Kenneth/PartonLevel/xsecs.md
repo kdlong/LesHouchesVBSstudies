@@ -4,6 +4,10 @@ VBFNLO LO
 * Initial: 1.0026 pb
 * Fiducial: 0.319168 fb
    * Fiducial (e+mm only): 0.199256 fb
+* With Mathieu's configuration
+  * Fiducial: 0.1996
+    * (e+mm): 0.1355 fb
+    * (e-mm): 0.06413 fb
 
 MadGraph LO
 * Initial: 17.63 pb
