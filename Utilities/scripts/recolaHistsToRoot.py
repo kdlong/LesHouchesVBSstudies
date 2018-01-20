@@ -5,7 +5,7 @@ import glob
 ROOT.gROOT.SetBatch(True)
 
 def makeRecolaHist(hist_file_name):
-    data = readMATRIXHistData(hist_file_name)
+    data = readRecolaHistData(hist_file_name)
 
     central_hist_name = hist_file_name.split("/")[-1].replace(".dat", "")
     nbins = len(data)-1
@@ -18,7 +18,7 @@ def makeRecolaHist(hist_file_name):
     
     return central_hist
 
-def readMATRIXHistData(hist_file_name):
+def readRecolaHistData(hist_file_name):
     data = []
     with open(hist_file_name) as hist_file:
         for line in hist_file:
