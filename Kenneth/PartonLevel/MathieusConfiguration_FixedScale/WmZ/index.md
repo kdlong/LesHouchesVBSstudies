@@ -1,19 +1,7 @@
-<html>
-<head>
-  <title>VBS comparisons: EWK p p > e- v mu+ mu-</title>
-  <style type="text/css">
-    .autoResizeImage {
-      max-width: 100%;
-      height: auto;
-      width: auto;
-   }
-   </style>
-</head>
 <body>
   <div style="text-align: center;"><b>VBS comparisons: EWK p p > e- v mu+ mu-</b></div>
   <table>
   <div style="text-align: center;">Plots by channel: 
-  <a href="eee">[eee]</a> -   <a href="eem">[eem]</a> -   <a href="emm">[emm]</a> -   <a href="mmm">[mmm]</a></div>
   <table>
   <tr style="text-align: center;">
     <td style="text-align: center;">
@@ -183,4 +171,3 @@
         <a href="plots/hmwq2.pdf">[pdf]</a>
     </td>
 </body>
-</html>
