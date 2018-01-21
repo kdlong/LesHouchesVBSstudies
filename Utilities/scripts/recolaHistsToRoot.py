@@ -33,7 +33,7 @@ def readRecolaHistData(hist_file_name):
 
 canvas = ROOT.TCanvas("canvas", "canvas")
 
-hist_file_path = "histogram_invariant_mass_mjj12_born_alpha6.dat"
+hist_file_path = "../../Mathieu/fixed_scale_minus_new_PDF/results/histograms/data/scale_factor_1/histogram_invariant_mass_mjj12_born.dat"
 output_path = "." 
 
 for hist_file in glob.glob(hist_file_path):
