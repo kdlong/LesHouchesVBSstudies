@@ -1,8 +1,6 @@
 <body>
   <div style="text-align: center;"><b>VBS comparisons: EWK p p > e- v mu+ mu-</b></div>
   <table>
-  <div style="text-align: center;">Plots by channel: 
-  <table>
   <tr style="text-align: center;">
     <td style="text-align: center;">
         <img src="plots/hmqq.png" class="autoResizeImage" /><br/>
