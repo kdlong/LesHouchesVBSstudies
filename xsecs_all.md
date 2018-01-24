@@ -16,7 +16,12 @@ Fixed scale = M_{Z}
         * (e+mm only): 0.27827 +/- 0.00031
         * (e-mm only): 0.16147 +/- 0.00024
 
-* Recola+MoCaNLO
+* Recola+MoCaNLO (fixed scale M_W)
     * Fiducial: 0.45214 fb
         * (e+mm only): 0.28496 +/- 0.00061
         * (e-mm only): 0.16718 +/- 0.00029
+        
+MadGraph LO (fixed scale M_W) (ran by Mathieu)
+        * (e+mm only): 0.000286 +- 8.306e-07 pb
+        * (e-mm only): 
+

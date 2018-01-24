@@ -24,7 +24,7 @@ MadGraph LO -- no b quarks
         * (e+mm only): 0.27827 +/- 0.00031
         * (e-mm only): 0.16147 +/- 0.00024
 
-MoCaNLO+Recola (fixed scale)
+MoCaNLO+Recola (fixed scale M_W)
         * (e+mm only): 2.849564336197E-01   6.118692979506E-05
         * (e-mm only): 1.671795585918E-01   2.946329934281E-05
 
@@ -32,7 +32,7 @@ MoCaNLO+Recola (dynamical scale)
         * (e+mm only): 2.541646429303E-01   5.735886640947E-05
         * (e-mm only): 1.500325884186E-01   3.186955500587E-05
 
-MadGraph LO (fixed scale) (ran by Mathieu)
+MadGraph LO (fixed scale M_W) (ran by Mathieu)
         * (e+mm only): 0.000286 +- 8.306e-07 pb
         * (e-mm only): 
 
