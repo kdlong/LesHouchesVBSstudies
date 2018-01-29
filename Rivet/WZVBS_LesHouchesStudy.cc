@@ -25,6 +25,7 @@ namespace Rivet {
 class WZVBS_LesHouchesStudy: public Analysis {
 public:
     float totalEvents=0;
+    float sumSelectedWeights=0;
     float selectedEvents=0;
 
 
@@ -36,8 +37,9 @@ public:
     void init() {
         double lepConeSize = 0.1;
         double lepMaxEta = 2.5;
+        double lepMinPt = 20;
   
-        Cut lepton_cut   = (Cuts::abseta < lepMaxEta);
+        Cut lepton_cut   = (Cuts::abseta < lepMaxEta && Cuts::pt > lepMinPt);
   
         // Initialise and register projections
         FinalState fs(-2.5,2.5,0.0*GeV);
@@ -144,27 +146,25 @@ public:
         FourMomentum leptonSystem = leptons.at(2).momentum() + bestZCand;
 
         if (std::abs(bestZCand.mass() - ZMASS) > 15)
-            //std::cout << "Vetoing for failing Zmass contraint. mll is " << bestZCand.mass() << std::endl;
             vetoEvent;
 
         Jets jets;
         foreach (const Jet& jet, applyProjection<FastJets>(event, "jets").jetsByPt(30.0*GeV) ) {
-            bool isolated = true;
-	    foreach (const Particle& lepton, leptons) {
-	      if (deltaR(lepton, jet) < 0.4) {
-		isolated = false;
-		break;
-	      }
-	    }
-            if (isolated)
-                jets.push_back(jet);
+        bool isolated = true;
+        foreach (const Particle& lepton, leptons) {
+            if (deltaR(lepton, jet) < 0.4) {
+                isolated = false;
+                break;
+            }
+        }
+        if (isolated)
+            jets.push_back(jet);
         }
 
         if (jets.size() < 2) {  
             vetoEvent;
         }
      
-        selectedEvents++;
         FourMomentum dijet_system = jets.at(0).momentum() + jets.at(1).momentum();
         
         float mjj = dijet_system.mass();
@@ -174,6 +174,9 @@ public:
         // Inconveniently reduces events for testing
         if (mjj < 500 || dEtajj < 2.5)
             vetoEvent;
+
+        sumSelectedWeights += weight;
+        selectedEvents++;
 
         // Primitive variables
         hists1D_["Zlep1_Pt"]->fill(leptons.at(0).pt(), weight);
@@ -200,12 +203,14 @@ public:
         std::cout << "Finalizing..." << endl;  
 
         float efficiency= selectedEvents/totalEvents; 
-        std::cout << "SumOfWeights() = " << sumOfWeights() << endl;
-        std::cout << "efficiency = " << efficiency << endl;    
-        std::cout << "selected Events = " << selectedEvents << ", total= " << totalEvents << endl;
+        std::cout << "SumOfWeights() processed = " << sumOfWeights() << endl;
+        std::cout << "Selected sumWeights = " << sumSelectedWeights << endl;
+        std::cout << "Selected Events = " << selectedEvents << ", Total= " << totalEvents << endl;
+        std::cout << "Efficiency = " << efficiency << endl;    
         
         double xsec = crossSection();
-        std::cout << "xsec is: " << xsec << std::endl;
+        std::cout << "Initial cross section was: " << xsec << std::endl;
+        std::cout << "Fiducial cross section is: " << xsec*sumSelectedWeights/sumOfWeights() << std::endl;
         
         for (const auto& hist : hists1D_)
             scale(hist.second, xsec / sumOfWeights());
