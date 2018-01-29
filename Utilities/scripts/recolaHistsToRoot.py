@@ -5,7 +5,7 @@ import glob
 ROOT.gROOT.SetBatch(True)
 
 def makeRecolaHist(hist_file_name):
-    data = readMATRIXHistData(hist_file_name)
+    data = readRecolaHistData(hist_file_name)
 
     central_hist_name = hist_file_name.split("/")[-1].replace(".dat", "")
     nbins = len(data)-1
@@ -18,7 +18,7 @@ def makeRecolaHist(hist_file_name):
     
     return central_hist
 
-def readMATRIXHistData(hist_file_name):
+def readRecolaHistData(hist_file_name):
     data = []
     with open(hist_file_name) as hist_file:
         for line in hist_file:
@@ -33,7 +33,7 @@ def readMATRIXHistData(hist_file_name):
 
 canvas = ROOT.TCanvas("canvas", "canvas")
 
-hist_file_path = "histogram_invariant_mass_mjj12_born_alpha6.dat"
+hist_file_path = "../../Mathieu/fixed_scale_minus_new_PDF/results/histograms/data/scale_factor_1/histogram_invariant_mass_mjj12_born.dat"
 output_path = "." 
 
 for hist_file in glob.glob(hist_file_path):
