@@ -47,7 +47,8 @@
 \newcommand{\ONELOOP}{O\protect\scalebox{0.8}{NE}LO\protect\scalebox{0.8}{OP}\xspace}
 \newcommand{\MCFM}{M\protect\scalebox{0.8}{CFM}\xspace}
 
-
+% Commands defined by Mathieu
+\usepackage{amsmath}
 \newcommand{\MP}[1]{{ {\color{blue}{ [MP: #1]}} }}
 
 \usepackage{color}
@@ -78,7 +79,7 @@ The best measurement concern the signature with the scattering of same sign W bo
 The reason for this is that is posses a very specific structure due to the same sign charged leptons.
 Therefore, in addition to have a rather large cross section, it also possesses a low irreducible background.
 Other signature such as ZZ or WZ are more challenging due to the lower cross section and large irreducible background.
-Nonetheless, observations have already been performed at the LHC for both the ZZ and WZ scattering \MP{Experimental references to be added.}.
+Nonetheless, observations have already been performed at the LHC for both the ZZ \cite{CMS-PAS-SMP-16-019} and WZ \cite{Aad:2016ett} scattering \MP{Experimental references to be added/modified.}.
 
 One of the challenge for the predictions to di-boson production in association with two jets is its high multiplicity.
 This explains why in the past, NLO predictions have focused on VBS approximations.
@@ -136,24 +137,104 @@ In this section we present the setups that are used in this study for the \Sherp
 generator~\cite{Gleisberg:2008ta}. 
 Etc, etc... 
 
-\subsubsection*{\protect{\MoCaNLO+\Recola} \label{vbs_MoCaNLO_Recola}}
+\subsubsection*{\protect{\MoCaNLO\!+\Recola} \label{vbs_MoCaNLO_Recola}}
 
 The program {\sc MoCaNLO+Recola} is made of a flexible Monte Carlo program dubbed {\sc MoCaNLO} and of the general matrix element generator {\sc Recola}~\cite{Actis:2012qn,Actis:2016mpe}.
 The fast integration is ensured by using similar phase-space mappings to those of Refs.~\cite{Berends:1994pv,Denner:1999gp,Dittmaier:2002ap}.
 The IR divergences appearing in the real corrections are handles with the help of the Catani--Seymour dipole formalism \cite{Catani:1996vz,Dittmaier:1999mb}.
 To numerically evaluate the one-loop scalar and tensor integrals, {\sc Recola} relies on the {\sc Collier} library \cite{Denner:2014gla,Denner:2016kdg}.
 These tools have been successfully used for the computation of NLO corrections for high-multiplicity processes and in particular VBS~\cite{Biedermann:2016yds,Biedermann:2017bss}.
+Note that the complex-mass scheme~\cite{Denner:1999gp,Denner:2005fg} to treat unstable particles is always used.
 
 \subsection{Experimental analysis \label{vbs_rivet}}
 
 Results in this study were produced using a Rivet routine that
 mimics ATLAS and CMS preliminary analyses. Distributions include the number of jets, etc,...
 
-\subsubsection*{Event selection}
-
 \subsubsection*{Input parameters}
 
+All simulation are performed for the LHC running with a center-of-mass energy $\sqrt s = 13 {\rm TeV}$.
+The default parton density function (PDF) used is the NNPDF~3.0 set~\cite{Ball:2014uwa} with four active flavour at LO and a strong coupling constant $\alpha_{\rm s}\left( M_{\rm Z} \right) = 0.130$.\footnote{Its {\tt lhaid} in LHAPDF6~\cite{Buckley:2014ana} is 263400.} 
+% NNPDF30_lo_as_0130_nf_4 
+If this default PDF is not employed, it is explicitly stated.
+
+The masses and widths of the particle used in the simulations are
+%
+\begin{alignat}{2}
+                M_{\rm t}   &=  173.21 {\rm GeV},             & \quad \quad \quad \Gamma_{\rm t} &= 0 {\rm GeV},  \nonumber \\
+                M_{\rm Z}^{\rm OS} &=  91.1876{\rm GeV},      & \quad \quad \quad \Gamma^{\rm OS}_{\rm Z} &= 2.4952{\rm GeV},  \nonumber \\
+                M_{\rm W}^{\rm OS} &=  80.385{\rm GeV},       & \Gamma^{\rm OS}_{\rm Z} &= 2.085{\rm GeV},  \nonumber \\
+                M_{\rm H} &=  125.0{\rm GeV}, 		      & \Gamma_{\rm H}   &=  4.07 \times 10^{-3}{\rm GeV}.
+\end{alignat}
+%
+The numerical values used in the simulation for the pole mass/width of the gauge bosons ($V={\rm W,Z}$) are obtained from the measured on-shell (OS) values for the masses and widths according to \cite{Bardin:1988xt}:
+%
+\begin{equation}
+        M_V = M_{\rm V}^{\rm OS}/\sqrt{1+(\Gamma_{\rm V}^{\rm OS}/M_{\rm V}^{\rm OS})^2}\,,\qquad  \Gamma_V = \Gamma_{\rm V}^{\rm OS}/\sqrt{1+(\Gamma_{\rm V}^{\rm OS}/M_{\rm V}^{\rm OS})^2}.
+\end{equation}
+
+%
+The EW coupling is renormalised in the $G_\mu$ scheme \cite{Denner:2000bj} where
+%
+\begin{equation}
+    G_{\mu}    = 1.16637\times 10^{-5}{\rm GeV}^{-2}.
+\end{equation}
+%
+With the previous input parameters, it corresponds to a numerical value for $\alpha$ of
+%
+\begin{equation}
+ \alpha = 7.555310522369 \times 10^{-3}.
+\end{equation}
+%
+Note that for the EW contribution of order $\mathcal{O} (\alpha^6)$, no dependence on the strong coupling appears.
+For contributions (interference or QCD-induced contributions) where there is a dependence on $\alpha_{\rm s}$, the numerical value used is the one (potentially dynamically) extracted from the PDF.
+
+The renormalisation and factorisation scales are set dynamically to \MP{We might have to adapt this depending on the results we show results for fixed scale.}
+%
+\begin{equation}
+\label{eq:defscale}
+ \mu_{\rm ren} = \mu_{\rm fac} = \sqrt{p_{\rm T, j_1}\, p_{\rm T, j_2}}.
+\end{equation}
+%
+This choice of scale has been shown to provide stable NLO predictions \cite{Denner:2012dz}.
+
+Photon-induced as well as bottom induced contributions have been neglected.
+The photon contributions are expected to be small \cite{Biedermann:2017bss} while the bottom induced contribution can lead to single-top resonant contributions.
+
+\subsubsection*{Event selection}
+
+Following experimental studies \cite{Aad:2016ett,CMS-PAS-SMP-14-008}, the event selection used for the present work is:
+
+\begin{itemize}
+\item All charged leptons are required to have
+    \begin{align}
+        \label{cut:1}
+         p_{\rm T, \ell} >  20{\rm GeV},\qquad |y_{\ell}| < 2.5.
+    \end{align}
+\item For the leptons of opposite charge and same flavour, an invariant mass cut to single out the Z resonance is applied:
+    \begin{align}
+        \label{cut:2}
+         86 {\rm GeV} < m_{l_i^+ l_i^-} < 106 {\rm GeV}.
+    \end{align}
+
+\item QCD jets are clustered thanks to the anti-$k_T$ algorithm~\cite{Cacciari:2008gp} with radius parameter $R=0.4$.
+      At least two jets are required to have
+        \begin{align}
+        \label{cut:3}
+         p_{\rm T, j} >  30{\rm GeV}, \qquad |y_{\rm j}| < 4.7, \qquad \Delta R_{\rm j j} > 0.4.
+        \end{align}
+\item On the two leading jets fulfilling the criteria above, typical VBS cuts are applied:
+        \begin{align}
+        \label{cut:4}
+         m_{\rm j j} >  500{\rm GeV},\qquad |\Delta y_{\rm j j}| > 2.5.
+        \end{align}
+\end{itemize}
+
 \subsection{Results \label{vbs_results}}
+
+\subsubsection*{Cross sections}
+
+\subsubsection*{Differential distributions}
 
 The plot in Figure~\ref{vbs_fig1} etc... 
 
