@@ -69,47 +69,65 @@
 
 \subsection{Introduction \label{vbs_intro}}
 
-The electroweak production of vector boson pairs in association with two jets at the
-CERN Large Hadron Collider (LHC) constitutes a very important process both theoretically and experimentally.
-From the theoretical point of view, it is the first process when one can observe the scattering of two gauge bosons.
+The electroweak (EW) production of vector-boson pairs in association with two jets at the CERN Large Hadron Collider (LHC) represents a very important type of processes both theoretically and experimentally.
+This class of processes is dominated by vector-boson scattering (VBS) contributions and constitutes thus the first type of processes where the scattering of two massive gauge bosons can be observed at the LHC.
 In the scattering of two massive gauge bosons, the Higgs boson is playing a very special role.
-It prevents the cross section from diverging in the high energy limit and preserve the unitarity of the associated scattering amplitude.
+It prevents the cross section from diverging in the high-energy limit and preserve the unitarity of the associated scattering amplitude.
 More importantly, these vector-boson scattering (VBS) signatures just started to be observed and even measured by the experimental collaborations at the LHC.
-The best measurement concern the signature with the scattering of same sign W boson \cite{Aad:2014zda,Khachatryan:2014sta,Sirunyan:2017ret,Aaboud:2016ffv}.
-The reason for this is that is posses a very specific structure due to the same sign charged leptons.
+These are particularly challenging measurement to the high multiplicity of the processes and their small cross sections.
+The best measurement \cite{Aad:2014zda,Khachatryan:2014sta,Sirunyan:2017ret,Aaboud:2016ffv} concerns the signature where the scattering of same sign W boson occurs (usually denoted ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$).
+The reason for this is that is posses a very specific structure due to the same sign charged leptons in the final state.
 Therefore, in addition to have a rather large cross section, it also possesses a low irreducible background.
-Other signature such as ZZ or WZ are more challenging due to the lower cross section and large irreducible background.
+Other signature such as ${\rm Z}{\rm Z}{\rm j}{\rm j}$, ${\rm W}^+{\rm W}^-{\rm j}{\rm j}$, or ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ are even more challenging due to the lower cross section and large irreducible background.
 Nonetheless, observations have already been performed at the LHC for both the ZZ \cite{CMS-PAS-SMP-16-019} and WZ \cite{Aad:2016ett} scattering \MP{Experimental references to be added/modified.}.
 
-One of the challenge for the predictions to di-boson production in association with two jets is its high multiplicity.
-This explains why in the past, NLO predictions have focused on VBS approximations.
-Only recently, full NLO computations became available at NLO QCD and EW for both the EW component and the QCD-induced process \cite{Biedermann:2017bss} for W+W+.
-For this process, preliminary results \cite{Anders:2018gfr} of a comparison of different theoretical predictions have shown that differences between the full computation and VBS approximations are not significant given the present experimental accuracy.
+From a theoretical point of view, one of the challenges for the predictions of the EW di-boson production in association with two jets is its high multiplicity.
+This explains why in the past, next-to-leading order (NLO) predictions have focused on VBS approximations.
+Only recently, full NLO computations became available at NLO QCD and EW for both the EW component and the QCD-induced process for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ \cite{Biedermann:2017bss}.
+For this process, preliminary results \cite{Anders:2018gfr} of a comparison of different theoretical predictions have shown that differences between the full computation and VBS-approximate ones are not significant given the present experimental accuracy.
 Qualitatively, one could expect a similar conclusion for other processes such as WZ.
-Note that this simply a qualitative statement.
-Indeed, WZ possesses more non-VBS contributions making VBS approximations more likely to fail.
+Note that this only a qualitative statement.
+Indeed, the ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ process possesses more non-VBS contributions making VBS approximations more likely to be inaccurate.
+
 An experimental challenge is the presence of an irreducible background.
 It is of order $\mathcal{O} (\alpha_{\rm s}^2 \alpha)$ and is usually dubbed QCD-induced process.
-\MP{Some extra comments on the specific experimental challenge to measure WZ.}
+\MP{Some extra comments on the specific experimental challenges to measure WZ.}
 
-Therefore a preliminary study aiming at comparing various approximation and prediction used in the literature is particularly well motivated.
-The present study focus on LO predictions (possibly supplied with a parton shower) with realistic experimental event selection.
+Therefore a preliminary study aiming at comparing various approximations and predictions used in the literature is particularly well motivated.
+The present study focus on leading-order (LO) predictions (possibly supplied with a parton shower) with realistic experimental event selection.
 \MP{Explain what we do here depending on what we have.}
+
+In particular, the study focuses on two partonic processes
+
+\begin{equation}
+ {\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j} ,
+\end{equation}
+%
+and
+%
+\begin{equation}
+ {\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j},
+\end{equation}
+%
+at order $\mathcal{O} (\alpha^6)$.
+
 
 \subsection{Theory and event generators \label{vbs_theory}}
 
-Even if this study focus on LO prediction, NLO corrections to the EW contribution and its irreducible background are already known.
-The QCD corrections to the EW contributions are know since 10 years in the VBS approximation \cite{Bozzi:2007ur}.
-The QCD irreducible background is also known \cite{Campanario:2013qba}.
-EW corrections are still currently unknown.
-In Refs.~\cite{Biedermann:2016yds}, it has been argued that large NLO EW corrections to the EW contributions are an intrinsic feature of VBS at the LHC.
-Therefore, it is expected to also play a significant role for all VBS signatures.
-In Ref.~\cite{Biedermann:2017bss}, which focus on the computation of the full NLO corrections to W+W+, it has been shown that the EW corrections to the EW contribution are the dominant NLO corrections.
+This study focuses on LO predictions but NLO QCD corrections to the EW contribution and its irreducible background are already known.
+The QCD corrections to the EW contributions are known since 10 years in the VBS approximation \cite{Bozzi:2007ur} while the QCD corrections to the QCD-induced process has been computed more recently \cite{Campanario:2013qba}.
+The NLO EW corrections are currently unknown.
+In Ref.~\cite{Biedermann:2016yds}, it has been argued that large NLO EW corrections to the EW contributions are an intrinsic feature of VBS at the LHC.
+Therefore, they are expected to play a significant role for all VBS signatures.
+In Ref.~\cite{Biedermann:2017bss}, which focuses on the computation of the full NLO corrections to the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ process, it has been shown that the EW corrections to the EW process are the dominant NLO corrections.
+This means that the EW corrections to the EW contributions are expected to be at least of the same order than the QCD ones for VBS signatures.
+\MP{Add some comments on parton shower effects that can play a significant role.}
 
 {\it Add here a description of the theory tools and generators
   used. Below there are same short samples taken from previous proceedings.}
 
 \subsubsection*{\Herwig \label{vbs_herwig}}
+\MP{This subsubsection is out-dated I think. Isn't it?}
 
 In this section we present the setup for those results obtained with the
 \Herwig event generator~\cite{Bellm:2015jjp,Bahr:2008pv}.
@@ -140,11 +158,12 @@ Etc, etc...
 \subsubsection*{\protect{\MoCaNLO\!+\Recola} \label{vbs_MoCaNLO_Recola}}
 
 The program {\sc MoCaNLO+Recola} is made of a flexible Monte Carlo program dubbed {\sc MoCaNLO} and of the general matrix element generator {\sc Recola}~\cite{Actis:2012qn,Actis:2016mpe}.
+The program can compute arbitrary processes in the Standard Model with NLO QCD and EW accuracy.
 The fast integration is ensured by using similar phase-space mappings to those of Refs.~\cite{Berends:1994pv,Denner:1999gp,Dittmaier:2002ap}.
 The IR divergences appearing in the real corrections are handles with the help of the Catani--Seymour dipole formalism \cite{Catani:1996vz,Dittmaier:1999mb}.
 To numerically evaluate the one-loop scalar and tensor integrals, {\sc Recola} relies on the {\sc Collier} library \cite{Denner:2014gla,Denner:2016kdg}.
-These tools have been successfully used for the computation of NLO corrections for high-multiplicity processes and in particular VBS~\cite{Biedermann:2016yds,Biedermann:2017bss}.
 Note that the complex-mass scheme~\cite{Denner:1999gp,Denner:2005fg} to treat unstable particles is always used.
+These tools have been successfully used for the computation of NLO corrections for high-multiplicity processes and in particular VBS processes \cite{Biedermann:2016yds,Biedermann:2017bss}.
 
 \subsection{Experimental analysis \label{vbs_rivet}}
 
@@ -167,7 +186,7 @@ The masses and widths of the particle used in the simulations are
                 M_{\rm H} &=  125.0{\rm GeV}, 		      & \Gamma_{\rm H}   &=  4.07 \times 10^{-3}{\rm GeV}.
 \end{alignat}
 %
-The numerical values used in the simulation for the pole mass/width of the gauge bosons ($V={\rm W,Z}$) are obtained from the measured on-shell (OS) values for the masses and widths according to \cite{Bardin:1988xt}:
+The numerical values used in the simulation for the pole mass/width of the gauge bosons ($V={\rm W,Z}$) are obtained from the measured on-shell (OS) values for the masses and widths according to Ref.~\cite{Bardin:1988xt} as:
 %
 \begin{equation}
         M_V = M_{\rm V}^{\rm OS}/\sqrt{1+(\Gamma_{\rm V}^{\rm OS}/M_{\rm V}^{\rm OS})^2}\,,\qquad  \Gamma_V = \Gamma_{\rm V}^{\rm OS}/\sqrt{1+(\Gamma_{\rm V}^{\rm OS}/M_{\rm V}^{\rm OS})^2}.
@@ -187,16 +206,17 @@ With the previous input parameters, it corresponds to a numerical value for $\al
 \end{equation}
 %
 Note that for the EW contribution of order $\mathcal{O} (\alpha^6)$, no dependence on the strong coupling appears.
-For contributions (interference or QCD-induced contributions) where there is a dependence on $\alpha_{\rm s}$, the numerical value used is the one (potentially dynamically) extracted from the PDF.
+For contributions (interference or QCD-induced contributions) where there is a dependence on $\alpha_{\rm s}$, the numerical value used is the one (potentially dynamically) extracted from the PDF set.
 
 The renormalisation and factorisation scales are set dynamically to \MP{We might have to adapt this depending on the results we show results for fixed scale.}
 %
 \begin{equation}
 \label{eq:defscale}
- \mu_{\rm ren} = \mu_{\rm fac} = \sqrt{p_{\rm T, j_1}\, p_{\rm T, j_2}}.
+ \mu_{\rm ren} = \mu_{\rm fac} = {\rm Max}\left[p_{\rm T, j}\right],
 \end{equation}
 %
-This choice of scale has been shown to provide stable NLO predictions \cite{Denner:2012dz}.
+which should be understood as the maximum of the transverse momenta of the tagging jets (defined below).
+\MP{Justification for this scale choice?}
 
 Photon-induced as well as bottom induced contributions have been neglected.
 The photon contributions are expected to be small \cite{Biedermann:2017bss} while the bottom induced contribution can lead to single-top resonant contributions.
@@ -211,7 +231,7 @@ Following experimental studies \cite{Aad:2016ett,CMS-PAS-SMP-14-008}, the event 
         \label{cut:1}
          p_{\rm T, \ell} >  20{\rm GeV},\qquad |y_{\ell}| < 2.5.
     \end{align}
-\item For the leptons of opposite charge and same flavour, an invariant mass cut to single out the Z resonance is applied:
+\item For the leptons of opposite charge and same flavour, an invariant mass cut to single out the Z-boson resonance is applied:
     \begin{align}
         \label{cut:2}
          86 {\rm GeV} < m_{l_i^+ l_i^-} < 106 {\rm GeV}.
@@ -221,9 +241,11 @@ Following experimental studies \cite{Aad:2016ett,CMS-PAS-SMP-14-008}, the event 
       At least two jets are required to have
         \begin{align}
         \label{cut:3}
-         p_{\rm T, j} >  30{\rm GeV}, \qquad |y_{\rm j}| < 4.7, \qquad \Delta R_{\rm j j} > 0.4.
+         p_{\rm T, j} >  30{\rm GeV}, \qquad |y_{\rm j}| < 4.7, \qquad \Delta R_{\rm j j} > 0.4,
         \end{align}
-\item On the two leading jets fulfilling the criteria above, typical VBS cuts are applied:
+        %
+        and are called tagging jets.
+\item On the two leading tagging jets, typical VBS cuts are applied:
         \begin{align}
         \label{cut:4}
          m_{\rm j j} >  500{\rm GeV},\qquad |\Delta y_{\rm j j}| > 2.5.
@@ -248,7 +270,11 @@ The plot in Figure~\ref{vbs_fig1} etc...
 
 \subsection{Conclusions \label{concl}}
 
-We presented a comparison of generators predictions for the
+We presented a comparison of LO predictions for ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$.
+These are implemented on different Monte Carlo programs or generators.
+We emphasis that this is a \emph{tuned} comparison where special care had taken to try to match all inputs of these programs.
+
+Significant differences in the predictions can arise from different choices of inputs and no actual physical meaning.
 
 electroweak production of WZ in association with two jets at the LHC, etc... 
 
