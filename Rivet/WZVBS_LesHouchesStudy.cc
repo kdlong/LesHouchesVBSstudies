@@ -215,16 +215,21 @@ public:
         std::cout << "Finalizing..." << endl;  
 
         float efficiency= selectedEvents/totalEvents; 
+        double xsec = crossSection();
+
         std::cout << "SumOfWeights() processed = " << sumOfWeights() << endl;
         std::cout << "Selected sumWeights = " << sumSelectedWeights << endl;
-        std::cout << "passing lepton selection = " << sumWeightsLeps << endl;
-        std::cout << "passing lepton veto = " << sumWeightsVeto << endl;
-        std::cout << "passing Z selection = " << sumWeightsZ << endl;
-        std::cout << "passing 2j selection = " << sumWeights2j << endl;
-        std::cout << "Selected Events = " << selectedEvents << ", Total= " << totalEvents << endl;
+        std::cout << "Sum weights passing lepton selection = " << sumWeightsLeps << endl;
+        std::cout << "    cross section = " << sumWeightsLeps*xsec/sumOfWeights() << endl;
+        std::cout << "Sum weights passing lepton veto = " << sumWeightsVeto << endl;
+        std::cout << "    cross section = " << sumWeightsVeto*xsec/sumOfWeights() << endl;
+        std::cout << "Sum weights passing Z selection = " << sumWeightsZ << endl;
+        std::cout << "    cross section = " << sumWeightsZ*xsec/sumOfWeights() << endl;
+        std::cout << "Sum weights passing 2j selection = " << sumWeights2j << endl;
+        std::cout << "    cross section = " << sumWeights2j*xsec/sumOfWeights() << endl;
+        std::cout << std::endl << "Selected Events = " << selectedEvents << ", Total= " << totalEvents << endl;
         std::cout << "Efficiency = " << efficiency << endl;    
         
-        double xsec = crossSection();
         std::cout << "Initial cross section was: " << xsec << std::endl;
         std::cout << "Fiducial cross section is: " << xsec*sumSelectedWeights/sumOfWeights() << std::endl;
         
