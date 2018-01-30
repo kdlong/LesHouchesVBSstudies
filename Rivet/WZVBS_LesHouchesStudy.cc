@@ -24,9 +24,13 @@ namespace Rivet {
 
 class WZVBS_LesHouchesStudy: public Analysis {
 public:
-    float totalEvents=0;
-    float sumSelectedWeights=0;
-    float selectedEvents=0;
+    float totalEvents = 0;
+    float sumSelectedWeights = 0;
+    float sumWeightsLeps = 0;
+    float sumWeights2j = 0;
+    float sumWeightsZ = 0;
+    float sumWeightsVeto = 0;
+    float selectedEvents = 0;
 
 
     /// Constructor
@@ -37,9 +41,8 @@ public:
     void init() {
         double lepConeSize = 0.1;
         double lepMaxEta = 2.5;
-        double lepMinPt = 20;
   
-        Cut lepton_cut   = (Cuts::abseta < lepMaxEta && Cuts::pt > lepMinPt);
+        Cut lepton_cut   = (Cuts::abseta < lepMaxEta);
   
         // Initialise and register projections
         FinalState fs(-2.5,2.5,0.0*GeV);
@@ -88,15 +91,23 @@ public:
         double weight = event.weight();
         totalEvents++;
     
-        Particles leptons = applyProjection<DressedLeptons>(event, "DressedLeptons").particlesByPt(10*GeV);
+        Particles leptons = applyProjection<DressedLeptons>(event, "DressedLeptons").particlesByPt(20*GeV);
+
+        if (leptons.size() < 3) {
+            vetoEvent;
+        }
+        sumWeightsLeps += weight;
 
         if (leptons.size() != 3) {
             vetoEvent;
         }
+        sumWeightsVeto += weight;
 
         int sumPids = leptons.at(0).pdgId()+leptons.at(1).pdgId()+leptons.at(2).pdgId();
         if (std::abs(sumPids) != 11 && std::abs(sumPids) != 13) {
             vetoEvent;
+            std::cerr << "WARNING: Found expected event without sum(pdgID) = " 
+                      << sumPids << std::endl;
         }
 
         bool sameFlavorState = (leptons.at(0).pdgId() == leptons.at(1).pdgId()) ||
@@ -147,6 +158,7 @@ public:
 
         if (std::abs(bestZCand.mass() - ZMASS) > 15)
             vetoEvent;
+        sumWeightsZ += weight;
 
         Jets jets;
         foreach (const Jet& jet, applyProjection<FastJets>(event, "jets").jetsByPt(30.0*GeV) ) {
@@ -170,8 +182,8 @@ public:
         float mjj = dijet_system.mass();
         float dEtajj = std::abs(jets.at(0).momentum().eta() - jets.at(1).momentum().eta());
         float zep3l = leptonSystem.eta() - 0.5*(jets.at(0).momentum().eta()  + jets.at(1).momentum().eta());
+        sumWeights2j += weight;
 
-        // Inconveniently reduces events for testing
         if (mjj < 500 || dEtajj < 2.5)
             vetoEvent;
 
@@ -205,6 +217,10 @@ public:
         float efficiency= selectedEvents/totalEvents; 
         std::cout << "SumOfWeights() processed = " << sumOfWeights() << endl;
         std::cout << "Selected sumWeights = " << sumSelectedWeights << endl;
+        std::cout << "passing lepton selection = " << sumWeightsLeps << endl;
+        std::cout << "passing lepton veto = " << sumWeightsVeto << endl;
+        std::cout << "passing Z selection = " << sumWeightsZ << endl;
+        std::cout << "passing 2j selection = " << sumWeights2j << endl;
         std::cout << "Selected Events = " << selectedEvents << ", Total= " << totalEvents << endl;
         std::cout << "Efficiency = " << efficiency << endl;    
         
