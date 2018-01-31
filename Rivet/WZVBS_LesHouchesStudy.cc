@@ -17,6 +17,7 @@
 
 #include <iostream>
 #include <algorithm>
+#include <string> 
 
 static const float ZMASS = 91.1876;
 
@@ -32,11 +33,7 @@ public:
     float sumWeightsVeto = 0;
     float selectedEvents = 0;
 
-
-    /// Constructor
-    WZVBS_LesHouchesStudy() : Analysis("WZVBS_LesHouchesStudy"){
-
-    }
+    WZVBS_LesHouchesStudy() : Analysis("WZVBS_LesHouchesStudy"){};
 
     void init() {
         double lepConeSize = 0.1;
@@ -67,24 +64,24 @@ public:
 
         addProjection(FastJets(FinalState(-4.7, 4.7), FastJets::ANTIKT, 0.4),"jets");
 
-        hists1D_["Zlep1_Pt"] = bookHisto1D("Zlep1_Pt", 20, 0, 200);
-        hists1D_["Zlep1_Eta"] = bookHisto1D("Zlep1_Eta", 20, -2.5, 2.5);
-        hists1D_["Zlep2_Pt"] = bookHisto1D("Zlep2_Pt", 20, 0, 120);
-        hists1D_["Zlep2_Eta"] = bookHisto1D("Zlep2_Eta", 20, -2.5, 2.5);
-        hists1D_["Wlep_Pt"] = bookHisto1D("Wlep_Pt", 20, 0, 150);
-        hists1D_["Wlep_Eta"] = bookHisto1D("Wlep_Eta", 20, -2.5, 2.5);
+        bookChannelHist("Zlep1_Pt", 20, 0, 200);
+        bookChannelHist("Zlep1_Eta", 20, -2.5, 2.5);
+        bookChannelHist("Zlep2_Pt", 20, 0, 120);
+        bookChannelHist("Zlep2_Eta", 20, -2.5, 2.5);
+        bookChannelHist("Wlep_Pt", 20, 0, 150);
+        bookChannelHist("Wlep_Eta", 20, -2.5, 2.5);
 
         // Composite variables
-        hists1D_["Mass3l"] = bookHisto1D("Mass3l", 40, 0, 400);
-        hists1D_["Pt3l"] = bookHisto1D("Pt3l", 30, 0, 300);
-        hists1D_["ZMass"] = bookHisto1D("ZMass", 32, 75, 107);
-        hists1D_["ZPt"] = bookHisto1D("ZPt", 30, 0, 300);
-        hists1D_["ZEta"] = bookHisto1D("ZEta", 20, -3, 3);
+        bookChannelHist("Mass3l", 40, 0, 400);
+        bookChannelHist("Pt3l", 30, 0, 300);
+        bookChannelHist("ZMass", 32, 75, 107);
+        bookChannelHist("ZPt", 30, 0, 300);
+        bookChannelHist("ZEta", 20, -3, 3);
         
         // VBS variables
-        hists1D_["mjj"] = bookHisto1D("mjj", 100, 0, 2000);
-        hists1D_["dEtajj"] = bookHisto1D("dEtajj", 16, 0, 8);
-        hists1D_["zep3l"] = bookHisto1D("zep3l", 10, 0, 5);
+        bookChannelHist("mjj", 100, 0, 2000);
+        bookChannelHist("dEtajj", 16, 0, 8);
+        bookChannelHist("zep3l", 10, 0, 5);
     }
 
     void analyze(const Event& event) {
@@ -104,6 +101,11 @@ public:
         sumWeightsVeto += weight;
 
         int sumPids = leptons.at(0).pdgId()+leptons.at(1).pdgId()+leptons.at(2).pdgId();
+        int sumAbsPids = std::abs(leptons.at(0).pdgId())+std::abs(leptons.at(1).pdgId())+std::abs(leptons.at(2).pdgId());
+
+        // Unique identifier = sum(abs(pdgid)) * 1 if W-, -1 if W+
+        int chanId = (sumPids > 0) ? sumAbsPids : -1*sumAbsPids;
+
         if (std::abs(sumPids) != 11 && std::abs(sumPids) != 13) {
             vetoEvent;
             std::cerr << "WARNING: Found expected event without sum(pdgID) = " 
@@ -191,24 +193,24 @@ public:
         selectedEvents++;
 
         // Primitive variables
-        hists1D_["Zlep1_Pt"]->fill(leptons.at(0).pt(), weight);
-        hists1D_["Zlep1_Eta"]->fill(leptons.at(0).eta(), weight);
-        hists1D_["Zlep2_Pt"]->fill(leptons.at(1).pt(), weight);
-        hists1D_["Zlep2_Eta"]->fill(leptons.at(1).eta(), weight);
-        hists1D_["Wlep_Pt"]->fill(leptons.at(2).pt(), weight);
-        hists1D_["Wlep_Eta"]->fill(leptons.at(2).eta(), weight);
+        channelHists_["Zlep1_Pt"].fill(leptons.at(0).pt(), weight, chanId);
+        channelHists_["Zlep1_Eta"].fill(leptons.at(0).eta(), weight, chanId);
+        channelHists_["Zlep2_Pt"].fill(leptons.at(1).pt(), weight, chanId);
+        channelHists_["Zlep2_Eta"].fill(leptons.at(1).eta(), weight, chanId);
+        channelHists_["Wlep_Pt"].fill(leptons.at(2).pt(), weight, chanId);
+        channelHists_["Wlep_Eta"].fill(leptons.at(2).eta(), weight, chanId);
 
         // Composite variables
-        hists1D_["Mass3l"]->fill(leptonSystem.mass(), weight);
-        hists1D_["Pt3l"]->fill(leptonSystem.pt(), weight);
-        hists1D_["ZMass"]->fill(bestZCand.mass(), weight);
-        hists1D_["ZPt"]->fill(bestZCand.pt(), weight);
-        hists1D_["ZEta"]->fill(bestZCand.eta(), weight);
+        channelHists_["Mass3l"].fill(leptonSystem.mass(), weight, chanId);
+        channelHists_["Pt3l"].fill(leptonSystem.pt(), weight, chanId);
+        channelHists_["ZMass"].fill(bestZCand.mass(), weight, chanId);
+        channelHists_["ZPt"].fill(bestZCand.pt(), weight, chanId);
+        channelHists_["ZEta"].fill(bestZCand.eta(), weight, chanId);
         
         // VBS variables
-        hists1D_["mjj"]->fill(mjj, weight);
-        hists1D_["dEtajj"]->fill(dEtajj, weight);
-        hists1D_["zep3l"]->fill(zep3l, weight);
+        channelHists_["mjj"].fill(mjj, weight, chanId);
+        channelHists_["dEtajj"].fill(dEtajj, weight, chanId);
+        channelHists_["zep3l"].fill(zep3l, weight, chanId);
     }
 
     void finalize() {
@@ -235,10 +237,67 @@ public:
         
         for (const auto& hist : hists1D_)
             scale(hist.second, xsec / sumOfWeights());
+        for (auto& chanHist : channelHists_) {
+            chanHist.second.Scale(xsec, sumOfWeights());
+        }
     }        
 
 private:
+    // Label = sum{abs(pdgid)}*sign(sum{pdgid})
+    // For now we don't distiguish between e/m states
+    std::map <int, std::string> channels_ = {
+        { 35 , "WpZ_OF"},
+        { 37 , "WpZ_OF"},
+        { 33 , "WpZ_SF"},
+        { 39 , "WpZ_SF"},
+        { -35 , "WmZ_OF"},
+        { -37 , "WmZ_OF"},
+        { -33 , "WmZ_SF"},
+        { -39 , "WmZ_SF"}
+    };
+    class ByChannelHist {
+        private:
+            // Needed to access functions in Analysis (e.g. Analysis::scale)
+            Analysis* analysis_;
+            std::map<int, Histo1DPtr> hists_;
+
+        public:
+            ByChannelHist() : analysis_(NULL) {};
+            ByChannelHist(Analysis* analysis) : analysis_(analysis) {};
+
+            void SetHist(Histo1DPtr hist, int channel) {
+                hists_[channel] = hist;
+            };
+
+            void Scale(double xsec, double sumWeights) {
+                for (const auto& hist : hists_) {
+                    analysis_->scale(hist.second, xsec / sumWeights);
+                }
+            };
+
+            void fill(double value, double weight, int channel) {
+                if (hists_.find(channel) == hists_.end()) {
+                    throw std::runtime_error("Attempt to fill hist for invalid channel");
+                }
+
+                hists_[channel]->fill(value, weight);
+                if (channel != 0)
+                    hists_[0]->fill(value, weight);
+            };
+    };
     std::map<std::string, Histo1DPtr> hists1D_;
+    std::map<std::string, ByChannelHist> channelHists_;
+
+    void bookChannelHist (const std::string histname, int bins, float binlow, float binhigh) {
+        channelHists_[histname] = ByChannelHist(this);
+        // Central hist
+        channelHists_[histname].SetHist(bookHisto1D(histname, bins, binlow, binhigh), 0);
+
+        for (auto& channel : channels_) {
+            const std::string chanHistName = histname + "_" + channel.second;
+            channelHists_[histname].SetHist(bookHisto1D(chanHistName, bins, binlow, binhigh), channel.first);
+        }
+    };
 };
 
 DECLARE_RIVET_PLUGIN (WZVBS_LesHouchesStudy);
