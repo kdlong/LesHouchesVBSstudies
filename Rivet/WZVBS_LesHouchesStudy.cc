@@ -25,6 +25,13 @@ namespace Rivet {
 
 class WZVBS_LesHouchesStudy: public Analysis {
 public:
+    enum CutFlow {
+        passingLepAcceptance,
+        passingLepVeto,
+        passingZconstraint,
+        passing2jselection,
+        passingAll
+    };
     float totalEvents = 0;
     float sumSelectedWeights = 0;
     float sumWeightsLeps = 0;
@@ -64,6 +71,10 @@ public:
 
         addProjection(FastJets(FinalState(-4.7, 4.7), FastJets::ANTIKT, 0.4),"jets");
 
+        // Bookkeeping variables
+        bookChannelHist("final_xsec", 1, 0, 10);
+        bookChannelHist("cut_flow", 5, 0, 5);
+
         bookChannelHist("Zlep1_Pt", 20, 0, 200);
         bookChannelHist("Zlep1_Eta", 20, -2.5, 2.5);
         bookChannelHist("Zlep2_Pt", 20, 0, 120);
@@ -79,9 +90,10 @@ public:
         bookChannelHist("ZEta", 20, -3, 3);
         
         // VBS variables
-        bookChannelHist("mjj", 100, 0, 2000);
-        bookChannelHist("dEtajj", 16, 0, 8);
-        bookChannelHist("zep3l", 10, 0, 5);
+        bookChannelHist("mjj", 100, 0, 4000);
+        bookChannelHist("dEtajj", 64, -8, 8);
+        bookChannelHist("dRjj", 64, -8, 8);
+        bookChannelHist("zep3l", 40, -5, 5);
     }
 
     void analyze(const Event& event) {
@@ -93,18 +105,23 @@ public:
         if (leptons.size() < 3) {
             vetoEvent;
         }
-        sumWeightsLeps += weight;
-
-        if (leptons.size() != 3) {
-            vetoEvent;
-        }
-        sumWeightsVeto += weight;
 
         int sumPids = leptons.at(0).pdgId()+leptons.at(1).pdgId()+leptons.at(2).pdgId();
         int sumAbsPids = std::abs(leptons.at(0).pdgId())+std::abs(leptons.at(1).pdgId())+std::abs(leptons.at(2).pdgId());
 
         // Unique identifier = sum(abs(pdgid)) * 1 if W-, -1 if W+
         int chanId = (sumPids > 0) ? sumAbsPids : -1*sumAbsPids;
+
+        sumWeightsLeps += weight;
+
+        // Channel division doesn't work here because of > 3 lepton events
+        channelHists_["cut_flow"].fill(CutFlow::passingLepAcceptance, weight, 0);
+
+        if (leptons.size() != 3) {
+            vetoEvent;
+        }
+        sumWeightsVeto += weight;
+        channelHists_["cut_flow"].fill(CutFlow::passingLepVeto, weight, 0);
 
         if (std::abs(sumPids) != 11 && std::abs(sumPids) != 13) {
             vetoEvent;
@@ -161,6 +178,7 @@ public:
         if (std::abs(bestZCand.mass() - ZMASS) > 15)
             vetoEvent;
         sumWeightsZ += weight;
+        channelHists_["cut_flow"].fill(CutFlow::passingZconstraint, weight, chanId);
 
         Jets jets;
         foreach (const Jet& jet, applyProjection<FastJets>(event, "jets").jetsByPt(30.0*GeV) ) {
@@ -178,6 +196,7 @@ public:
         if (jets.size() < 2) {  
             vetoEvent;
         }
+        channelHists_["cut_flow"].fill(CutFlow::passing2jselection, weight, chanId);
      
         FourMomentum dijet_system = jets.at(0).momentum() + jets.at(1).momentum();
         
@@ -191,6 +210,8 @@ public:
 
         sumSelectedWeights += weight;
         selectedEvents++;
+        channelHists_["cut_flow"].fill(CutFlow::passingAll, weight, chanId);
+        channelHists_["final_xsec"].fill(1, weight, chanId);
 
         // Primitive variables
         channelHists_["Zlep1_Pt"].fill(leptons.at(0).pt(), weight, chanId);
@@ -277,7 +298,8 @@ private:
 
             void fill(double value, double weight, int channel) {
                 if (hists_.find(channel) == hists_.end()) {
-                    throw std::runtime_error("Attempt to fill hist for invalid channel");
+                    throw std::runtime_error("Attempt to fill hist for invalid channel ID " 
+                            + std::to_string(channel));
                 }
 
                 hists_[channel]->fill(value, weight);
@@ -294,7 +316,7 @@ private:
         channelHists_[histname].SetHist(bookHisto1D(histname, bins, binlow, binhigh), 0);
 
         for (auto& channel : channels_) {
-            const std::string chanHistName = histname + "_" + channel.second;
+            const std::string chanHistName = channel.second + "_" + histname;
             channelHists_[histname].SetHist(bookHisto1D(chanHistName, bins, binlow, binhigh), channel.first);
         }
     };
