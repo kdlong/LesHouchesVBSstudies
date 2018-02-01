@@ -22,6 +22,7 @@
 \newcommand{\ColorFull}{C\protect\scalebox{0.8}{OLOR}F\protect\scalebox{0.8}{ULL}\xspace}
 \newcommand{\MoCaNLO}{M\protect\scalebox{0.8}{oCaNLO}\xspace}
 \newcommand{\Recola}{R\protect\scalebox{0.8}{ecola}\xspace}
+\newcommand{\VBFNLO}{V\protect\scalebox{0.8}{BFNLO}\xspace}
 \newcommand{\pt}{\ensuremath{p_{T}}\xspace}
 \newcommand\sss{\mathchoice%
 {\displaystyle}%
@@ -62,7 +63,10 @@
     S.~Br\"auer, V.~Ciulli, M.~Herndon, S.~Gieseke, M.~Mozer, S.~Pl{\"a}tzer,
     M.~Rauch, E.~Yazgan.}$^{,}$
   \protect\footnote{{\it next some examples of acknowledgements}}$^{,}$
-  \protect\footnote{ A. Aaaaa acknowledges support by a FP7 Marie
+  \protect\footnote{MP acknowledges financial support by the
+German Federal Ministry for Education and Research (BMBF) under
+contract no.~05H15WWCA1 and the German Science Foundation (DFG) under
+reference number DE 623/6-1. A. Aaaaa acknowledges support by a FP7 Marie
     Curie Intra European Fellowship under Grant Agreement xxxx.}$^{,}$
 \protect\footnote{The work of B. Bbbb is supported in part by the
   U.S. Department of Energy under grant yyyy.} \label{vbs_section}}
@@ -90,7 +94,7 @@ Note that this only a qualitative statement.
 Indeed, the ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ process possesses more non-VBS contributions making VBS approximations more likely to be inaccurate.
 
 An experimental challenge is the presence of an irreducible background.
-It is of order $\mathcal{O} (\alpha_{\rm s}^2 \alpha)$ and is usually dubbed QCD-induced process.
+It is of order $\mathcal{O} (\alpha_{\rm s}^2 \alpha^4)$ and is usually dubbed QCD-induced process.
 \MP{Some extra comments on the specific experimental challenges to measure WZ.}
 
 Therefore a preliminary study aiming at comparing various approximations and predictions used in the literature is particularly well motivated.
@@ -123,10 +127,19 @@ In Ref.~\cite{Biedermann:2017bss}, which focuses on the computation of the full 
 This means that the EW corrections to the EW contributions are expected to be at least of the same order than the QCD ones for VBS signatures.
 \MP{Add some comments on parton shower effects that can play a significant role.}
 
-{\it Add here a description of the theory tools and generators
-  used. Below there are same short samples taken from previous proceedings.}
+\subsubsection*{\protect\MGaMC \label{vbs_mgamc}}
 
-\subsubsection*{\Herwig \label{vbs_herwig}}
+{\sc MadGraph5\_aMC@NLO}~\cite{Alwall:2014hca} is an automatic meta-code (a code that generates codes) which makes it possible to simulate any scattering process
+      including NLO QCD corrections both at fixed order and including matching to parton showers. 
+      The commands that have been used for the present computation are
+\begin{verbatim}
+> set complex_mass_scheme #1
+> generate XXX #2
+> output #3
+\end{verbatim}
+  
+  
+\subsubsection*{\protect\Herwig \label{vbs_herwig}}
 \MP{This subsubsection is out-dated I think. Isn't it?}
 
 In this section we present the setup for those results obtained with the
@@ -150,11 +163,6 @@ The PDF sets being used are MMHT2014lo68cl and
 MMHT2014nlo68cl~\cite{Harland-Lang:2014zoa}, i.e. the default PDF sets
 to which the showers are currently tuned.
 
-\subsubsection*{\protect\Sherpa \label{vbs_sherpa}}
-In this section we present the setups that are used in this study for the \Sherpa event
-generator~\cite{Gleisberg:2008ta}. 
-Etc, etc... 
-
 \subsubsection*{\protect{\MoCaNLO\!+\Recola} \label{vbs_MoCaNLO_Recola}}
 
 The program {\sc MoCaNLO+Recola} is made of a flexible Monte Carlo program dubbed {\sc MoCaNLO} and of the general matrix element generator {\sc Recola}~\cite{Actis:2012qn,Actis:2016mpe}.
@@ -164,6 +172,16 @@ The IR divergences appearing in the real corrections are handles with the help o
 To numerically evaluate the one-loop scalar and tensor integrals, {\sc Recola} relies on the {\sc Collier} library \cite{Denner:2014gla,Denner:2016kdg}.
 Note that the complex-mass scheme~\cite{Denner:1999gp,Denner:2005fg} to treat unstable particles is always used.
 These tools have been successfully used for the computation of NLO corrections for high-multiplicity processes and in particular VBS processes \cite{Biedermann:2016yds,Biedermann:2017bss}.
+
+\subsubsection*{\protect\Sherpa \label{vbs_sherpa}}
+In this section we present the setups that are used in this study for the \Sherpa event
+generator~\cite{Gleisberg:2008ta}. 
+Etc, etc... 
+
+
+\subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO}}
+
+Blabla
 
 \subsection{Experimental analysis \label{vbs_rivet}}
 
@@ -186,6 +204,9 @@ The masses and widths of the particle used in the simulations are
                 M_{\rm H} &=  125.0{\rm GeV}, 		      & \Gamma_{\rm H}   &=  4.07 \times 10^{-3}{\rm GeV}.
 \end{alignat}
 %
+The value of the mass and width of the Higgs boson are the ones recommended by the Higgs cross section working group \cite{deFlorian:2016spz}.
+The top quark does not appear at tree level in the simulations when the bottom-quarks in the initial state are neglected.
+Therefore its width is set to zero.
 The numerical values used in the simulation for the pole mass/width of the gauge bosons ($V={\rm W,Z}$) are obtained from the measured on-shell (OS) values for the masses and widths according to Ref.~\cite{Bardin:1988xt} as:
 %
 \begin{equation}
@@ -208,14 +229,20 @@ With the previous input parameters, it corresponds to a numerical value for $\al
 Note that for the EW contribution of order $\mathcal{O} (\alpha^6)$, no dependence on the strong coupling appears.
 For contributions (interference or QCD-induced contributions) where there is a dependence on $\alpha_{\rm s}$, the numerical value used is the one (potentially dynamically) extracted from the PDF set.
 
-The renormalisation and factorisation scales are set dynamically to \MP{We might have to adapt this depending on the results we show results for fixed scale.}
+For the renormalisation and factorisation scales, two choices have been adopted.
+For the fixed scale, it is
 %
 \begin{equation}
-\label{eq:defscale}
- \mu_{\rm ren} = \mu_{\rm fac} = {\rm Max}\left[p_{\rm T, j}\right],
+ \mu = \mu_{\rm fix} = M_{\rm W},
 \end{equation}
 %
-which should be understood as the maximum of the transverse momenta of the tagging jets (defined below).
+while the dynamical scale used is
+%
+\begin{equation}
+ \mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right].
+\end{equation}
+%
+The latter should be understood as the maximum of the transverse momenta of the tagging jets (defined below).
 \MP{Justification for this scale choice?}
 
 Photon-induced as well as bottom induced contributions have been neglected.
@@ -255,6 +282,65 @@ Following experimental studies \cite{Aad:2016ett,CMS-PAS-SMP-14-008}, the event 
 \subsection{Results \label{vbs_results}}
 
 \subsubsection*{Cross sections}
+
+\begin{table}
+\begin{center} 
+\begin{tabular}{ c | c | c }
+ $\mu = \mu_{\rm fix}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
+  \hline\hline
+{\sc MG5\_aMC}        & $XX$  & $XX$   \\
+  {\sc MoCaNLO}+{\sc Recola}             & $0.28496(6)$  & $0.16718(3)$  \\
+{\sc Sherpa}        & $XX$  & $XX$   \\
+{\sc VBFNLO}        & $XX$  & $XX$   \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{
+Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
+The predictions are expressed in pb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
+The scale used in the simulations is $\mu = \mu_{\rm fix} = M_W$.
+The integration errors of the last digits are given in parentheses.}
+\label{table:xsectLOfix}
+\end{table}
+
+\begin{table}
+\begin{center} 
+\begin{tabular}{ c | c | c }
+ $\mu = \mu_{\rm dyn}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
+  \hline\hline
+{\sc MG5\_aMC}        & $XX$  & $XX$   \\
+  {\sc MoCaNLO}+{\sc Recola}             & $0.25416(6)$  & $0.15003(3)$  \\
+{\sc Sherpa}        & $XX$  & $XX$   \\
+{\sc VBFNLO}        & $XX$  & $XX$   \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{
+Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
+The predictions are expressed in pb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
+The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
+The integration errors of the last digits are given in parentheses.}
+\label{table:xsectLOdyn}
+\end{table}
+
+\begin{table}
+\begin{center} 
+\begin{tabular}{ c | c | c }
+ $\mu = \mu_{\rm dyn}$ / $\sigma_{\rm LO}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
+  \hline\hline
+  $\mathcal{O} (\alpha^6)$     & $0.25416(6)$  & $0.15003(3)$   \\
+  $\mathcal{O} (\alpha_{\rm s}\alpha^5)$            & $0.006833(6)$  & $0.003977(3)$  \\
+  $\mathcal{O} (\alpha_{\rm s}^2\alpha^4)$        & $0.9912(2)$  & $0.6306(6)$   \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{
+Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at orders $\mathcal{O} (\alpha^6)$, $\mathcal{O} (\alpha_{\rm s}\alpha^5)$, and $\mathcal{O} (\alpha_{\rm s}^2\alpha^4)$.
+The predictions are expressed in pb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
+The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
+The integration errors of the last digits are given in parentheses.}
+\label{table:xsectallLOdyn}
+\end{table}
 
 \subsubsection*{Differential distributions}
 
