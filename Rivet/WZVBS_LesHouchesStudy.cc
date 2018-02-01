@@ -72,6 +72,7 @@ public:
         addProjection(FastJets(FinalState(-4.7, 4.7), FastJets::ANTIKT, 0.4),"jets");
 
         // Bookkeeping variables
+        hists1D_["yieldByChannel"] = bookHisto1D("yieldByChannel", 80, -40, 40);
         bookChannelHist("final_xsec", 1, 0, 10);
         bookChannelHist("cut_flow", 5, 0, 5);
 
@@ -201,17 +202,18 @@ public:
         FourMomentum dijet_system = jets.at(0).momentum() + jets.at(1).momentum();
         
         float mjj = dijet_system.mass();
-        float dEtajj = std::abs(jets.at(0).momentum().eta() - jets.at(1).momentum().eta());
+        float dEtajj = jets.at(0).momentum().eta() - jets.at(1).momentum().eta();
         float zep3l = leptonSystem.eta() - 0.5*(jets.at(0).momentum().eta()  + jets.at(1).momentum().eta());
         sumWeights2j += weight;
 
-        if (mjj < 500 || dEtajj < 2.5)
+        if (mjj < 500 || std::abs(dEtajj) < 2.5)
             vetoEvent;
 
         sumSelectedWeights += weight;
         selectedEvents++;
         channelHists_["cut_flow"].fill(CutFlow::passingAll, weight, chanId);
         channelHists_["final_xsec"].fill(1, weight, chanId);
+        hists1D_["yieldByChannel"]->fill(chanId, weight);
 
         // Primitive variables
         channelHists_["Zlep1_Pt"].fill(leptons.at(0).pt(), weight, chanId);
@@ -267,14 +269,14 @@ private:
     // Label = sum{abs(pdgid)}*sign(sum{pdgid})
     // For now we don't distiguish between e/m states
     std::map <int, std::string> channels_ = {
-        { 35 , "WpZ_OF"},
-        { 37 , "WpZ_OF"},
-        { 33 , "WpZ_SF"},
-        { 39 , "WpZ_SF"},
-        { -35 , "WmZ_OF"},
-        { -37 , "WmZ_OF"},
-        { -33 , "WmZ_SF"},
-        { -39 , "WmZ_SF"}
+        { 35 , "WmZ_OF"},
+        { 37 , "WmZ_OF"},
+        { 33 , "WmZ_SF"},
+        { 39 , "WmZ_SF"},
+        { -35 , "WpZ_OF"},
+        { -37 , "WpZ_OF"},
+        { -33 , "WpZ_SF"},
+        { -39 , "WpZ_SF"}
     };
     class ByChannelHist {
         private:
