@@ -72,6 +72,7 @@ public:
         addProjection(FastJets(FinalState(-4.7, 4.7), FastJets::ANTIKT, 0.4),"jets");
 
         // Bookkeeping variables
+        hists1D_["yieldByChannel"] = bookHisto1D("yieldByChannel", 80, -40, 40);
         bookChannelHist("final_xsec", 1, 0, 10);
         bookChannelHist("cut_flow", 5, 0, 5);
 
@@ -92,8 +93,10 @@ public:
         // VBS variables
         bookChannelHist("mjj", 100, 0, 4000);
         bookChannelHist("dEtajj", 64, -8, 8);
-        bookChannelHist("dRjj", 64, -8, 8);
+        bookChannelHist("dPhijj", 64, -8, 8);
+        bookChannelHist("dRjj", 60, 0, 15);
         bookChannelHist("zep3l", 40, -5, 5);
+        bookChannelHist("zepj3", 40, -5, 5);
     }
 
     void analyze(const Event& event) {
@@ -201,17 +204,21 @@ public:
         FourMomentum dijet_system = jets.at(0).momentum() + jets.at(1).momentum();
         
         float mjj = dijet_system.mass();
-        float dEtajj = std::abs(jets.at(0).momentum().eta() - jets.at(1).momentum().eta());
+        float dEtajj = jets.at(0).momentum().eta() - jets.at(1).momentum().eta();
+        float dPhijj = jets.at(0).momentum().phi() - jets.at(1).momentum().phi();
+        float dRjj = std::sqrt(dEtajj*dEtajj+dPhijj*dPhijj);
         float zep3l = leptonSystem.eta() - 0.5*(jets.at(0).momentum().eta()  + jets.at(1).momentum().eta());
+        float zepj3 = jets.size() > 2 ? jets.at(2).eta() - 0.5*(jets.at(0).momentum().eta()  + jets.at(1).momentum().eta()) : -999;
         sumWeights2j += weight;
 
-        if (mjj < 500 || dEtajj < 2.5)
+        if (mjj < 500 || std::abs(dEtajj) < 2.5)
             vetoEvent;
 
         sumSelectedWeights += weight;
         selectedEvents++;
         channelHists_["cut_flow"].fill(CutFlow::passingAll, weight, chanId);
         channelHists_["final_xsec"].fill(1, weight, chanId);
+        hists1D_["yieldByChannel"]->fill(chanId, weight);
 
         // Primitive variables
         channelHists_["Zlep1_Pt"].fill(leptons.at(0).pt(), weight, chanId);
@@ -231,12 +238,17 @@ public:
         // VBS variables
         channelHists_["mjj"].fill(mjj, weight, chanId);
         channelHists_["dEtajj"].fill(dEtajj, weight, chanId);
+        channelHists_["dRjj"].fill(dRjj, weight, chanId);
+        channelHists_["dPhijj"].fill(dPhijj, weight, chanId);
         channelHists_["zep3l"].fill(zep3l, weight, chanId);
+        if (zepj3 != -999)
+            channelHists_["zepj3"].fill(zepj3, weight, chanId);
     }
 
     void finalize() {
         std::cout << "Finalizing..." << endl;  
 
+        removeEmptyHists();
         float efficiency= selectedEvents/totalEvents; 
         double xsec = crossSection();
 
@@ -267,14 +279,14 @@ private:
     // Label = sum{abs(pdgid)}*sign(sum{pdgid})
     // For now we don't distiguish between e/m states
     std::map <int, std::string> channels_ = {
-        { 35 , "WpZ_OF"},
-        { 37 , "WpZ_OF"},
-        { 33 , "WpZ_SF"},
-        { 39 , "WpZ_SF"},
-        { -35 , "WmZ_OF"},
-        { -37 , "WmZ_OF"},
-        { -33 , "WmZ_SF"},
-        { -39 , "WmZ_SF"}
+        { 35 , "WmZ_OF"},
+        { 37 , "WmZ_OF"},
+        { 33 , "WmZ_SF"},
+        { 39 , "WmZ_SF"},
+        { -35 , "WpZ_OF"},
+        { -37 , "WpZ_OF"},
+        { -33 , "WpZ_SF"},
+        { -39 , "WpZ_SF"}
     };
     class ByChannelHist {
         private:
@@ -294,6 +306,15 @@ private:
                 for (const auto& hist : hists_) {
                     analysis_->scale(hist.second, xsec / sumWeights);
                 }
+            };
+
+            std::vector<Histo1DPtr> GetEmpty() {
+                std::vector<Histo1DPtr> emptyHists = {};
+                for (const auto& hist : hists_) {
+                    if (hist.second->integral() == 0)
+                        emptyHists.push_back(hist.second);
+                }
+                return emptyHists;
             };
 
             void fill(double value, double weight, int channel) {
@@ -318,6 +339,19 @@ private:
         for (auto& channel : channels_) {
             const std::string chanHistName = channel.second + "_" + histname;
             channelHists_[histname].SetHist(bookHisto1D(chanHistName, bins, binlow, binhigh), channel.first);
+        }
+    };
+    void removeEmptyHists () {
+        for (auto& hist : hists1D_) {
+            if (hist.second->integral() == 0)
+                removeAnalysisObject(hist.second);
+        }
+        for (auto& chanHist : channelHists_) {
+            std::cout << "Chan hist is" << chanHist.first << std::endl;
+            for (auto& hist : chanHist.second.GetEmpty()) {
+                removeAnalysisObject(hist);
+                std::cout << "REMOVING " << chanHist.first << std::endl;
+            }
         }
     };
 };
