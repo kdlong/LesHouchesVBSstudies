@@ -93,8 +93,10 @@ public:
         // VBS variables
         bookChannelHist("mjj", 100, 0, 4000);
         bookChannelHist("dEtajj", 64, -8, 8);
-        bookChannelHist("dRjj", 64, -8, 8);
+        bookChannelHist("dPhijj", 64, -8, 8);
+        bookChannelHist("dRjj", 60, 0, 15);
         bookChannelHist("zep3l", 40, -5, 5);
+        bookChannelHist("zepj3", 40, -5, 5);
     }
 
     void analyze(const Event& event) {
@@ -203,7 +205,10 @@ public:
         
         float mjj = dijet_system.mass();
         float dEtajj = jets.at(0).momentum().eta() - jets.at(1).momentum().eta();
+        float dPhijj = jets.at(0).momentum().phi() - jets.at(1).momentum().phi();
+        float dRjj = std::sqrt(dEtajj*dEtajj+dPhijj*dPhijj);
         float zep3l = leptonSystem.eta() - 0.5*(jets.at(0).momentum().eta()  + jets.at(1).momentum().eta());
+        float zepj3 = jets.size() > 2 ? jets.at(2).eta() - 0.5*(jets.at(0).momentum().eta()  + jets.at(1).momentum().eta()) : -999;
         sumWeights2j += weight;
 
         if (mjj < 500 || std::abs(dEtajj) < 2.5)
@@ -233,12 +238,17 @@ public:
         // VBS variables
         channelHists_["mjj"].fill(mjj, weight, chanId);
         channelHists_["dEtajj"].fill(dEtajj, weight, chanId);
+        channelHists_["dRjj"].fill(dRjj, weight, chanId);
+        channelHists_["dPhijj"].fill(dPhijj, weight, chanId);
         channelHists_["zep3l"].fill(zep3l, weight, chanId);
+        if (zepj3 != -999)
+            channelHists_["zepj3"].fill(zepj3, weight, chanId);
     }
 
     void finalize() {
         std::cout << "Finalizing..." << endl;  
 
+        removeEmptyHists();
         float efficiency= selectedEvents/totalEvents; 
         double xsec = crossSection();
 
@@ -298,6 +308,15 @@ private:
                 }
             };
 
+            std::vector<Histo1DPtr> GetEmpty() {
+                std::vector<Histo1DPtr> emptyHists = {};
+                for (const auto& hist : hists_) {
+                    if (hist.second->integral() == 0)
+                        emptyHists.push_back(hist.second);
+                }
+                return emptyHists;
+            };
+
             void fill(double value, double weight, int channel) {
                 if (hists_.find(channel) == hists_.end()) {
                     throw std::runtime_error("Attempt to fill hist for invalid channel ID " 
@@ -320,6 +339,19 @@ private:
         for (auto& channel : channels_) {
             const std::string chanHistName = channel.second + "_" + histname;
             channelHists_[histname].SetHist(bookHisto1D(chanHistName, bins, binlow, binhigh), channel.first);
+        }
+    };
+    void removeEmptyHists () {
+        for (auto& hist : hists1D_) {
+            if (hist.second->integral() == 0)
+                removeAnalysisObject(hist.second);
+        }
+        for (auto& chanHist : channelHists_) {
+            std::cout << "Chan hist is" << chanHist.first << std::endl;
+            for (auto& hist : chanHist.second.GetEmpty()) {
+                removeAnalysisObject(hist);
+                std::cout << "REMOVING " << chanHist.first << std::endl;
+            }
         }
     };
 };
