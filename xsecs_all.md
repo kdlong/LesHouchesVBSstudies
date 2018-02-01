@@ -8,8 +8,8 @@ Fixed scale = M_{Z}
 
 * VBFNLO LO
     * Fiducial: 0.46833 fb (all cuts in run card)
-        * (e+mm only): 0.296653 
-        * (e-mm only): 0.171680
+        * (e+mm only): 0.286712 
+        * (e-mm only): 0.171680 <--- TO FIX (missing drlj cut)
 
 * MadGraph LO (no b quarks,  and no decay syntax
     * Fiducial: 0.4397 +- 0.0004 fb (all cuts in run card)
