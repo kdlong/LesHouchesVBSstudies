@@ -76,18 +76,18 @@ public:
         bookChannelHist("final_xsec", 1, 0, 10);
         bookChannelHist("cut_flow", 5, 0, 5);
 
-        bookChannelHist("Zlep1_Pt", 20, 0, 200);
+        bookChannelHist("Zlep1_Pt", 100, 0, 1000);
         bookChannelHist("Zlep1_Eta", 20, -2.5, 2.5);
-        bookChannelHist("Zlep2_Pt", 20, 0, 120);
+        bookChannelHist("Zlep2_Pt", 50, 0, 250);
         bookChannelHist("Zlep2_Eta", 20, -2.5, 2.5);
-        bookChannelHist("Wlep_Pt", 20, 0, 150);
+        bookChannelHist("Wlep_Pt", 50, 0, 500);
         bookChannelHist("Wlep_Eta", 20, -2.5, 2.5);
 
         // Composite variables
-        bookChannelHist("Mass3l", 40, 0, 400);
-        bookChannelHist("Pt3l", 30, 0, 300);
+        bookChannelHist("Mass3l", 100, 0, 2000);
+        bookChannelHist("Pt3l", 100, 0, 1000);
         bookChannelHist("ZMass", 32, 75, 107);
-        bookChannelHist("ZPt", 30, 0, 300);
+        bookChannelHist("ZPt", 100, 0, 1000);
         bookChannelHist("ZEta", 20, -3, 3);
         
         // VBS variables
