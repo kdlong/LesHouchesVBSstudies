@@ -82,6 +82,7 @@ public:
         bookChannelHist("Zlep2_Eta", 20, -2.5, 2.5);
         bookChannelHist("Wlep_Pt", 50, 0, 500);
         bookChannelHist("Wlep_Eta", 20, -2.5, 2.5);
+        bookChannelHist("nJets", 10, 2, 10);
 
         // Composite variables
         bookChannelHist("Mass3l", 100, 0, 2000);
@@ -234,6 +235,7 @@ public:
         channelHists_["ZMass"].fill(bestZCand.mass(), weight, chanId);
         channelHists_["ZPt"].fill(bestZCand.pt(), weight, chanId);
         channelHists_["ZEta"].fill(bestZCand.eta(), weight, chanId);
+        channelHists_["nJets"].fill(jets.size(), weight, chanId);
         
         // VBS variables
         channelHists_["mjj"].fill(mjj, weight, chanId);
