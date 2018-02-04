@@ -8,10 +8,11 @@ ErrorBars=1
 RatioPlotYMax=2.0
 RatioPlotYMin=0.0
 RatioPlotYSize=5
+RatioPlotErrorBandColor=red
 # END PLOT
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/*
-Title=$W^-Z$ inclusive
+Title=$W^{\pm}Z$ inclusive
 # END PLOT
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/WpZ_OF*
