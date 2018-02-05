@@ -139,29 +139,29 @@ This means that the EW corrections to the EW contributions are expected to be at
 \end{verbatim}
   
   
-\subsubsection*{\protect\Herwig \label{vbs_herwig}}
-\MP{This subsubsection is out-dated I think. Isn't it?}
+\subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO} + \protect\Herwig \label{vbs_herwig}}
 
-In this section we present the setup for those results obtained with the
-\Herwig event generator~\cite{Bellm:2015jjp,Bahr:2008pv}.
+In this section we present the setup for those results obtained with
+the \Herwig event generator~\cite{Bellm:2015jjp,Bahr:2008pv}.  Based
+on extensions of the previously developed \Matchbox
+module~\cite{Platzer:2011bc}, \Herwig facilitates the automated setup
+of all ingredients necessary for a full NLO QCD calculation in the
+subtraction formalism: an implementation of the Catani--Seymour dipole
+subtraction method~\cite{Catani:1996vz,Catani:2002hc}, as well as
+interfaces to a list of external matrix--element providers -- either
+at the level of squared matrix elements, based on extensions of the
+BLHA standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}, or
+at the level of color--ordered subamplitudes.
 
-Based on extensions of the previously developed \Matchbox
-module~\cite{Platzer:2011bc}, \Herwig facilitates the automated setup of all
-ingredients necessary for a full NLO QCD calculation in the subtraction
-formalism: an implementation of the Catani--Seymour dipole subtraction
-method~\cite{Catani:1996vz,Catani:2002hc}, as well as interfaces to a list of
-external matrix--element providers -- either at the level of squared matrix
-elements, based on extensions of the BLHA
-standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}, or at the
-level of color--ordered subamplitudes, where the color bases are provided by
-an interface to the \ColorFull~\cite{Sjodahl:2014opa} and
-\CVolver~\cite{Platzer:2013fha} libraries.
-
-For this study the relevant tree--level matrix elements etc, etc... 
-
-The PDF sets being used are MMHT2014lo68cl and
+For this study the relevant tree--level matrix elements have been
+provided by an interface to VBFNLO using an extension of the BLHA
+accord. We have matched these calculation to the angular ordered
+shower using the subtractive matching and default settings of the
+\Herwig~7.1 release. The PDF sets being used are MMHT2014lo68cl and
 MMHT2014nlo68cl~\cite{Harland-Lang:2014zoa}, i.e. the default PDF sets
-to which the showers are currently tuned.
+to which the showers are currently tuned. We consider variations of
+the hard shower scale as detailed in~\cite{Bellm:2016rhh}, using the
+'resummation' profile scale choice.
 
 \subsubsection*{\protect{\MoCaNLO\!+\Recola} \label{vbs_MoCaNLO_Recola}}
 
@@ -177,11 +177,6 @@ These tools have been successfully used for the computation of NLO corrections f
 In this section we present the setups that are used in this study for the \Sherpa event
 generator~\cite{Gleisberg:2008ta}. 
 Etc, etc... 
-
-
-\subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO}}
-
-Blabla
 
 \subsection{Experimental analysis \label{vbs_rivet}}
 
