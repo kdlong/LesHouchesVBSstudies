@@ -1,6 +1,6 @@
 {
     "WZTo3LNu_DefaultConfig_MadGraph-Pythia8" : {
-        "filename" : "WZTo3LNu_DefaultConfiguration_madgraph-pythia8.yoda",
+        "filename" : "WLLJJ_EWK-MGLO_CentralSample.yoda",
         "process" : "p p > l+/- v l+ l-",
         "RunBy" : "Kenneth Long",
         "generator" : "MadGraph5_aMC@NLO LO",
@@ -12,7 +12,7 @@
         "fiducialXsec" : 
     },
     "WZTo3LNu_FixedScaleMZ_DefaultConfig_MadGraph-Pythia8" : {
-        "filename" : "WZTo3LNu_FixedScaleMZ_DefaultConfig_madgraph-pythia8.yoda",
+        "filename" : "WLLJJ_EWK-MGLO_CentralSample.yoda",
         "process" : "p p > l+/- v l+ l-",
         "RunBy" : "Kenneth Long",
         "generator" : "MadGraph5_aMC@NLO LO",
@@ -23,7 +23,7 @@
         "inputXsec" : 0.007595,
         "fiducialXsec" : 
     },
-    "WZTo1E1Nu2Mu_MadGraph-Pythia8" : {
+    "WZTo1E1Nu2Mu_FixedScaleMZ_DefaultConfig_MadGraph-Pythia8" : {
         "filename" : "WZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda",
         "process" : "p p > e+/- v mu+ mu-",
         "RunBy" : "Kenneth Long",
@@ -35,7 +35,7 @@
         "inputXsec" : 0.0017915,
         "fiducialXsec" : 0.000389041
     },
-    "WZTo1E1Nu2Mu_VBFNLO-Pythia8" : {
+    "WZTo1E1Nu2Mu_FixedScaleMZ_DefaultConfig_VBFNLO-Pythia8" : {
         "filename" : "VBFNLO_PYTHIA8_80M.yoda",
         "process" : "p p > e+/- v mu+ mu-",
         "RunBy" : "Michael Rauch (LHE events), Efe Yazgan (Pythia8)",
@@ -47,7 +47,7 @@
         "inputXsec" : 0.0025372,
         "fiducialXsec" : 0.00040203
     },
-    "WpZTo1E1Nu2Mu_VBFNLO-Pythia8" : {
+    "WpZTo1E1Nu2Mu_FixedScaleMZ_DefaultConfig_VBFNLO-Pythia8" : {
         "filename" : "",
         "process" : "p p > e+ v mu+ mu-",
         "RunBy" : "Michael Rauch (LHE events), Efe Yazgan (Pythia8)",
