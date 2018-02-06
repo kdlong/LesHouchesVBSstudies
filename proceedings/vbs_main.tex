@@ -139,7 +139,7 @@ This means that the EW corrections to the EW contributions are expected to be at
 \end{verbatim}
   
   
-\subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO} + \protect\Herwig \label{vbs_herwig}}
+\subsubsection*{\protect\Herwig \label{vbs_herwig}}
 
 In this section we present the setup for those results obtained with
 the \Herwig event generator~\cite{Bellm:2015jjp,Bahr:2008pv}.  Based
@@ -179,6 +179,21 @@ It is build out of several algorithms and modules tailored to many different phy
 In the \Sherpa framework the infrared divergences appearing in the virtual and real-emission amplitudes are treated by the Catani--Seymor dipole-subtraction method~\cite{Catani:1996vz,Catani:2002hc,Gleisberg:2007md}. The default parton-shower algorithm of \Sherpa is based on the Catani--Seymour factorisation~\cite{Schumann:2007mg,Hoeche:2009xc}. For NLO computations interfaces to several one-loop generators exist, with the interface to \textsc{Recola}~\cite{Actis:2012qn,Actis:2016mpe} being the latest addition~\cite{Biedermann:2017yoi}. For correctly combining the matrix elements in multijet-production processes with the parton shower, \Sherpa has adapted the MEPS@LO method~\cite{Hoeche:2009rj} for LO and its generalisation MEPS@NLO~\cite{Hoche:2010kg} for NLO. 
 
 In this study the matrix elements are provided by \textsc{Comix}~\cite{Gleisberg:2008fv}, one of the two built-in generators next to \textsc{Amegic}~\cite{Krauss:2001iv}. Both of the studied partonic processes are then showered with the default shower.
+
+\subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO}}
+\VBFNLO~\cite{Arnold:2008rz,Arnold:2011wj,Baglio:2014uba} is a flexible
+Monte-Carlo event generator for processes with electroweak bosons.
+Besides the Standard Model, selected processes can also be calculated in
+a variety of new-physics models, including effective field theories with
+dimension-6 and dimension-8 operators.
+Its use of leptonic tensors in the calculation of the matrix elements
+can lead to a significant speed improvement compared to automatically
+generated code.
+For results with parton showers in this study, \VBFNLO serves as the
+matrix-element provider and phase-space generator for \Herwig. The
+interface between the two programs is based on an extension of the BLHA
+standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}.
+
 
 \subsection{Details of the set-up \label{setup}}
 
