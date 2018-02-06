@@ -174,9 +174,11 @@ Note that the complex-mass scheme~\cite{Denner:1999gp,Denner:2005fg} to treat un
 These tools have been successfully used for the computation of NLO corrections for high-multiplicity processes and in particular VBS processes \cite{Biedermann:2016yds,Biedermann:2017bss}.
 
 \subsubsection*{\protect\Sherpa \label{vbs_sherpa}}
-In this section we present the setups that are used in this study for the \Sherpa event
-generator~\cite{Gleisberg:2008ta}. 
-Etc, etc... 
+\Sherpa~\cite{Gleisberg:2008ta,Gleisberg:2003xi} is a multipurpose event generator for high-energy particle collisions. 
+It is build out of several algorithms and modules tailored to many different physics challenges of collider physics.
+In the \Sherpa framework the infrared divergences appearing in the virtual and real-emission amplitudes are treated by the Catani--Seymor dipole-subtraction method~\cite{Catani:1996vz,Catani:2002hc,Gleisberg:2007md}. The default parton-shower algorithm of \Sherpa is based on the Catani--Seymour factorisation~\cite{Schumann:2007mg,Hoeche:2009xc}. For NLO computations interfaces to several one-loop generators exist, with the interface to \textsc{Recola}~\cite{Actis:2012qn,Actis:2016mpe} being the latest addition~\cite{Biedermann:2017yoi}. For correctly combining the matrix elements in multijet-production processes with the parton shower, \Sherpa has adapted the MEPS@LO method~\cite{Hoeche:2009rj} for LO and its generalisation MEPS@NLO~\cite{Hoche:2010kg} for NLO. 
+
+In this study the matrix elements are provided by \textsc{Comix}~\cite{Gleisberg:2008fv}, one of the two built-in generators next to \textsc{Amegic}~\cite{Krauss:2001iv}. Both of the studied partonic processes are then showered with the default shower.
 
 \subsection{Experimental analysis \label{vbs_rivet}}
 
@@ -285,14 +287,14 @@ Following experimental studies \cite{Aad:2016ett,CMS-PAS-SMP-14-008}, the event 
   \hline\hline
 {\sc MG5\_aMC}        & $XX$  & $XX$   \\
   {\sc MoCaNLO}+{\sc Recola}             & $0.28496(6)$  & $0.16718(3)$  \\
-{\sc Sherpa}        & $XX$  & $XX$   \\
+{\sc Sherpa}        & $0.285(5)$  & $0.1664(9)$   \\
 {\sc VBFNLO}        & $XX$  & $XX$   \\
   \hline
 \end{tabular}
 \end{center}
 \caption{
 Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
-The predictions are expressed in pb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
+The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
 The scale used in the simulations is $\mu = \mu_{\rm fix} = M_W$.
 The integration errors of the last digits are given in parentheses.}
 \label{table:xsectLOfix}
@@ -305,14 +307,14 @@ The integration errors of the last digits are given in parentheses.}
   \hline\hline
 {\sc MG5\_aMC}        & $XX$  & $XX$   \\
   {\sc MoCaNLO}+{\sc Recola}             & $0.25416(6)$  & $0.15003(3)$  \\
-{\sc Sherpa}        & $XX$  & $XX$   \\
+{\sc Sherpa}        & $0.2573(3)$  & $0.1499(2)$   \\
 {\sc VBFNLO}        & $XX$  & $XX$   \\
   \hline
 \end{tabular}
 \end{center}
 \caption{
 Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
-The predictions are expressed in pb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
+The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
 The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
 The integration errors of the last digits are given in parentheses.}
 \label{table:xsectLOdyn}
