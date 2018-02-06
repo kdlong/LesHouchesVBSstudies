@@ -1,0 +1,83 @@
+{
+    "WZTo3LNu_DefaultConfig_MadGraph-Pythia8" : {
+        "filename" : "WLLJJ_EWK-MGLO_CentralSample.yoda",
+        "process" : "p p > l+/- v l+ l-",
+        "RunBy" : "Kenneth Long",
+        "generator" : "MadGraph5_aMC@NLO LO",
+        "scale" : "MadGraph default",
+        "configuration" : "MadGraph default",
+        "shower" : "Pythia8, CMS tune CUETP8M1",
+        "Notes" : "Includes all decays. Taus are removed by rivet but will have x2 normalization in OS/OF channels",
+        "inputXsec" : 0.01763,
+        "fiducialXsec" : 
+    },
+    "WZTo3LNu_FixedScaleMZ_DefaultConfig_MadGraph-Pythia8" : {
+        "filename" : "WLLJJ_EWK-MGLO_FixedScaleMZ.yoda",
+        "process" : "p p > l+/- v l+ l-",
+        "RunBy" : "Kenneth Long",
+        "generator" : "MadGraph5_aMC@NLO LO",
+        "scale" : "MadGraph default",
+        "configuration" : "MadGraph default",
+        "shower" : "Pythia8, CMS tune CUETP8M1",
+        "Notes" : "Includes all decays. Taus are NOT included. Will have x2 normalization in OS/OF channels",
+        "inputXsec" : 0.007595,
+        "fiducialXsec" : 
+    },
+    "WZTo1E1Nu2Mu_FixedScaleMW_DefaultConfig_MadGraph-Pythia8" : {
+        "filename" : "WZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda",
+        "process" : "p p > e+/- v mu+ mu-",
+        "RunBy" : "Kenneth Long",
+        "generator" : "MadGraph5_aMC@NLO LO",
+        "scale" : "fixed_MW",
+        "configuration" : "Les Houches",
+        "shower" : "Pythia8, CMS tune CUETP8M1",
+        "Notes" : "",
+        "inputXsec" : 0.0017915,
+        "fiducialXsec" : 0.000389041
+    },
+    "WZTo1E1Nu2Mu_FixedScaleMW_DefaultConfig_VBFNLO-Pythia8" : {
+        "filename" : "WZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda",
+        "process" : "p p > e+/- v mu+ mu-",
+        "RunBy" : "Michael Rauch (LHE events), Efe Yazgan (Pythia8)",
+        "generator" : "VBFNLO",
+        "scale" : "fixed_MW",
+        "configuration" : "Les Houches",
+        "shower" : "Pythia8, CMS tune CP5",
+        "Notes" : "Created by merging W+ and W- files",
+        "inputXsec" : 0.0025372,
+        "fiducialXsec" : 0.00040203
+    },
+    "WpZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8" : {
+        "filename" : "WpZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda",
+        "process" : "p p > e+ v mu+ mu-",
+        "RunBy" : "Michael Rauch (LHE events), Efe Yazgan (Pythia8)",
+        "generator" : "VBFNLO",
+        "scale" : "fixed_MW",
+        "configuration" : "Les Houches",
+        "shower" : "Pythia8, CMS tune CP5",
+        "inputXsec" : 0.001578255,
+        "fiducialXsec" : 0.0002595323
+    },
+    "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8" : {
+        "filename" : "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda",
+        "process" : "p p > e- v mu+ mu-",
+        "RunBy" : "Michael Rauch (LHE events), Efe Yazgan (Pythia8)",
+        "generator" : "VBFNLO",
+        "scale" : "fixed_MW",
+        "configuration" : "Les Houches",
+        "shower" : "Pythia8, CMS tune CP5",
+        "inputXsec" : 0.0009589518,
+        "fiducialXsec" : 0.0001424986
+    },
+    "WmZTo1E1Nu2Mu_VBFNLO-Herwig7" : {
+        "filename" : "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda",
+        "generator" : "VBFNLO",
+        "RunBy" : "Matthias Mozer, with input from Michael Rauch, Simon Plaetzer",
+        "scale" : "fixed_MW",
+        "configuration" : "Les Houches",
+        "shower" : "Herwig7",
+        "Notes" : "Run via the internal VBFNLO+Herwig7 interface",
+        "inputXsec" : 0.0009972,
+        "fiducialXsec" : 0.000116805
+    }
+}
