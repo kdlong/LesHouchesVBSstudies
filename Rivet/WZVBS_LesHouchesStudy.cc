@@ -349,10 +349,8 @@ private:
                 removeAnalysisObject(hist.second);
         }
         for (auto& chanHist : channelHists_) {
-            std::cout << "Chan hist is" << chanHist.first << std::endl;
             for (auto& hist : chanHist.second.GetEmpty()) {
                 removeAnalysisObject(hist);
-                std::cout << "REMOVING " << chanHist.first << std::endl;
             }
         }
     };
