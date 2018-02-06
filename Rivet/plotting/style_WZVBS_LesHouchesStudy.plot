@@ -8,7 +8,7 @@ ErrorBars=1
 RatioPlotYMax=2.0
 RatioPlotYMin=0.0
 RatioPlotYSize=5
-RatioPlotErrorBandColor=red
+RatioPlotSameStyle=1
 # END PLOT
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/*
