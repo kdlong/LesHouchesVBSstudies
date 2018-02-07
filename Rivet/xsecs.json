@@ -76,7 +76,7 @@
         "fiducialXsec" : 0.0001424986
     },
     "WmZTo1E1Nu2Mu_VBFNLO-Herwig7" : {
-        "legend" : "VBFNLO+Herwig7 \mu=M_W$",
+        "legend" : "VBFNLO+Herwig7 $\mu=M_W$",
         "filename" : "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda",
         "generator" : "VBFNLO",
         "RunBy" : "Matthias Mozer, with input from Michael Rauch, Simon Plaetzer",
