@@ -1,5 +1,6 @@
 {
     "WZTo3LNu_DefaultConfig_MadGraph-Pythia8" : {
+        "legend" : "MG5_aMC+Pythia8",
         "filename" : "WLLJJ_EWK-MGLO_CentralSample.yoda",
         "process" : "p p > l+/- v l+ l-",
         "RunBy" : "Kenneth Long",
@@ -12,6 +13,7 @@
         "fiducialXsec" : 
     },
     "WZTo3LNu_FixedScaleMZ_DefaultConfig_MadGraph-Pythia8" : {
+        "legend" : "MG5_aMC+Pythia8 $\mu=M_Z$",
         "filename" : "WLLJJ_EWK-MGLO_FixedScaleMZ.yoda",
         "process" : "p p > l+/- v l+ l-",
         "RunBy" : "Kenneth Long",
@@ -24,6 +26,7 @@
         "fiducialXsec" : 
     },
     "WZTo1E1Nu2Mu_FixedScaleMW_DefaultConfig_MadGraph-Pythia8" : {
+        "legend" : "MG5_aMC+Pythia8 $\mu=M_W$",
         "filename" : "WZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda",
         "process" : "p p > e+/- v mu+ mu-",
         "RunBy" : "Kenneth Long",
@@ -36,6 +39,7 @@
         "fiducialXsec" : 0.000389041
     },
     "WZTo1E1Nu2Mu_FixedScaleMW_DefaultConfig_VBFNLO-Pythia8" : {
+        "legend" : "VBFNLO+Pythia8 $\mu=M_W$",
         "filename" : "WZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda",
         "process" : "p p > e+/- v mu+ mu-",
         "RunBy" : "Michael Rauch (LHE events), Efe Yazgan (Pythia8)",
@@ -48,6 +52,7 @@
         "fiducialXsec" : 0.00040203
     },
     "WpZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8" : {
+        "legend" : "VBFNLO+Pythia8 $W^+ \mu=M_W$",
         "filename" : "WpZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda",
         "process" : "p p > e+ v mu+ mu-",
         "RunBy" : "Michael Rauch (LHE events), Efe Yazgan (Pythia8)",
@@ -59,6 +64,7 @@
         "fiducialXsec" : 0.0002595323
     },
     "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8" : {
+        "legend" : "VBFNLO+Pythia8 $W^- \mu=M_W$",
         "filename" : "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda",
         "process" : "p p > e- v mu+ mu-",
         "RunBy" : "Michael Rauch (LHE events), Efe Yazgan (Pythia8)",
@@ -70,6 +76,7 @@
         "fiducialXsec" : 0.0001424986
     },
     "WmZTo1E1Nu2Mu_VBFNLO-Herwig7" : {
+        "legend" : "VBFNLO+Herwig7 $\mu=M_W$",
         "filename" : "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda",
         "generator" : "VBFNLO",
         "RunBy" : "Matthias Mozer, with input from Michael Rauch, Simon Plaetzer",
