@@ -105,7 +105,7 @@ YLabel=$\text{d}\sigma / \text{d} \Delta\phi_{jj}$ [fb/0.25]
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/.*dRjj
 XMinx=2.5
-XMax=105
+XMax=10
 XLabel=$\Delta R_{jj}$ 
 YLabel=$\text{d}\sigma / \text{d} \Delta R_{jj}$ [fb/0.25]
 # END PLOT
