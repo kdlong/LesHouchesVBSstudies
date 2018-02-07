@@ -76,7 +76,8 @@ XLabel=$m_Z$ [GeV]
 YLabel=$\text{d}\sigma / \text{d} m_Z$ [fb/GeV]
 # END PLOT
 
-# BEGIN PLOT /WZVBS_LesHouchesStudy/*ZPt
+# BEGIN PLOT /WZVBS_LesHouchesStudy/.*ZPt
+XMax=600
 XLabel=$P_T(Z)$ [GeV] 
 YLabel=$\text{d}\sigma / \text{d} P_T(Z)$ [fb/10GeV]
 # END PLOT
@@ -87,6 +88,7 @@ YLabel=$\text{d}\sigma / \text{d} \eta(Z)$ [fb/0.3]
 # END PLOT
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/.*mjj
+XMin=500
 XLabel=$m_{jj}$ [GeV] 
 YLabel=$\text{d}\sigma / \text{d} m_{jj}$ [fb/40GeV]
 # END PLOT
@@ -102,16 +104,24 @@ YLabel=$\text{d}\sigma / \text{d} \Delta\phi_{jj}$ [fb/0.25]
 # END PLOT
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/.*dRjj
+XMinx=2.5
+XMax=10
 XLabel=$\Delta R_{jj}$ 
 YLabel=$\text{d}\sigma / \text{d} \Delta R_{jj}$ [fb/0.25]
 # END PLOT
 
+# BEGIN PLOT /WZVBS_LesHouchesStudy/.*nJets
+XMax=5
+XLabel=$n_\text{jets}$ 
+YLabel=$\text{d}\sigma / \text{d} n_\text{jets}$ [fb/0.25]
+# END PLOT
+
 # BEGIN PLOT /WZVBS_LesHouchesStudy/.*zep3l
 XLabel=$\text{Zeppenfeld}(3\ell)$  
-YLabel=$\text{d}\sigma / \text{d} \text{Zeppenfeld}(3\ell) $ [fb/0.25]
+YLabel=$\text{d}\sigma / \text{d} \text{z}_{3\ell} $ [fb/0.25]
 # END PLOT
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/.*zepj3
 XLabel=$\text{Zeppenfeld}(j_3)$  
-YLabel=$\text{d}\sigma / \text{d} \text{Zeppenfeld}(j_3) $ [fb/0.25]
+YLabel=$\text{d}\sigma / \text{d} \text{z}_{j3}) $ [fb/0.25]
 # END PLOT
