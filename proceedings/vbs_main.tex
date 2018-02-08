@@ -17,6 +17,7 @@
 \newcommand{\Matchbox}{M\protect\scalebox{0.8}{ATCHBOX}\xspace}
 \newcommand{\MGaMC}{M\protect\scalebox{0.8}{AD}G\protect\scalebox{0.8}{RAPH}5\_aMC@NLO\xspace}
 \newcommand{\MadGraph}{M\protect\scalebox{0.8}{AD}G\protect\scalebox{0.8}{RAPH}\xspace}
+\newcommand{\MGAMC}{MG5\_aMC\xspace}
 \newcommand{\MadGraphfour}{M\protect\scalebox{0.8}{AD}G\protect\scalebox{0.8}{RAPH}4\xspace}
 \newcommand{\CVolver}{CV\protect\scalebox{0.8}{OLVER}\xspace}
 \newcommand{\ColorFull}{C\protect\scalebox{0.8}{OLOR}F\protect\scalebox{0.8}{ULL}\xspace}
@@ -139,7 +140,7 @@ This means that the EW corrections to the EW contributions are expected to be at
 \end{verbatim}
   
   
-\subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO} + \protect\Herwig \label{vbs_herwig}}
+\subsubsection*{\protect\Herwig \label{vbs_herwig}}
 
 In this section we present the setup for those results obtained with
 the \Herwig event generator~\cite{Bellm:2015jjp,Bahr:2008pv}.  Based
@@ -174,14 +175,30 @@ Note that the complex-mass scheme~\cite{Denner:1999gp,Denner:2005fg} to treat un
 These tools have been successfully used for the computation of NLO corrections for high-multiplicity processes and in particular VBS processes \cite{Biedermann:2016yds,Biedermann:2017bss}.
 
 \subsubsection*{\protect\Sherpa \label{vbs_sherpa}}
-In this section we present the setups that are used in this study for the \Sherpa event
-generator~\cite{Gleisberg:2008ta}. 
-Etc, etc... 
+\Sherpa~\cite{Gleisberg:2008ta,Gleisberg:2003xi} is a multipurpose event generator for high-energy particle collisions. 
+It is build out of several algorithms and modules tailored to many different physics challenges of collider physics.
+In the \Sherpa framework the infrared divergences appearing in the virtual and real-emission amplitudes are treated by the Catani--Seymor dipole-subtraction method~\cite{Catani:1996vz,Catani:2002hc,Gleisberg:2007md}. The default parton-shower algorithm of \Sherpa is based on the Catani--Seymour factorisation~\cite{Schumann:2007mg,Hoeche:2009xc}. For NLO computations interfaces to several one-loop generators exist, with the interface to \textsc{Recola}~\cite{Actis:2012qn,Actis:2016mpe} being the latest addition~\cite{Biedermann:2017yoi}. For correctly combining the matrix elements in multijet-production processes with the parton shower, \Sherpa has adapted the MEPS@LO method~\cite{Hoeche:2009rj} for LO and its generalisation MEPS@NLO~\cite{Hoche:2010kg} for NLO. 
 
-\subsection{Experimental analysis \label{vbs_rivet}}
+In this study the matrix elements are provided by \textsc{Comix}~\cite{Gleisberg:2008fv}, one of the two built-in generators next to \textsc{Amegic}~\cite{Krauss:2001iv}. Both of the studied partonic processes are then showered with the default shower.
 
-Results in this study were produced using a Rivet routine that
-mimics ATLAS and CMS preliminary analyses. Distributions include the number of jets, etc,...
+\subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO}}
+\VBFNLO~\cite{Arnold:2008rz,Arnold:2011wj,Baglio:2014uba} is a flexible
+Monte-Carlo event generator for processes with electroweak bosons.
+Besides the Standard Model, selected processes can also be calculated in
+a variety of new-physics models, including effective field theories with
+dimension-6 and dimension-8 operators.
+Its use of leptonic tensors in the calculation of the matrix elements
+can lead to a significant speed improvement compared to automatically
+generated code.
+For results with parton showers in this study, \VBFNLO serves as the
+matrix-element provider and phase-space generator for \Herwig. The
+interface between the two programs is based on an extension of the BLHA
+standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}.
+
+
+\subsection{Details of the set-up \label{setup}}
+
+In this section we describe
 
 \subsubsection*{Input parameters}
 
@@ -274,60 +291,11 @@ Following experimental studies \cite{Aad:2016ett,CMS-PAS-SMP-14-008}, the event 
         \end{align}
 \end{itemize}
 
+Results in this study were produced using a Rivet routine that
+mimics ATLAS and CMS preliminary analyses. Distributions include the number of jets, etc,...
+\MP{Add more details on this.}
+
 \subsection{Results \label{vbs_results}}
-
-\subsubsection*{Comparisons}
-
-\begin{table}
-\begin{center} 
-\begin{tabular}{ c | c | c }
- $\mu = \mu_{\rm fix}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
-  \hline\hline
-{\sc MG5\_aMC}        & $XX$  & $XX$   \\
-  {\sc MoCaNLO}+{\sc Recola}             & $0.28496(6)$  & $0.16718(3)$  \\
-{\sc Sherpa}        & $XX$  & $XX$   \\
-{\sc VBFNLO}        & $XX$  & $XX$   \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{
-Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
-The predictions are expressed in pb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
-The scale used in the simulations is $\mu = \mu_{\rm fix} = M_W$.
-The integration errors of the last digits are given in parentheses.}
-\label{table:xsectLOfix}
-\end{table}
-
-\begin{table}
-\begin{center} 
-\begin{tabular}{ c | c | c }
- $\mu = \mu_{\rm dyn}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
-  \hline\hline
-{\sc MG5\_aMC}        & $XX$  & $XX$   \\
-  {\sc MoCaNLO}+{\sc Recola}             & $0.25416(6)$  & $0.15003(3)$  \\
-{\sc Sherpa}        & $XX$  & $XX$   \\
-{\sc VBFNLO}        & $XX$  & $XX$   \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{
-Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
-The predictions are expressed in pb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
-The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
-The integration errors of the last digits are given in parentheses.}
-\label{table:xsectLOdyn}
-\end{table}
-
-
-The plot in Figure~\ref{vbs_fig1} etc... 
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/3lmass.pdf}
-\caption{A placeholder...}
-\label{vbs_fig1}
-\end{center}
-\end{figure}
 
 \subsubsection*{Several contributions for one process}
 
@@ -374,19 +342,193 @@ In none of the studied observables, their contribution exceed the per-cent level
 
 \begin{figure}[htbp]
 \begin{center}
-   \includegraphics[scale=0.5]{figs/histogram_transverse_momentum_muon}
    \includegraphics[scale=0.5]{figs/histogram_invariant_mass_mjj12}
    \includegraphics[scale=0.5]{figs/histogram_rapidity_separation_j1j2}
+   \includegraphics[scale=0.5]{figs/histogram_transverse_momentum_muamu}
    \includegraphics[scale=0.5]{figs/histogram_distance_djj12}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ with the contributions at orders $\mathcal{O} (\alpha^6)$ (EW), $\mathcal{O} (\alpha_{\rm s}\alpha^5)$ (INT), and $\mathcal{O} (\alpha_{\rm s}^2\alpha^4)$ (QCD): 
-                transverse momentum of the muon~(top left),
-                invariant mass of the two jets~(top right),
-                rapidity separation between the two jets~(bottom left), and
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ 
+with the contributions at orders $\mathcal{O} (\alpha^6)$ (EW), $\mathcal{O} (\alpha_{\rm s}\alpha^5)$ (INT), and $\mathcal{O} (\alpha_{\rm s}^2\alpha^4)$ (QCD): 
+                invariant mass of the two jets~(top left),
+                rapidity separation between the two jets~(top right)
+                transverse momentum of the anti-muon--muon~(bottom left), and
                 distance between the two jets~(bottom right).
                 The upper panels show the LO predictions as well as their sum.
-                The lower panels display the respective contributions normalised to their sum.
-                \MP{Old plots to be updated but same qualitative conclusion.}}
+                The lower panels display the respective contributions normalised to their sum.}
 \label{fig:diffcontr}
+\end{center}
+\end{figure}
+
+
+\subsubsection*{Parton level comparisons}
+
+\begin{table}
+\begin{center} 
+\begin{tabular}{ c | c | c }
+ $\mu = \mu_{\rm fix}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
+  \hline\hline
+{\sc MG5\_aMC}        & $XX$  & $XX$   \\
+  {\sc MoCaNLO}+{\sc Recola}             & $0.28496(6)$  & $0.16718(3)$  \\
+{\sc Sherpa}        & $0.285(5)$  & $0.1664(9)$   \\
+{\sc VBFNLO}        & $XX$  & $XX$   \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{
+Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
+The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
+The scale used in the simulations is $\mu = \mu_{\rm fix} = M_W$.
+The integration errors of the last digits are given in parentheses.}
+\label{table:xsectLOfix}
+\end{table}
+
+\begin{table}
+\begin{center} 
+\begin{tabular}{ c | c | c }
+ $\mu = \mu_{\rm dyn}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
+  \hline\hline
+{\sc MG5\_aMC}        & $XX$  & $XX$   \\
+  {\sc MoCaNLO}+{\sc Recola}             & $0.25416(6)$  & $0.15003(3)$  \\
+{\sc Sherpa}        & $0.2573(3)$  & $0.1499(2)$   \\
+{\sc VBFNLO}        & $XX$  & $XX$   \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{
+Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
+The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
+The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
+The integration errors of the last digits are given in parentheses.}
+\label{table:xsectLOdyn}
+\end{table}
+
+\subsubsection*{Comparisons after parton shower}
+
+Figures~\ref{vbs_fig_shower_1a} and \ref{vbs_fig_shower_1b} show a comparison of results obtained with different
+generators for ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu =
+M_W$.
+Figures~\ref{vbs_fig_shower_2a} and \ref{vbs_fig_shower_2b} show the same distribution for \MGAMC with different scale
+choices, either dynamic or fixed with value equal to $M_W$ and $M_Z$.
+Finally in Figures~\ref{vbs_fig_shower_3a},\ref{vbs_fig_shower_3b},\ref{vbs_fig_shower_4a} and \ref{vbs_fig_shower_4b} a
+comparison of results for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p}
+\to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ is shown for 
+different generators and different scale values, dynamic or fixed.    
+
+\begin{figure}[htbp]
+\begin{center}
+   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_mjj}
+   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_dEtajj}
+   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_ZPt}
+   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_dRjj}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_W$: 
+                invariant mass of the two jets~(top left),
+                rapidity separation between the two jets~(top right)
+                transverse momentum of the anti-muon--muon~(bottom left), and
+                distance between the two jets~(bottom right).}
+\label{vbs_fig_shower_1a}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_zep3l}
+   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_zepj3}
+   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_nJets}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_W$: 
+                Zeppenfeld variable for the three leptons~(top left),
+                Zeppenfeld variable for the third jet~(top right)
+                number of jets~(bottom).}
+\label{vbs_fig_shower_1b}
+\end{center}
+\end{figure}
+
+
+\begin{figure}[htbp]
+\begin{center}
+   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_mjj}
+   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_dEtajj}
+   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_ZPt}
+   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_dRjj}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
+                invariant mass of the two jets~(top left),
+                rapidity separation between the two jets~(top right)
+                transverse momentum of the anti-muon--muon~(bottom left), and
+                distance between the two jets~(bottom right).}
+\label{vbs_fig_shower_2a}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_zep3l}
+   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_zepj3}
+   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_nJets}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
+                Zeppenfeld variable for the three leptons~(top left),
+                Zeppenfeld variable for the third jet~(top right)
+                number of jets~(bottom).}
+\label{vbs_fig_shower_2b}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+   \includegraphics[scale=0.65]{figs/WmZ_OF_mjj}
+   \includegraphics[scale=0.65]{figs/WmZ_OF_dEtajj}
+   \includegraphics[scale=0.65]{figs/WmZ_OF_ZPt}
+   \includegraphics[scale=0.65]{figs/WmZ_OF_dRjj}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
+                invariant mass of the two jets~(top left),
+                rapidity separation between the two jets~(top right)
+                transverse momentum of the anti-muon--muon~(bottom left), and
+                distance between the two jets~(bottom right).}
+\label{vbs_fig_shower_3a}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+   \includegraphics[scale=0.65]{figs/WmZ_OF_zep3l}
+   \includegraphics[scale=0.65]{figs/WmZ_OF_zepj3}
+   \includegraphics[scale=0.65]{figs/WmZ_OF_nJets}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
+                Zeppenfeld variable for the three leptons~(top left),
+                Zeppenfeld variable for the third jet~(top right)
+                number of jets~(bottom).}
+\label{vbs_fig_shower_3b}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+   \includegraphics[scale=0.65]{figs/WpZ_OF_mjj}
+   \includegraphics[scale=0.65]{figs/WpZ_OF_dEtajj}
+   \includegraphics[scale=0.65]{figs/WpZ_OF_ZPt}
+   \includegraphics[scale=0.65]{figs/WpZ_OF_dRjj}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
+  \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
+                invariant mass of the two jets~(top left),
+                rapidity separation between the two jets~(top right)
+                transverse momentum of the anti-muon--muon~(bottom left), and
+                distance between the two jets~(bottom right).}
+\label{vbs_fig_shower_4a}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+   \includegraphics[scale=0.65]{figs/WpZ_OF_zep3l}
+   \includegraphics[scale=0.65]{figs/WpZ_OF_zepj3}
+   \includegraphics[scale=0.65]{figs/WpZ_OF_nJets}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
+                Zeppenfeld variable for the three leptons~(top left),
+                Zeppenfeld variable for the third jet~(top right)
+                number of jets~(bottom).}
+\label{vbs_fig_shower_4b}
 \end{center}
 \end{figure}
 
@@ -398,7 +540,9 @@ We emphasis that this is a \emph{tuned} comparison where special care had taken 
 
 Significant differences in the predictions can arise from different choices of inputs and no actual physical meaning.
 
-electroweak production of WZ in association with two jets at the LHC, etc... 
+Differences between parton shower predictions are present.
+
+Electroweak production of WZ in association with two jets at the LHC, etc... 
 
 Overall these results show that etc...
 
