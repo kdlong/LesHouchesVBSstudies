@@ -179,15 +179,18 @@ We consider variations of the hard shower scale as detailed in Ref.~\cite{Bellm:
 The program {\sc MoCaNLO+Recola} is made of a flexible Monte Carlo program dubbed {\sc MoCaNLO} and of the general matrix element generator {\sc Recola}~\cite{Actis:2012qn,Actis:2016mpe}.
 The program can compute arbitrary processes in the Standard Model with NLO QCD and EW accuracy.
 The fast integration is ensured by using similar phase-space mappings to those of Refs.~\cite{Berends:1994pv,Denner:1999gp,Dittmaier:2002ap}.
-Note that the complex-mass scheme~\cite{Denner:1999gp,Denner:2005fg} to treat unstable particles is always used.
+The complex-mass scheme~\cite{Denner:1999gp,Denner:2005fg} to treat unstable particles is always used.
 These tools have been successfully used for the computation of NLO corrections for high-multiplicity processes and in particular VBS processes \cite{Biedermann:2016yds,Biedermann:2017bss}.
 
 \subsubsection*{\protect\Sherpa \label{vbs_sherpa}}
 \Sherpa~\cite{Gleisberg:2008ta,Gleisberg:2003xi} is a multipurpose event generator for high-energy particle collisions. 
-It is build out of several algorithms and modules tailored to many different physics challenges of collider physics.
-In the \Sherpa framework the infrared divergences appearing in the virtual and real-emission amplitudes are treated by the Catani--Seymor dipole-subtraction method~\cite{Catani:1996vz,Catani:2002hc,Gleisberg:2007md}. The default parton-shower algorithm of \Sherpa is based on the Catani--Seymour factorisation~\cite{Schumann:2007mg,Hoeche:2009xc}. For NLO computations interfaces to several one-loop generators exist, with the interface to \textsc{Recola}~\cite{Actis:2012qn,Actis:2016mpe} being the latest addition~\cite{Biedermann:2017yoi}. For correctly combining the matrix elements in multijet-production processes with the parton shower, \Sherpa has adapted the MEPS@LO method~\cite{Hoeche:2009rj} for LO and its generalisation MEPS@NLO~\cite{Hoche:2010kg} for NLO. 
-
-In this study the matrix elements are provided by \textsc{Comix}~\cite{Gleisberg:2008fv}, one of the two built-in generators next to \textsc{Amegic}~\cite{Krauss:2001iv}. Both of the studied partonic processes are then showered with the default shower.
+It is built out of several algorithms and modules tailored to many different physics challenges of collider physics.
+In the \Sherpa framework the infrared divergences appearing in the real-emission are treated by the Catani--Seymour dipole-subtraction method~\cite{Catani:1996vz,Catani:2002hc,Gleisberg:2007md}. 
+The default parton-shower algorithm of \Sherpa is based on the Catani--Seymour factorisation~\cite{Schumann:2007mg,Hoeche:2009xc}.
+For NLO computations, interfaces to several one-loop generators exist, with the interface to \textsc{Recola}~\cite{Actis:2012qn,Actis:2016mpe} being the latest addition~\cite{Biedermann:2017yoi}.
+For correctly combining the matrix elements in multijet-production processes with the parton shower, \Sherpa has adapted the MEPS@LO method~\cite{Hoeche:2009rj} at LO and its generalisation MEPS@NLO~\cite{Hoche:2010kg} at NLO. 
+In this study, the matrix elements are provided by \textsc{Comix}~\cite{Gleisberg:2008fv}, one of the two built-in generators next to \textsc{Amegic}~\cite{Krauss:2001iv}.
+Both of the studied partonic processes are then showered with the default shower.
 
 \subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO}}
 \VBFNLO~\cite{Arnold:2008rz,Arnold:2011wj,Baglio:2014uba} is a flexible
@@ -206,7 +209,8 @@ standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}.
 
 \subsection{Details of the set-up \label{setup}}
 
-In this section we describe
+In this section we describe default input parameters that have been used.
+Also, the event selection used in the comparison are described.
 
 \subsubsection*{Input parameters}
 
@@ -214,7 +218,7 @@ All simulation are performed for the LHC running with a center-of-mass energy $\
 The default PDF used is the NNPDF~3.0 set~\cite{Ball:2014uwa} with four active flavour at LO and a strong coupling constant $\alpha_{\rm s}\left( M_{\rm Z} \right) = 0.130$.\footnote{Its {\tt lhaid} in LHAPDF6~\cite{Buckley:2014ana} is 263400.} 
 % NNPDF30_lo_as_0130_nf_4 
 If this default PDF is not employed, it is explicitly stated.
-
+%
 The masses and widths of the particle used in the simulations are
 %
 \begin{alignat}{2}
@@ -232,7 +236,6 @@ The numerical values used in the simulation for the pole mass/width of the gauge
 \begin{equation}
         M_V = M_{\rm V}^{\rm OS}/\sqrt{1+(\Gamma_{\rm V}^{\rm OS}/M_{\rm V}^{\rm OS})^2}\,,\qquad  \Gamma_V = \Gamma_{\rm V}^{\rm OS}/\sqrt{1+(\Gamma_{\rm V}^{\rm OS}/M_{\rm V}^{\rm OS})^2}.
 \end{equation}
-
 %
 The EW coupling is renormalised in the $G_\mu$ scheme \cite{Denner:2000bj} where
 %
@@ -263,10 +266,13 @@ while the dynamical scale used is
 \end{equation}
 %
 The latter should be understood as the maximum of the transverse momenta of the tagging jets (defined below).
-\MP{Justification for this scale choice?}
+\MP{Justification for this scale choice? For Michael/Simon}
+These two scale are the default fixed and dynamical scale, respectively.
+If the scale used are different, this is explicitly stated in the text.
 
 Photon-induced as well as bottom induced contributions have been neglected.
 The photon contributions are expected to be small \cite{Biedermann:2017bss} while the bottom induced contribution can lead to single-top resonant contributions.
+The later can in principle be isolated thanks to kinematical constraints.
 
 \subsubsection*{Event selection}
 
@@ -299,19 +305,17 @@ Following experimental studies \cite{Aad:2016ett,CMS-PAS-SMP-14-008}, the event 
         \end{align}
 \end{itemize}
 
-Results in this study were produced using a Rivet routine that
-mimics ATLAS and CMS preliminary analyses. Distributions include the number of jets, etc,...
-\MP{Add more details on this.}
+These cuts have been issued either directly in the Monte Carlo programs or using a {\sc Rivet} routine \cite{Buckley:2010ar}.
+This file will be made public in order to make the present study easily reproducible.
 
 \subsection{Results \label{vbs_results}}
 
 \subsubsection*{Several contributions for one process}
 
-The processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$
+As explained previously, the processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$
 possesses at LO three contributions of orders $\mathcal{O} (\alpha^6)$, $\mathcal{O} (\alpha_{\rm s}\alpha^5)$, and $\mathcal{O} (\alpha_{\rm s}^2\alpha^4)$.
-They are usually called EW contribution, interference, and QCD-induced, respectively.
 As it can be seen in Table~\ref{table:xsectallLOdyn}, the EW component represents only about $20\%$ of the total cross section.
-This is in contrast with the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ signature where the EW component represents almost $90\%$ of the cross section \cite{Biedermann:2017bss}.
+This is in contrast with the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ signature where the EW component represents almost $90\%$ of the cross section \cite{Biedermann:2017bss} in a comparable fiducial volume.
 Hence measuring the EW component is much more challenging.
 Therefore, inferring the shape of the signal and irreducible background is key.
 Note that the interference contribution is about $0.5\%$ which is negligible with respect to current experimental accuracy.\footnote{For the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ signature, the interference contribution has been shown to be around $3\%$ \cite{Biedermann:2017bss}.}
@@ -335,13 +339,18 @@ The integration errors of the last digits are given in parentheses.}
 \label{table:xsectallLOdyn}
 \end{table}
 
-The differential distributions in Fig.~\ref{fig:diffcontr} reflect the same conclusion namely the large QCD-induced contribution.
-In particular, the distribution in the transverse momentum of the muon does not feature shape distortion between the QCD-induced and EW contribution.
+In Fig.~\ref{fig:diffcontr}, several differential distributions are shown.
+In the upper plot the absolute predictions for each component as well as they sum are displayed.
+In the lower plot, each contribution is normalised to the sum and expressed in per cent.
+These distributions reflect the same conclusion as for the cross section namely that the processes are largely dominated by QCD-induced contribution.
+The first two observables displayed (top) are the invariant mass and the rapidity difference of the two tagging jets.
+These two observables are used as cuts [see Eq.~\eqref{cut:4}] in order to enhance the EW component over the QCD background.
+The cuts are clearly visible on the plots and it is easily understandable why there are enhancing the EW contribution.
+Toward high invariant-mass, the EW component becomes more and more important.
+It even become of the same size as the QCD one for an invariant-mass of $2000{\sc GeV}$.
+The same holds true for high rapidity separation for the two jets.
+On the other hand, the transverse invariant mass (bottom left) of muon--anti-muon pair does not display significant differences in the different contributions over the whole range.
 Other transverse-momentum distributions displays the same pattern.
-In addition, the invariant mass and the rapidity difference of the two jets are displayed.
-These two observables are used to discriminator between the [see Eq.~\eqref{cut:4}].
-The cuts are clearly visible on the plots and their justification is transparent.
-For high invariant-mass or large rapidity-separation, the EW component become dominant over the irreducible QCD-induced background.
 Finally, we show the distance between the two jets.
 This observable also seems to possesses a good discriminating power.
 In particular, for large distances, the EW component become dominant but with a very low statistics.
@@ -370,17 +379,23 @@ with the contributions at orders $\mathcal{O} (\alpha^6)$ (EW), $\mathcal{O} (\a
 
 \subsection{Conclusions \label{vbs_concl}}
 
-We presented a comparison of LO predictions for ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$.
-These are implemented on different Monte Carlo programs or generators.
+The measurement of the EW component of the ${\rm p}{\rm p} \to {\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ process constitute a real challenge for experimental collaborations.
+Such a measurement is complicated for several reasons including the low cross section and the overwhelming irreducible background.
+Therefore, they have to rely on theoretical predictions in order to extract a signal.
+This makes theoretical predictions implemented in various Monte Carlo programs very important.
+It is thus key to have a good control over these predictions.
+To that end we have performed a LO comparison of different theoretical predictions supplemented by parton shower.
+
+Concerning the comparisons at parton level, the agreement between the various theoretical predictions is reasonable good.
+This statement holds at both the level of the cross section and differential distributions.
+This implies that, as for the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ signature \cite{Anders:2018gfr}, the VBS approximation seems to be good in the typical fiducial regions used by experimental collaborations for they measurements.
+In addition, the interference between the QCD and EW amplitude is also negligible.
+
+After parton shower, the agreement is in general worth \MP{To be specified as a function of the final results/comments}.
 We emphasis that this is a \emph{tuned} comparison where special care had taken to try to match all inputs of these programs.
 
-Significant differences in the predictions can arise from different choices of inputs and no actual physical meaning.
+The present preliminary results.
 
-Differences between parton shower predictions are present.
-
-Electroweak production of WZ in association with two jets at the LHC, etc... 
-
-Overall these results show that etc...
 
 %\clearpage
 \bibliography{vbs_bib}
