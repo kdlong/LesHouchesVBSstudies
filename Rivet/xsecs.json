@@ -75,6 +75,18 @@
         "inputXsec" : 0.0009589518,
         "fiducialXsec" : 0.0001424986
     },
+    "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_fromLHE_VBFNLO-Pythia8" : {
+        "legend" : "VBFNLO+Pythia8 $W^- \mu=M_W$",
+        "filename" : "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_fromLHE_VBFNLO-Pythia8.yoda",
+        "process" : "p p > e- v mu+ mu-",
+        "RunBy" : "Michael Rauch",
+        "generator" : "VBFNLO",
+        "scale" : "fixed_MW",
+        "configuration" : "Les Houches",
+        "shower" : "Pythia8, CMS tune CP5",
+        "inputXsec" : 0.0009589518,
+        "fiducialXsec" : 0.00013889
+    },
     "WmZTo1E1Nu2Mu_VBFNLO-Herwig7" : {
         "legend" : "VBFNLO+Herwig7 $\mu=M_W$",
         "filename" : "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda",
@@ -88,7 +100,7 @@
         "inputXsec" : 0.0009972,
         "fiducialXsec" : 0.000116805
     },
-    "WZTo3LNu_VBFNLO-Herwig7" : {
+    "WZTo3LNu_DefaultConfig_VBFNLO-Herwig7" : {
         "filename" : "WZTo3LNu_DefaultConfig_VBFNLO-Herwig7.yoda",
         "process" : "p p > l+ v l+ l-, l = e, mu",
         "generator" : "VBFNLO",
