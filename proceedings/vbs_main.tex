@@ -61,10 +61,9 @@
 \section{Study of electroweak production of WZ in association with two jets at the LHC 
 \protect\footnote{Section coordinators: K.~D.~Long, M.~Pellen}$^{,}$ 
 \protect\footnote{Contributing authors: S.~Br\"auer, V.~Ciulli, S.~Gieseke, M.~Herndon, M.~Mozer, S.~Pl{\"a}tzer, M.~Rauch, E.~Yazgan.}
-\protect\footnote{MP acknowledges financial support by the
-German Federal Ministry for Education and Research (BMBF) under
-contract no.~05H15WWCA1 and the German Science Foundation (DFG) under
-reference number DE 623/6-1 \label{vbs_section}}}
+\protect\footnote{The work of SB is supported by German Federal Ministry for Education and Research (BMBF) under contract 05H15MGCAA.
+MP acknowledges financial support by the BMBF under contract no.~05H15WWCA1 and the German Science Foundation (DFG) under reference number DE 623/6-1 
+\label{vbs_section}}}
 
 \subsection{Introduction \label{vbs_intro}}
 
@@ -118,7 +117,7 @@ Finally, Sec.~\ref{vbs_concl} contains a summary, concluding remarks as well as 
 
 \subsection{Theory and event generators \label{vbs_theory}}
 
-In particular, the study focuses on two partonic processes
+The study focuses on the ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ signature and more precisely on the partonic processes
 
 \begin{equation}
  {\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j} ,
@@ -129,60 +128,57 @@ and
 \begin{equation}
  {\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}.
 \end{equation}
-
-
-This study focuses on LO predictions but NLO QCD corrections to the EW contribution and its irreducible background are already known.
+%
+The predictions presented are all at LO but NLO QCD corrections to the EW contribution and its irreducible background are already known.
 The QCD corrections to the EW contributions are known since 10 years in the VBS approximation \cite{Bozzi:2007ur} while the QCD corrections to the QCD-induced process has been computed more recently \cite{Campanario:2013qba}.
 The NLO EW corrections are currently unknown.
 In Ref.~\cite{Biedermann:2016yds}, it has been argued that large NLO EW corrections to the EW contributions are an intrinsic feature of VBS at the LHC.
 Therefore, they are expected to play a significant role for all VBS signatures.
 In Ref.~\cite{Biedermann:2017bss}, which focuses on the computation of the full NLO corrections to the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ process, it has been shown that the EW corrections to the EW process are the dominant NLO corrections.
-This means that the EW corrections to the EW contributions are expected to be at least of the same order than the QCD ones for VBS signatures.
-\MP{Add some comments on parton shower effects that can play a significant role.}
+This means that the EW corrections to the EW contributions are expected to be at least of the same order than the QCD ones for other VBS signatures.
+\MP{Add some comments/references on parton shower to be added by Michael/Simon.}
+
+In the following, the codes used for the predictions are briefly described.
 
 \subsubsection*{\protect\MGaMC \label{vbs_mgamc}}
 
 {\sc MadGraph5\_aMC@NLO}~\cite{Alwall:2014hca} is an automatic meta-code (a code that generates codes) which makes it possible to simulate any scattering process
       including NLO QCD corrections both at fixed order and including matching to parton showers. 
       The commands that have been used for the present computation are
+      \MP{To be finalised by Kenneth}
 \begin{verbatim}
 > set complex_mass_scheme #1
 > generate XXX #2
 > output #3
 \end{verbatim}
-  
+  The version used is .
   
 \subsubsection*{\protect\Herwig \label{vbs_herwig}}
 
-In this section we present the setup for those results obtained with
-the \Herwig event generator~\cite{Bellm:2015jjp,Bahr:2008pv}.  Based
-on extensions of the previously developed \Matchbox
-module~\cite{Platzer:2011bc}, \Herwig facilitates the automated setup
-of all ingredients necessary for a full NLO QCD calculation in the
-subtraction formalism: an implementation of the Catani--Seymour dipole
+Based on extensions of the previously developed \Matchbox
+module~\cite{Platzer:2011bc}, the \Herwig event generator~\cite{Bellm:2015jjp,Bahr:2008pv} facilitates the automated set-up of all ingredients necessary for a full NLO QCD calculation.
+It relies on an implementation of the Catani--Seymour dipole
 subtraction method~\cite{Catani:1996vz,Catani:2002hc}, as well as
-interfaces to a list of external matrix--element providers -- either
+interfaces to a list of external matrix -- element providers -- either
 at the level of squared matrix elements, based on extensions of the
-BLHA standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}, or
-at the level of color--ordered subamplitudes.
+BLHA standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa} or
+at the level of color-ordered sub-amplitudes.
 
-For this study the relevant tree--level matrix elements have been
-provided by an interface to VBFNLO using an extension of the BLHA
-accord. We have matched these calculation to the angular ordered
+For this study the relevant tree-level matrix elements have been
+provided by an interface to VBFNLO \cite{Arnold:2008rz,Arnold:2011wj,Baglio:2014uba} using an extension of the BLHA
+accord. We have matched these calculations to the angular ordered
 shower using the subtractive matching and default settings of the
-\Herwig~7.1 release. The PDF sets being used are MMHT2014lo68cl and
-MMHT2014nlo68cl~\cite{Harland-Lang:2014zoa}, i.e. the default PDF sets
-to which the showers are currently tuned. We consider variations of
-the hard shower scale as detailed in~\cite{Bellm:2016rhh}, using the
-'resummation' profile scale choice.
+\Herwig~7.1 release. The PDF sets that have been used the parton shower are MMHT2014lo68cl and
+MMHT2014nlo68cl~\cite{Harland-Lang:2014zoa} ones.
+These sets are not the one used for this computation (see below).
+This can in particular impact initial-state radiations.
+We consider variations of the hard shower scale as detailed in Ref.~\cite{Bellm:2016rhh}, using the 'resummation' profile scale choice.
 
 \subsubsection*{\protect{\MoCaNLO\!+\Recola} \label{vbs_MoCaNLO_Recola}}
 
 The program {\sc MoCaNLO+Recola} is made of a flexible Monte Carlo program dubbed {\sc MoCaNLO} and of the general matrix element generator {\sc Recola}~\cite{Actis:2012qn,Actis:2016mpe}.
 The program can compute arbitrary processes in the Standard Model with NLO QCD and EW accuracy.
 The fast integration is ensured by using similar phase-space mappings to those of Refs.~\cite{Berends:1994pv,Denner:1999gp,Dittmaier:2002ap}.
-The IR divergences appearing in the real corrections are handles with the help of the Catani--Seymour dipole formalism \cite{Catani:1996vz,Dittmaier:1999mb}.
-To numerically evaluate the one-loop scalar and tensor integrals, {\sc Recola} relies on the {\sc Collier} library \cite{Denner:2014gla,Denner:2016kdg}.
 Note that the complex-mass scheme~\cite{Denner:1999gp,Denner:2005fg} to treat unstable particles is always used.
 These tools have been successfully used for the computation of NLO corrections for high-multiplicity processes and in particular VBS processes \cite{Biedermann:2016yds,Biedermann:2017bss}.
 
@@ -370,179 +366,7 @@ with the contributions at orders $\mathcal{O} (\alpha^6)$ (EW), $\mathcal{O} (\a
 \end{center}
 \end{figure}
 
-
-\subsubsection*{Parton level comparisons}
-
-\begin{table}
-\begin{center} 
-\begin{tabular}{ c | c | c }
- $\mu = \mu_{\rm fix}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
-  \hline\hline
-{\sc MG5\_aMC}        & $XX$  & $XX$   \\
-  {\sc MoCaNLO}+{\sc Recola}             & $0.28496(6)$  & $0.16718(3)$  \\
-{\sc Sherpa}        & $0.285(5)$  & $0.1664(9)$   \\
-{\sc VBFNLO}        & $XX$  & $XX$   \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{
-Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
-The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
-The scale used in the simulations is $\mu = \mu_{\rm fix} = M_W$.
-The integration errors of the last digits are given in parentheses.}
-\label{table:xsectLOfix}
-\end{table}
-
-\begin{table}
-\begin{center} 
-\begin{tabular}{ c | c | c }
- $\mu = \mu_{\rm dyn}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
-  \hline\hline
-{\sc MG5\_aMC}        & $XX$  & $XX$   \\
-  {\sc MoCaNLO}+{\sc Recola}             & $0.25416(6)$  & $0.15003(3)$  \\
-{\sc Sherpa}        & $0.2573(3)$  & $0.1499(2)$   \\
-{\sc VBFNLO}        & $XX$  & $XX$   \\
-  \hline
-\end{tabular}
-\end{center}
-\caption{
-Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
-The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm TeV}$.
-The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
-The integration errors of the last digits are given in parentheses.}
-\label{table:xsectLOdyn}
-\end{table}
-
-\subsubsection*{Comparisons after parton shower}
-
-Figures~\ref{vbs_fig_shower_1a} and \ref{vbs_fig_shower_1b} show a comparison of results obtained with different
-generators for ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu =
-M_W$.
-Figures~\ref{vbs_fig_shower_2a} and \ref{vbs_fig_shower_2b} show the same distribution for \MGAMC with different scale
-choices, either dynamic or fixed with value equal to $M_W$ and $M_Z$.
-Finally in Figures~\ref{vbs_fig_shower_3a},\ref{vbs_fig_shower_3b},\ref{vbs_fig_shower_4a} and \ref{vbs_fig_shower_4b} a
-comparison of results for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p}
-\to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ is shown for 
-different generators and different scale values, dynamic or fixed.    
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_mjj}
-   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_dEtajj}
-   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_ZPt}
-   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_dRjj}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_W$: 
-                invariant mass of the two jets~(top left),
-                rapidity separation between the two jets~(top right)
-                transverse momentum of the anti-muon--muon~(bottom left), and
-                distance between the two jets~(bottom right).}
-\label{vbs_fig_shower_1a}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_zep3l}
-   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_zepj3}
-   \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_nJets}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_W$: 
-                Zeppenfeld variable for the three leptons~(top left),
-                Zeppenfeld variable for the third jet~(top right)
-                number of jets~(bottom).}
-\label{vbs_fig_shower_1b}
-\end{center}
-\end{figure}
-
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_mjj}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_dEtajj}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_ZPt}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_dRjj}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
-                invariant mass of the two jets~(top left),
-                rapidity separation between the two jets~(top right)
-                transverse momentum of the anti-muon--muon~(bottom left), and
-                distance between the two jets~(bottom right).}
-\label{vbs_fig_shower_2a}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_zep3l}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_zepj3}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_nJets}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
-                Zeppenfeld variable for the three leptons~(top left),
-                Zeppenfeld variable for the third jet~(top right)
-                number of jets~(bottom).}
-\label{vbs_fig_shower_2b}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_mjj}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_dEtajj}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_ZPt}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_dRjj}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
-                invariant mass of the two jets~(top left),
-                rapidity separation between the two jets~(top right)
-                transverse momentum of the anti-muon--muon~(bottom left), and
-                distance between the two jets~(bottom right).}
-\label{vbs_fig_shower_3a}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_zep3l}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_zepj3}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_nJets}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
-                Zeppenfeld variable for the three leptons~(top left),
-                Zeppenfeld variable for the third jet~(top right)
-                number of jets~(bottom).}
-\label{vbs_fig_shower_3b}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_mjj}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_dEtajj}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_ZPt}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_dRjj}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
-                invariant mass of the two jets~(top left),
-                rapidity separation between the two jets~(top right)
-                transverse momentum of the anti-muon--muon~(bottom left), and
-                distance between the two jets~(bottom right).}
-\label{vbs_fig_shower_4a}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_zep3l}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_zepj3}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_nJets}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
-                Zeppenfeld variable for the three leptons~(top left),
-                Zeppenfeld variable for the third jet~(top right)
-                number of jets~(bottom).}
-\label{vbs_fig_shower_4b}
-\end{center}
-\end{figure}
+\input{comparison}
 
 \subsection{Conclusions \label{vbs_concl}}
 
