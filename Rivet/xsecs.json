@@ -71,6 +71,7 @@
     },
     "WmZTo1E1Nu2Mu_VBFNLO-Herwig7" : {
         "filename" : "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda",
+        "process" : "p p > e- v mu+ mu-",
         "generator" : "VBFNLO",
         "RunBy" : "Matthias Mozer, with input from Michael Rauch, Simon Plaetzer",
         "scale" : "fixed_MW",
@@ -79,5 +80,28 @@
         "Notes" : "Run via the internal VBFNLO+Herwig7 interface",
         "inputXsec" : 0.0009972,
         "fiducialXsec" : 0.000116805
+    },
+    "WZTo3LNu_VBFNLO-Herwig7" : {
+        "filename" : "WZTo3LNu_DefaultConfig_VBFNLO-Herwig7.yoda",
+        "process" : "p p > l+ v l+ l-, l = e, mu",
+        "generator" : "VBFNLO",
+        "RunBy" : "Michael Rauch",
+        "scale" : "max[pT(j)]",
+        "configuration" : "VBFNLO default",
+        "shower" : "Herwig7",
+        "Notes" : "",
+        "inputXsec" : 1.0026,
+        "fiducialXsec" : 0.156714
+    },
+    "WZTo3LNu_DefaultConfig_VBFNLO" : {
+        "filename" : "WZTo3LNu_DefaultConfig_VBFNLO_FO.yoda",
+        "generator" : "VBFNLO",
+        "RunBy" : "Michael Rauch",
+        "scale" : "fixed_MW",
+        "configuration" : "Les Houches",
+        "shower" : "Herwig7",
+        "Notes" : "Run via the internal VBFNLO+Herwig7 interface",
+        "inputXsec" : 1.0026,
+        "fiducialXsec" : 0.156714
     }
 }
