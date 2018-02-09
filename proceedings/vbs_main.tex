@@ -67,21 +67,29 @@ MP acknowledges financial support by the BMBF under contract no.~05H15WWCA1 and 
 
 \subsection{Introduction \label{vbs_intro}}
 
-The electroweak (EW) production of vector-boson pairs in association with two jets at the Large Hadron Collider (LHC) in CERN represents a very important type of processes both theoretically and experimentally.
-This class of processes is dominated by vector-boson scattering (VBS) contributions and constitutes thus the first example of processes where the scattering of two massive gauge bosons can be observed at the LHC.
-In the scattering of two massive gauge bosons, the Higgs boson is playing a very special role.
-It prevents the cross section from diverging in the high-energy limit and preserve the unitarity of the associated scattering amplitudes.
-More importantly, these VBS signatures just started to be observed and even measured by the experimental collaborations at the LHC.
-These are particularly challenging measurements due to the high multiplicity of the processes and their small cross sections.
-The best measurement \cite{Aad:2014zda,Khachatryan:2014sta,Sirunyan:2017ret,Aaboud:2016ffv} concerns the signature where the scattering of two same sign W boson occurs (usually denoted ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$).
-The reason for this is that it possesses a very specific structure due to the same-sign charged leptons in the final state.
-Therefore, in addition to having a rather large cross section, it also features a low irreducible background.
-Other signatures such as ${\rm Z}{\rm Z}{\rm j}{\rm j}$, ${\rm W}^+{\rm W}^-{\rm j}{\rm j}$, or ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ are even more challenging due to the lower cross section and larger irreducible background.
-Nonetheless, observations have already been performed at the LHC for both the ${\rm Z}{\rm Z}{\rm j}{\rm j}$ \cite{Sirunyan:2017fvv} and ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ \cite{Aad:2016ett} scattering.
+The electroweak (EW) production of vector-boson pairs in association with two jets at the CERN Large Hadron Collider (LHC) forms a important class of processes both theoretically and experimentally.
+This signature includes vector-boson scattering (VBS) contributions, which constitute the principle example of processes where the scattering of two massive gauge bosons can be observed at the LHC.
+These processes provide a natural probe of the vector boson quartic couplings, which arise due to the non-Abelian nature of the electroweak gauge group and are exactly predicted by the SM.
+The Higgs boson plays a unqiue role in these interactions, preventing the cross section from diverging in the high-energy limit and preserveing the unitarity of the associated scattering amplitudes.
+Deviations in these channels could therefore indicate physics in the electroweak sector beyond the standard model.
 
-Therefore, ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ is likely to be one of the signatures to be measured next.
-Hence, a preliminary study on this process is highly desirable.
-It will probably help the experimental collaborations to investigate more efficiently the EW production of ${\rm W}^{\pm}{\rm Z}$ in association with two jets.
+Measurments of these processes are particularly challenging due to the high multiplicity of the processes and their small cross sections, and 
+have only been observed and even measured recently by the experimental collaborations at the LHC.
+The most preicse current measurement \cite{Aad:2014zda,Khachatryan:2014sta,Sirunyan:2017ret,Aaboud:2016ffv} concerns the scattering of two same sign W bosons (usually denoted ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$).
+This process has a unique signature due to the same-sign charged leptons in the final state.
+The cross section is well within reach with the large datasets being collected in the LHC Run II, and the
+signature is experimentally assessible due to the precise lepton identification, charge, and momentum resolution of the LHC experiements.
+The nature of the final state is also attractive due to the low rate of background processes
+producing two prompt, same sign leptons associated with forward jets (referred to as the irreducible background).
+
+Measuremnts of other VBS signatures such as ${\rm Z}{\rm Z}{\rm j}{\rm j}$, ${\rm W}^+{\rm W}^-{\rm j}{\rm j}$, or ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ present additional challengs due to the lower cross section and larger irreducible backgrounds, which dominate over the VBS contribution in most regions of phase space.
+Nonetheless, observations have already been performed at the LHC for both the ${\rm Z}{\rm Z}{\rm j}{\rm j}$ \cite{Sirunyan:2017fvv} and ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ \cite{Aad:2016ett} scattering at $\sqrt{s} = 8$~TeV.
+In these cases, separation of the electroweak component of the VVjj state relies on exploiting the different characteristics of the VBS and non-VBS
+components through kinematic selections, which relies on theoretical predictions.
+Accurate predictions and a detailed understanding of their associated uncertainties therefore directly impact such measurements.
+A theory-agnostic measurement that does not attempt separation of states by production mode avoids such dependencies,
+but cannot fully leverage the statistical tools and treatment of uncertainties available in an experimental analysis.
+The approaches are therefore complementary, and are often presented together in experimental results.
 
 From a theoretical point of view, one of the challenges for the predictions of the EW di-boson production in association with two jets is its high multiplicity.
 This explains why in the past, next-to-leading order (NLO) predictions have focused on VBS approximations.
@@ -91,10 +99,13 @@ Qualitatively, one could expect a similar conclusion for other processes such as
 Therefore, in this proceedings we aim at making a similar comparison of theoretical predictions implemented in Monte Carlo programs.
 This allows to infer the quality of the VBS approximation at leading-order (LO).
 
-Experimentally, the measurement of the EW contribution to the ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ is very challenging.
-The reasons for this is that is possesses a rather low cross section while having a large irreducible background.
-Indeed, due to its colour structure, the ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ signature possesses three different contributions at LO.
-The first one is the one of order $\mathcal{O} (\alpha^6)$ which is usually referred to as the EW component or even VBS component (even if it also possesses non-VBS contributions such as tri-boson ones).
+As such there is strong motivation for an investigation of the theoretical tools, predictions, and uncertainties
+used in a typical VBS analysis. 
+We focus on the ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ \cite{Aad:2016ett} state, the measurement of which was strongly limited by the size of the dataset, 
+but which has not yet been studied at the 13 TeV LHC. Hence, a preliminary study on this process is of particular interest.
+
+Due to its colour structure, the ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ signature possesses three different contributions at LO.
+The first, of order $\mathcal{O} (\alpha^6)$, is usually referred to as the EW component or even VBS component (even if it also possesses non-VBS contributions such as tri-boson ones).
 The two quark lines can also be connected via a gluon while the gauge bosons are radiated off the quark lines.
 This contribution is of order $\mathcal{O} (\alpha_{\rm s}^2\alpha^4)$ and is called QCD contribution/background.
 Finally, due to its structure, there exists a non-zero interference of order $\mathcal{O} (\alpha_{\rm s}\alpha^5)$.
@@ -102,12 +113,15 @@ For this signature (as opposed to \emph{e.g.}\ ${\rm W}^\pm{\rm W}^\pm{\rm j}{\r
 This implies having very exclusive experimental cuts in order to enhance the EW contribution and a good control over the description of both the EW signal and QCD background.
 To that end, the understanding of theoretical predictions and Monte Carlo programs is key.
 In particular, it is vital to ensure that all different programs can provide equivalent physics result.
-Also, Monte Carlo generators comparisons are sometimes done with different input parameters.
-These different input parameters (such as \emph{e.g.}\ parton density function (PDF)) can have a significant impact on the predictions both in shape and normalisation.
-In the present study we use a common set-up for all predictions at LO accuracy possibly supplemented with a parton shower with realistic experimental event selection.
+Such comparisons can also shed light on the true uncertainties of such predictions.
+In addition to the typical uncertainty treatments asses the impact of parton density function (PDF) 
+uncertainties or of missing higher orders in perturbative QCD, Monte Carlo generators require many input parameters,
+the selection of which  can have a significant impact on the predictions both in shape and normalisation.
+In the present study we use a common set-up for all predictions at LO accuracy. We additionally provide results with
+variations in some parameters and comment are their effects and motivations.
 
 In these proceedings, we start with Sec.~\ref{vbs_theory} where a short review of the theoretical state-of-the-art predictions is given.
-The programs used in the present work are also briefly described there.
+The programs used in the present work are also briefly described.
 In Sec.~\ref{setup}, the set-up of the calculation is presented.
 It amounts to give the input parameters as well as the event selection.
 Section~\ref{vbs_results} is devoted to the results of the study.
