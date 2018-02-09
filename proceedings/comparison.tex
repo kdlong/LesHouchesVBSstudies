@@ -40,17 +40,16 @@ The integration errors of the last digits are given in parentheses.}
 \label{table:xsectLOdyn}
 \end{table}
 
+The VBS approximation as implemented in {\sc VBFNLO} seems to approximate rather well the full computations in the fiducial region chosen.
+Therefore, as for the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ \cite{Anders:2018gfr}, this approximation is well below the current experimental accuracy.
+\MP{Michael, maybe you could elaborate on it and state what is implemented in VBFNLO. I guess this is the same as for WW?}
+
 \subsubsection*{Comparisons after parton shower}
 
 Figures~\ref{vbs_fig_shower_1a} and \ref{vbs_fig_shower_1b} show a comparison of results obtained with different
 generators for ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu =
-M_W$.
-Figures~\ref{vbs_fig_shower_2a} and \ref{vbs_fig_shower_2b} show the same distribution for \MGAMC with different scale
-choices, either dynamic or fixed with value equal to $M_W$ and $M_Z$.
-Finally in Figures~\ref{vbs_fig_shower_3a},\ref{vbs_fig_shower_3b},\ref{vbs_fig_shower_4a} and \ref{vbs_fig_shower_4b} a
-comparison of results for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p}
-\to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ is shown for 
-different generators and different scale values, dynamic or fixed.    
+M_W$. In Figures~\ref{vbs_fig_shower_2a},\ref{vbs_fig_shower_2b} results are compared between fixed scale  $\mu =
+M_W$ and dynamic scale $\mu = max({p_{T,j}})$.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -82,15 +81,14 @@ different generators and different scale values, dynamic or fixed.
 \end{center}
 \end{figure}
 
-
 \begin{figure}[htbp]
 \begin{center}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_mjj}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_dEtajj}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_ZPt}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_dRjj}
+   \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_mjj}
+   \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_dEtajj}
+   \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_ZPt}
+   \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_dRjj}
 \caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
                 invariant mass of the two jets~(top left),
                 rapidity separation between the two jets~(top right)
                 transverse momentum of the anti-muon--muon~(bottom left), and
@@ -101,11 +99,10 @@ different generators and different scale values, dynamic or fixed.
 
 \begin{figure}[htbp]
 \begin{center}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_zep3l}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_zepj3}
-   \includegraphics[scale=0.65]{figs/MG_WmZ_OF_nJets}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
+   \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_zep3l}
+   \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_zepj3}
+   \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_nJets}
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
                 Zeppenfeld variable for the three leptons~(top left),
                 Zeppenfeld variable for the third jet~(top right)
                 number of jets~(bottom).}
@@ -113,60 +110,3 @@ different generators and different scale values, dynamic or fixed.
 \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_mjj}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_dEtajj}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_ZPt}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_dRjj}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
-                invariant mass of the two jets~(top left),
-                rapidity separation between the two jets~(top right)
-                transverse momentum of the anti-muon--muon~(bottom left), and
-                distance between the two jets~(bottom right).}
-\label{vbs_fig_shower_3a}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_zep3l}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_zepj3}
-   \includegraphics[scale=0.65]{figs/WmZ_OF_nJets}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
-                Zeppenfeld variable for the three leptons~(top left),
-                Zeppenfeld variable for the third jet~(top right)
-                number of jets~(bottom).}
-\label{vbs_fig_shower_3b}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_mjj}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_dEtajj}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_ZPt}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_dRjj}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
-                invariant mass of the two jets~(top left),
-                rapidity separation between the two jets~(top right)
-                transverse momentum of the anti-muon--muon~(bottom left), and
-                distance between the two jets~(bottom right).}
-\label{vbs_fig_shower_4a}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_zep3l}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_zepj3}
-   \includegraphics[scale=0.65]{figs/WpZ_OF_nJets}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
-                Zeppenfeld variable for the three leptons~(top left),
-                Zeppenfeld variable for the third jet~(top right)
-                number of jets~(bottom).}
-\label{vbs_fig_shower_4b}
-\end{center}
-\end{figure}
