@@ -13,8 +13,8 @@ Fixed scale = M_{Z}
 
 * MadGraph LO (no b quarks,  and no decay syntax
     * Fiducial: 0.4397 +- 0.0004 fb (all cuts in run card)
-        * (e+mm only): 0.27827 +/- 0.00031
-        * (e-mm only): 0.16147 +/- 0.00024
+        * (e+mm only): 0.27827 +/- 0.00031 -- 0.2774 +/- 0.00063 (running again)
+        * (e-mm only): 0.16147 +/- 0.00024 -- 0.1609 +/- 0.00043 (with complex mass scheme and Mathieus proc_card)
 
 * Recola+MoCaNLO (fixed scale M_W)
     * Fiducial: 0.45214 fb
