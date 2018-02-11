@@ -14,6 +14,8 @@ SHERPA="'Scale=1000:Title={Sherpa}:LineColor=orange:ErrorBandColor=orange:ErrorB
 # filter the plots with the option -m 
 comm_fixMW="rivet-mkhtml -n5 -o rivet-plots-MG-VBFNLO-FIXEDMW  -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda:$VBFNLOPY ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda:$MGEMMFIXED ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda:$VBFNLOHW ../data/VBS_WZ_MW_Sherpa.yoda:$SHERPA"
 
+comm_fixMW_rebin="rivet-mkhtml -n5 -o rivet-plots-MG-VBFNLO-FIXEDMW  -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8_REBIN.yoda:$VBFNLOPY ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8_REBIN.yoda:$MGEMMFIXED ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7_REBIN.yoda:$VBFNLOHW ../data/VBS_WZ_MW_Sherpa_REBIN.yoda:$SHERPA"
+
 # Use binning from old Rivet routine
 comm_vbfnlo_herwig="rivet-mkhtml -n5 -o ~/www/Rivet/rivet-plots-MG-VBFNLO-Herwig_all  -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_OldBinning_madgraph-pythia8.yoda:$MGEMMFIXED ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_OldBinning_VBFNLO-Herwig7.yoda:$VBFNLOHW ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_fromLHE_VBFNLO-Herwig7.yoda:$VBFNLOHW_SO"
 
@@ -25,7 +27,9 @@ comm_dyn="rivet-mkhtml -n5 -o rivet-plots-dyn -c style_WZVBS_LesHouchesStudy.plo
 
 #comm_vbfnlo_tune="rivet-mkhtml -n5 -o rivet-plots-VBFNLO-OF-tune -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/.*OF.*" ../data/WZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda:$VBFNLOPY ../data/vbs_CUETP8M1.yoda:$VBFNLOPYCUET"
 
-eval $comm_fixMW
+#eval $comm_fixMW
+
+eval $comm_fixMW_rebin
 
 #eval $comm_mg_Wm
 
