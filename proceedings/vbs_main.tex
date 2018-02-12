@@ -223,18 +223,21 @@ Monte-Carlo event generator for processes with electroweak bosons.
 Besides the Standard Model, selected processes can also be calculated in
 a variety of new-physics models, including effective field theories with
 dimension-6 and dimension-8 operators.
-Its use of leptonic tensors in the calculation of the matrix elements
-can lead to a significant speed improvement compared to automatically
-generated code.
-For results with parton showers in this study, \VBFNLO serves as the
-matrix-element provider and phase-space generator for \Herwig. The
-interface between the two programs is based on an extension of the BLHA
-standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}.
 The matrix elements for VBF and VBS processes are calculated in the VBS
 approximation. The corresponding $s$-channel contribution, which can be
 seen as triboson production where one vector boson decays hadronically,
 is available as well, but its contribution not included in the studies
 presented here.
+Its use of leptonic tensors in the calculation of the matrix elements
+can lead to a significant speed improvement compared to automatically
+generated code.
+For results with parton showers in this study, \VBFNLO can serve as the
+matrix-element provider and phase-space generator for \Herwig. The
+interface between the two programs is based on an extension of the BLHA
+standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}. When
+combining \VBFNLO results with showering performed by Pythia, event
+files following the Les Houches LHE file
+standard~\cite{Boos:2001cv,Alwall:2006yp} are used instead.
 
 
 \subsection{Details of the set-up \label{setup}}
