@@ -21,7 +21,7 @@ In general, too aggressive estimations of the statistical errors as well as miss
 \end{tabular}
 \end{center}
 \caption{
-\KL{There is a consistent bias low in my MG numbers. I still have no idea why...}
+\KL{There is a consistent bias low in my MG numbers. Since it is clearly correlated with low mjj/etajj, any idea what cut might be behaving differently?}
 Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
 The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm~TeV}$.
 The scale used in the simulations is $\mu = \mu_{\rm fix} = M_W$.
@@ -42,7 +42,7 @@ The integration errors of the last digits are given in parentheses.}
 \end{tabular}
 \end{center}
 \caption{
-\KL{At the moment we don't have dynmaic scale results from VBFNLO. I don't think it's absolutely needed but maybe Michael is interested in producing them?}
+\KL{Michael has provided dynamic scale results from VBFNLO but I don't think I will have the chance to plot them before the first draft}
 Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
 The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm~TeV}$.
 The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
@@ -60,7 +60,6 @@ Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} v
 This support the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for such a comparison for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
 This means that the VBS approximation ({\sc VBFNLO}) seems to approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
 \MP{Michael, maybe you could elaborate on it and state what is implemented in VBFNLO. I guess this is the same as for WW?}
-\MP{Are the bars, the statistical error? If yes, it should be specified in the text and the caption of the plots.}
 
 \begin{figure}[htbp]
 \begin{center}
@@ -70,7 +69,8 @@ This means that the VBS approximation ({\sc VBFNLO}) seems to approximate rather
   \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_{\rm W}$: 
                 invariant mass of the two jets~(left),
                 rapidity separation between the two jets~(right).
-                The predictions in the lower plot are normalised to the ones of {\sc MG5\_aMC}.
+                The predictions in the lower plot are normalised to the ones of {\sc MG5\_aMC}. Uncertainties
+                shown in the ratio plot are statistical only.
                 }
 \label{vbs_fig_fixed_order}
 \end{center}
@@ -86,6 +86,8 @@ the invariant mass of the two jets, the rapidity separation between the two jets
 The overall picture is that the predictions obtained from {\sc Sherpa}, {\sc VBFNLO}+{\sc PYTHIA8}, and {\sc MG5\_aMC}+{\sc PYTHIA8} agree rather well over the whole kinematic range.
 On the other hand, the predictions obtained from {\sc VBFNLO}+{\sc HERWIG7} seem to be very different for all type of distributions.
 \MP{What is the band? Statistical error or scale uncertainty? This should be specified in the text and the caption of the plots.}
+\KL{We should decide how to present the results. Since it seems something is not right with the VBFNLO+Herwig plots (they look different
+    to the VBNFLO standalone + Herwig LHE showered). Do we want to show those results instead?}
 
 \begin{figure}[htbp]
 \begin{center}
@@ -103,7 +105,7 @@ On the other hand, the predictions obtained from {\sc VBFNLO}+{\sc HERWIG7} seem
 \end{center}
 \end{figure}
 
-These differences are even more explicit on Fig.~\ref{vbs_fig_shower_1b}.
+These differences are more explicit in Fig.~\ref{vbs_fig_shower_1b}.
 There, the Zeppenfeld variable for the three charged leptons and the third jet as well as the number of jets is displayed.
 The Zeppenfeld variable for a given particle $X$ is defined as
 
@@ -112,9 +114,16 @@ The Zeppenfeld variable for a given particle $X$ is defined as
 \end{equation}
 %
 where $y_{{\rm j}_{1/2}}$ are the rapidity of the first and second hardest jet, respectively.
-The Zeppenfeld variable of the third jet as well as the number of jets beyond 2, are observables that are not defined at LO.
-These are only non-zero thanks to the emissions of the parton shower.
-It is thus expected that these feature an even worse agreement that the previously discussed observables.
+The Zeppenfeld variable of the third jet, as well as the number of jets beyond two, are observables that are not defined at LO,
+and are only non-zero thanks to the emissions of the parton shower.
+It is thus expected that these feature an even worse agreement that the previously discussed observables, as 
+significantly different algorithms are imployed by the parton shower generators we consider. 
+We note that even where there are similarities, we have not taken care to tune the parameters
+of the shower but rather consider the spread of predictions as reflective of the uncertainty 
+of the parton shower dominated observables. While variables such as the Zeppenfeld of the third jet
+have known separation power between the EW and QCD induced production, tuning an experimental selection 
+on this observable would introduce large theoretical uncertainties, especially if only LO predictions
+are considered. A similar argument holds for a veto on extra jet activity.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -133,8 +142,8 @@ It is thus expected that these feature an even worse agreement that the previous
 
 In Figs.~\ref{vbs_fig_shower_2a} and \ref{vbs_fig_shower_2b} results are compared between fixed scale $\mu = M_{\rm W}$ and dynamic scale $\mu = {\rm Max}\left[p_{\rm T, j}\right]$.
 In particular, predictions for {\sc Sherpa} and {\sc MG5\_aMC} for both scales are presented.
-The observables displayed are the same than for the previous comparison.
-For the invariant mass of the two jets as well as the transverse momentum of the anti-muon--muon system, it seems that for both generators, the use of fixed scale enhance the predictions toward high transverse momentum.
+The observables displayed are the same as for the previous comparison.
+For the invariant mass of the two jets as well as the transverse momentum of the anti-muon--muon system, we see that for both generators, the use of fixed scale enhance the predictions toward high transverse momentum.
 For the rapidity separation of the two jets as well as the distance between the two jets, the shape difference between fixed and dynamical scale is not present for {\sc MG5\_aMC}.
 On the other hand, in {\sc Sherpa}, the use of fixed scale enhance the predictions for small separations.
 
