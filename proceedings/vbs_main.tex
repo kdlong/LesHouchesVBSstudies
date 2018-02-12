@@ -54,6 +54,7 @@
 \newcommand{\MP}[1]{{ {\color{blue}{ [MP: #1]}} }}
 \newcommand{\KL}[1]{{ {\color{yellow}{ [KL: #1]}} }}
 \newcommand{\SB}[1]{{ {\color{green}{ [SB: #1]}} }}
+\newcommand{\MR}[1]{{ {\color{cyan}{ [MR: #1]}} }}
 
 \usepackage{color}
 \usepackage{morefloats}
@@ -153,7 +154,14 @@ In Ref.~\cite{Biedermann:2016yds}, it has been argued that large NLO EW correcti
 Therefore, they are expected to play a significant role for all VBS signatures.
 In Ref.~\cite{Biedermann:2017bss}, which focuses on the computation of the full NLO corrections to the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ process, it has been shown that the EW corrections to the EW process are the dominant NLO corrections.
 This means that the EW corrections to the EW contributions are expected to be at least of the same order than the QCD ones for other VBS signatures.
-\MP{Add some comments/references on parton shower to be added by Michael/Simon.}
+Parton-shower effects to VBS processes and the resulting uncertainties
+induced by a variation of factorization, renormalization and
+shower-starting scale have also been studied
+recently~\cite{Rauch:2016upa,Rauch:2016pai}, taking the ${\rm W}^+{\rm
+W}^-{\rm j}{\rm j}$ VBS process as an example. Thereby, the standard LHC
+jet definition with a cone radius of $R{=}0.4$ leads to migration
+effects~\cite{Rauch:2017cfu} and a reduction of the cross section by about 10\% compared to
+the fixed-order results after VBF cuts.
 
 In the following, the codes used for the predictions are briefly described.
 
@@ -222,7 +230,11 @@ For results with parton showers in this study, \VBFNLO serves as the
 matrix-element provider and phase-space generator for \Herwig. The
 interface between the two programs is based on an extension of the BLHA
 standard~\cite{Binoth:2010xt,Alioli:2013nda,Andersen:2014efa}.
-\MP{@Michael: Some comments on the matrix elements? Not full matrix element?}
+The matrix elements for VBF and VBS processes are calculated in the VBS
+approximation. The corresponding $s$-channel contribution, which can be
+seen as triboson production where one vector boson decays hadronically,
+is available as well, but its contribution not included in the studies
+presented here.
 
 
 \subsection{Details of the set-up \label{setup}}
@@ -284,9 +296,13 @@ while the dynamical scale used is
 \end{equation}
 %
 The latter should be understood as the maximum of the transverse momenta of the tagging jets (defined below).
-\MP{Justification for this scale choice? For Michael/Simon}
-These two scale are the default fixed and dynamical scale, respectively.
-If the scale used are different, this is explicitly stated in the text.
+This observable is closely connected to the momentum transfer through
+the virtual vector boson, which has been shown to be a reasonable scale
+choice, and is also a reasonable choice when used as the starting scale
+of the parton shower~\cite{Rauch:2016upa}.
+
+These two scales are the default fixed and dynamical scale, respectively.
+If the scale used is different, this is explicitly stated in the text.
 
 Photon-induced as well as bottom-induced contributions have been neglected.
 The photon contributions are expected to be small \cite{Biedermann:2017bss} while the bottom-induced contribution can lead to single-top resonant contributions.
