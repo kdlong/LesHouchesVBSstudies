@@ -1,5 +1,13 @@
 \subsubsection*{Parton level comparisons}
 
+We start the comparison of the various predictions by a comparison at the level of the cross section.
+The fiducial volume is the one described in Eqs.~\eqref{cut:1}-\eqref{cut:4}.
+The results are documented in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn}.
+The cross sections for both processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at fixed and dynamical scales are presented.
+The predictions are clearly not in statistical agreement but they usually agree within about one per cent apart from {\sc MG5\_aMC}.
+For the later, this is probably due to a miss configuration of the run.
+In general, too aggressive estimations of the statistical errors as well as miss configurations of the run cannot be excluded.
+
 \begin{table}
 \begin{center} 
 \begin{tabular}{ c | c | c }
@@ -42,6 +50,16 @@ The integration errors of the last digits are given in parentheses.}
 \label{table:xsectLOdyn}
 \end{table}
 
+As it can be see in Fig.~\ref{vbs_fig_fixed_order}, the agreements between the various predictions is usually rather good in both shape and normalisation.
+There, the invariant mass and rapidity separation of the two tagging jets are displayed.
+The larger discrepancy is found in the region of low rapidity-separation between the two jets.
+The difference is the largest between {\sc MoCaNLO}+{\sc Recola} and {\sc VBFNLO}.
+This can be explained by the different matrix element used.
+Indeed, {\sc VBFNLO} does not use the full matrix element and such differences (even is not that large) have been already observed for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ \cite{Anders:2018gfr}.
+Nonetheless, apart from this first bin, {\sc VBFNLO} seems to approximate rather well the full computations in the fiducial region chosen.
+Therefore, as for the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ \cite{Anders:2018gfr}, the VBS approximation seems to be below the current experimental accuracy.
+\MP{Michael, maybe you could elaborate on it and state what is implemented in VBFNLO. I guess this is the same as for WW?}
+
 \begin{figure}[htbp]
 \begin{center}
    \includegraphics[scale=0.375]{figs/mjj_FixedOrder.pdf}
@@ -49,15 +67,13 @@ The integration errors of the last digits are given in parentheses.}
 \caption{Differential distributions computed at fixed-order with centre-of-mass energy $\sqrt{s}=13{\rm~TeV}$ at the LHC for ${\rm p} {\rm p}
   \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_W$: 
                 invariant mass of the two jets~(left),
-                rapidity separation between the two jets~(right)
+                rapidity separation between the two jets~(right).
+                The predictions in the lower plot are normalised to the ones of {\sc MG5\_aMC}.
                 }
 \label{vbs_fig_fixed_order}
 \end{center}
 \end{figure}
 
-The VBS approximation as implemented in {\sc VBFNLO} seems to approximate rather well the full computations in the fiducial region chosen.
-Therefore, as for the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ \cite{Anders:2018gfr}, this approximation is well below the current experimental accuracy.
-\MP{Michael, maybe you could elaborate on it and state what is implemented in VBFNLO. I guess this is the same as for WW?}
 
 \subsubsection*{Comparisons after parton shower}
 
