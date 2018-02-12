@@ -170,13 +170,13 @@ In the following, the codes used for the predictions are briefly described.
 {\sc MadGraph5\_aMC@NLO}~\cite{Alwall:2014hca} is an automatic meta-code (a code that generates codes) which makes it possible to simulate any scattering process
       including NLO QCD corrections both at fixed order and including matching to parton showers. 
       The commands that have been used for the present computation are
-      \MP{To be finalised by Kenneth}
+\KL{I put here what I used, Mathieu can update with the approach that gave better results...}
 \begin{verbatim}
-> set complex_mass_scheme #1
-> generate XXX #2
-> output #3
+> set complex_mass_scheme
+> generate p p > e+(e-) ve(ve~) mu+ mu- #2
+> output WpZJJToENu2MuJJ
 \end{verbatim}
-  The version used is .
+  The version used is 2.6.0.
   
 \subsubsection*{\protect\Herwig \label{vbs_herwig}}
 
