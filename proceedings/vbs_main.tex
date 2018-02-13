@@ -83,12 +83,12 @@ have only been observed and even measured recently by the experimental collabora
 The most precise current measurement \cite{Aad:2014zda,Khachatryan:2014sta,Sirunyan:2017ret,Aaboud:2016ffv} concerns the scattering of two same sign W bosons (usually denoted ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$).
 This process has a unique signature due to the same-sign charged leptons in the final state.
 The cross section is well within reach with the large datasets being collected in the LHC Run II, and the
-signature is experimentally accessible due to the precise lepton identification, charge, and momentum resolution of the LHC experiments.
+signature is experimentally accessible due to the precise lepton and charge identification, and momentum resolution of the LHC experiments.
 The nature of the final state is also attractive due to the low rate of background processes
 producing two prompt, same sign leptons associated with forward jets (referred to as the irreducible background).
 
 Measurements of other VBS signatures such as ${\rm Z}{\rm Z}{\rm j}{\rm j}$, ${\rm W}^+{\rm W}^-{\rm j}{\rm j}$, or ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ present additional challenges due to the lower cross section and larger irreducible backgrounds, which dominate over the VBS contribution in most regions of phase space.
-Nonetheless, observations have already been performed at the LHC for both the ${\rm Z}{\rm Z}{\rm j}{\rm j}$ \cite{Sirunyan:2017fvv} and ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ \cite{Aad:2016ett} scattering at $\sqrt{s} = 8$~TeV.
+Nonetheless, observations have already been made at the LHC for both the ${\rm Z}{\rm Z}{\rm j}{\rm j}$ \cite{Sirunyan:2017fvv} and ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ \cite{Aad:2016ett} scattering at $\sqrt{s} = 8$~TeV.
 In these cases, separation of the electroweak component of the VVjj state relies on exploiting the different characteristics of the VBS and non-VBS
 components through kinematic selections, which relies on theoretical predictions.
 Accurate predictions and a detailed understanding of their associated uncertainties therefore directly impact such measurements.
@@ -97,10 +97,10 @@ but cannot fully leverage the statistical tools and treatment of uncertainties a
 The approaches are therefore complementary, and are often presented together in experimental results.
 
 From a theoretical point of view, one of the challenges for the predictions of the EW di-boson production in association with two jets is its high multiplicity.
-This explains why in the past, next-to-leading order (NLO) predictions have focused on VBS approximations.
+This is why in the past, next-to-leading order (NLO) predictions have focused on VBS approximations.
 Only recently, full NLO computations became available at NLO QCD and EW for both the EW component and the QCD-induced process for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ \cite{Biedermann:2017bss}.
 For this process, preliminary results \cite{Anders:2018gfr} of a comparison of different theoretical predictions have shown that differences between the full computation and VBS-approximated ones are not significant given the present experimental accuracy.
-Qualitatively, one could expect a similar conclusion for other processes such as ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ but an explicit check is still worth doing.
+Qualitatively, one could expect a similar conclusion for other processes such as ${\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ but a quantitative check is still needed.
 Therefore, in this proceedings we aim at making a similar comparison of theoretical predictions implemented in Monte Carlo programs.
 This allows to infer the quality of the VBS approximation at leading-order (LO).
 
@@ -114,13 +114,14 @@ The first, of order $\mathcal{O} (\alpha^6)$, is usually referred to as the EW c
 The two quark lines can also be connected via a gluon while the gauge bosons are radiated off the quark lines.
 This contribution is of order $\mathcal{O} (\alpha_{\rm s}^2\alpha^4)$ and is called QCD contribution/background.
 Finally, due to its structure, there exists a non-zero interference of order $\mathcal{O} (\alpha_{\rm s}\alpha^5)$.
-For this signature (as opposed to \emph{e.g.}\ ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$) the EW component is very suppressed with respect to the QCD one.
+For this signature (as opposed to \emph{e.g.}\ ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$) the EW component is highly suppressed with respect to the QCD one.
 This implies having very exclusive experimental cuts in order to enhance the EW contribution and a good control over the description of both the EW signal and QCD background.
 To that end, the understanding of theoretical predictions and Monte Carlo programs is key.
 In particular, it is vital to ensure that all different programs can provide equivalent physics result.
 Such comparisons can also shed light on the true uncertainties of such predictions.
-In addition to the typical uncertainty treatments asses the impact of parton density function (PDF) 
-uncertainties or of missing higher orders in perturbative QCD, Monte Carlo generators require many input parameters,
+In addition, typical uncertainty treatments asses the impact of parton density function (PDF) 
+uncertainties or of the missing higher orders in perturbative QCD. 
+Monte Carlo generators require many input parameters,
 the selection of which  can have a significant impact on the predictions both in shape and normalisation.
 In the present study we use a common set-up for all predictions at LO accuracy. We additionally provide results with
 variations in some parameters and comment on their effects and motivations.
@@ -148,13 +149,12 @@ and
  {\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}.
 \end{equation}
 %
-The predictions presented are all at LO but NLO QCD corrections to the EW contribution and its irreducible background are already known.
-The QCD corrections to the EW contributions are known since 10 years in the VBS approximation \cite{Bozzi:2007ur} while the QCD corrections to the QCD-induced process have been computed more recently \cite{Campanario:2013qba}.
+The predictions presented are all at LO but NLO QCD corrections to the EW contribution and its irreducible background are known since 10 years in the VBS approximation \cite{Bozzi:2007ur} while the QCD corrections to the QCD-induced process have been computed more recently \cite{Campanario:2013qba}.
 The NLO EW corrections are currently unknown.
 In Ref.~\cite{Biedermann:2016yds}, it has been argued that large NLO EW corrections to the EW contributions are an intrinsic feature of VBS at the LHC.
 Therefore, they are expected to play a significant role for all VBS signatures.
 In Ref.~\cite{Biedermann:2017bss}, which focuses on the computation of the full NLO corrections to the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ process, it has been shown that the EW corrections to the EW process are the dominant NLO corrections.
-This means that the EW corrections to the EW contributions are expected to be at least of the same order than the QCD ones for other VBS signatures.
+This means that the EW corrections to the EW contributions are expected to be at least of the same order as the QCD ones for other VBS signatures.
 Parton-shower effects to VBS processes and the resulting uncertainties
 induced by a variation of factorization, renormalization and
 shower-starting scale have also been studied
@@ -277,14 +277,14 @@ The EW coupling is renormalised in the $G_\mu$ scheme \cite{Denner:2000bj} where
     G_{\mu}    = 1.16637\times 10^{-5}{\rm~GeV}^{-2}.
 \end{equation}
 %
-With the previous input parameters, it corresponds to a numerical value for $\alpha$ of
+The input parameters above yield a numerical value for $\alpha$ of
 %
 \begin{equation}
  \alpha = 7.555310522369 \times 10^{-3}.
 \end{equation}
 %
 Note that for the EW contribution of order $\mathcal{O} (\alpha^6)$, no dependence on the strong coupling appears.
-For contributions (interference or QCD-induced contributions) where there is a dependence on $\alpha_{\rm s}$, the numerical value used is the one (potentially dynamically) extracted from the PDF set.
+For contributions (interference or QCD-induced contributions) where there is a dependence on $\alpha_{\rm s}$, the numerical value used is the one extracted from the PDF set.
 
 For the renormalisation and factorisation scales, two choices have been adopted.
 For the fixed scale, it is
@@ -388,12 +388,12 @@ Toward high invariant-mass, the EW component becomes more and more important.
 It even becomes of the same size as the QCD one for an invariant-mass of $2000{\rm~GeV}$.
 The same holds true for high rapidity separation for the two jets.
 On the other hand, the transverse invariant mass (bottom left) of muon--anti-muon pair does not display significant differences in the different contributions over the whole range.
-Other transverse-momentum distributions displays the same pattern.
+Other transverse-momentum distributions display the same pattern.
 Finally, we show the distance between the two jets.
 This observable also seems to possess a good discriminating power.
 In particular, for large distances, the EW component becomes dominant but with very low statistics.
-Concerning the interferences, they are extremely suppressed inheriting the cross section normalisation.
-In none of the studied observables, their contribution exceed the per-cent level over the whole phase-space range.
+The interference effects are extremely suppressed due to the smallness of the cross section.
+Contribution of each of the studied observable does not exceed the per-cent level over the whole phase-space range.
 
 \begin{figure}[htbp]
 \begin{center}
