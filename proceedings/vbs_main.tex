@@ -251,7 +251,7 @@ standard~\cite{Boos:2001cv,Alwall:2006yp} are used instead.
 \subsection{Details of the set-up \label{setup}}
 
 In this section we describe default input parameters that have been used.
-Also, the event selection used in the comparison are described.
+Also, the event selection used in the comparison is described.
 
 \subsubsection*{Input parameters}
 
@@ -265,7 +265,7 @@ The masses and widths of the particle used in the simulations are
 \begin{alignat}{2}
                 M_{\rm t}   &=  173.21 {\rm~GeV},             & \quad \quad \quad \Gamma_{\rm t} &= 0 {\rm~GeV},  \nonumber \\
                 M_{\rm Z}^{\rm OS} &=  91.1876{\rm~GeV},      & \quad \quad \quad \Gamma^{\rm OS}_{\rm Z} &= 2.4952{\rm~GeV},  \nonumber \\
-                M_{\rm W}^{\rm OS} &=  80.385{\rm~GeV},       & \Gamma^{\rm OS}_{\rm Z} &= 2.085{\rm~GeV},  \nonumber \\
+                M_{\rm W}^{\rm OS} &=  80.385{\rm~GeV},       & \Gamma^{\rm OS}_{\rm W} &= 2.085{\rm~GeV},  \nonumber \\
                 M_{\rm H} &=  125.0{\rm~GeV}, 		      & \Gamma_{\rm H}   &=  4.07 \times 10^{-3}{\rm~GeV}.
 \end{alignat}
 %
@@ -497,9 +497,12 @@ This means that the VBS approximation ({\sc VBFNLO}) seems to approximate rather
 \subsubsection*{Comparisons after parton shower}
 
 In Figs.~\ref{vbs_fig_shower_1a} and \ref{vbs_fig_shower_1b}, a comparison of results obtained with different
-generators for the process ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO supplemented with parton shower with fixed scaled $\mu =M_W$ is shown. 
+generators for the process ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO supplemented with parton shower with fixed scaled $\mu =M_W$ is shown. 
 In particular, in Fig.~\ref{vbs_fig_shower_1a} several differential distributions are shown:
-the invariant mass of the two jets, the rapidity separation between the two jets, the transverse momentum of the anti-muon--muon system, and the distance between the two jets.
+the invariant mass of the two jets, the rapidity separation between
+the two jets, the transverse momentum of the anti-muon--muon system,
+and the distance between the two jets. The error band in the plots represents the statistical error of the Monte Carlo
+prediction.  
 The overall picture is that the predictions obtained from {\sc Sherpa}, {\sc VBFNLO}+{\sc PYTHIA8}, and {\sc MG5\_aMC}+{\sc PYTHIA8} agree rather well over the whole kinematic range.
 On the other hand, the predictions obtained from {\sc VBFNLO}+{\sc HERWIG7} seem to be very different for all type of distributions.
 These differences can probably be attributed to the configuration of the sample obtained from {\sc VBFNLO}+{\sc HERWIG7} which should be further investigated.
@@ -515,7 +518,8 @@ These differences can probably be attributed to the configuration of the sample 
                 invariant mass of the two jets~(top left),
                 rapidity separation between the two jets~(top right)
                 transverse momentum of the anti-muon--muon system~(bottom left), and
-                distance between the two jets~(bottom right).}
+                distance between the two jets~(bottom right). The error band represents
+                the statistical error of the Monte Carlo prediction. }
 \label{vbs_fig_shower_1a}
 \end{center}
 \end{figure}
@@ -548,14 +552,17 @@ are considered. A similar argument holds for a veto on extra jet activity.
   \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_{\rm W}$: 
                 Zeppenfeld variable for the three leptons~(top left),
                 Zeppenfeld variable for the third jet~(top right)
-                number of jets~(bottom).
-                }
+                number of jets~(bottom). The error band represents
+                the statistical error of the Monte Carlo predictions. }
 \label{vbs_fig_shower_1b}
 \end{center}
 \end{figure}
 
 In Figs.~\ref{vbs_fig_shower_2a} and \ref{vbs_fig_shower_2b} results obtained using the fixed scale $\mu = M_{\rm W}$ and dynamic scale $\mu = {\rm Max}\left[p_{\rm T, j}\right]$ are compared.
-In particular, predictions for {\sc Sherpa} and {\sc MG5\_aMC} for both scales are presented.
+In particular, predictions for {\sc Sherpa} and {\sc MG5\_aMC} for both scales are presented. For
+{\sc MG5\_aMC} this prediction is obtained by reweighting each event for the difference between the matrix-element calculation
+with the fixed scale and the dynamic scale. The statistical uncertainty is therefore largely
+correlated between the two predictions for this Monte Carlo.  
 The observables displayed are the same as for the previous comparison.
 For the invariant mass of the two jets as well as the transverse momentum of the anti-muon--muon system, for both generators, the use of fixed scale enhances the predictions toward high transverse momentum.
 For the rapidity separation of the two jets as well as the distance between the two jets, the shape difference between fixed and dynamical scale is not present for {\sc MG5\_aMC}.
@@ -573,7 +580,10 @@ On the other hand, in {\sc Sherpa}, the use of fixed scale enhances the predicti
                 rapidity separation between the two jets~(top right)
                 transverse momentum of the anti-muon--muon system~(bottom left), and
                 distance between the two jets~(bottom right).
-                In the lower plots, the predictions are normalised to the ones of {\sc Sherpa} with dynamical scale.}
+                In the lower plots, the predictions are normalised to the ones of {\sc Sherpa} with
+                dynamical scale. The error band represents
+                the statistical error of the Monte Carlo predictions. For the two {\sc MG5\_aMC}
+                calculations this statistical error is largely correlated, as explained in the text.}
 \label{vbs_fig_shower_2a}
 \end{center}
 \end{figure}
@@ -592,8 +602,9 @@ The effect of the different scale amounts to a change in normalisation of about 
                 Zeppenfeld variable for the three leptons~(top left),
                 Zeppenfeld variable for the third jet~(top right)
                 number of jets~(bottom).
-                In the lower plots, the predictions are normalised to the ones of {\sc Sherpa} with dynamical scale.
-                }
+                In the lower plots, the predictions are normalised to the ones of {\sc Sherpa} with dynamical scale. The error band represents
+                the statistical error of the Monte Carlo predictions. For the two {\sc MG5\_aMC}
+                calculations this statistical error is largely correlated, as explained in the text.}
 \label{vbs_fig_shower_2b}
 \end{center}
 \end{figure}
