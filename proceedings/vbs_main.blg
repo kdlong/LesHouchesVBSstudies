@@ -1,0 +1,104 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
+The top-level auxiliary file: vbs_main.aux
+The style file: lesHouches.bst
+Database file #1: vbs_bib.bib
+Warning--empty title in Aad:2014zda
+Warning--empty title in Khachatryan:2014sta
+Warning--empty title in Sirunyan:2017ret
+Warning--empty title in Aaboud:2016ffv
+Warning--empty title in Sirunyan:2017fvv
+Warning--empty title in Aad:2016ett
+Warning--empty title in Biedermann:2017bss
+Warning--empty title in Anders:2018gfr
+Warning--empty booktitle in Anders:2018gfr
+Warning--empty title in Bozzi:2007ur
+Warning--empty title in Campanario:2013qba
+Warning--empty title in Biedermann:2016yds
+Warning--empty title in Rauch:2016upa
+Warning--empty title in Rauch:2016pai
+Warning--empty title in Rauch:2017cfu
+Warning--empty title in Alwall:2014hca
+Warning--empty title in Platzer:2011bc
+Warning--empty title in Bellm:2015jjp
+Warning--empty title in Bahr:2008pv
+Warning--empty title in Catani:1996vz
+Warning--empty title in Catani:2002hc
+Warning--empty title in Binoth:2010xt
+Warning--empty title in Alioli:2013nda
+Warning--empty title in Andersen:2014efa
+Warning--empty title in Arnold:2008rz
+Warning--empty title in Arnold:2011wj
+Warning--empty title in Baglio:2014uba
+Warning--empty title in Harland-Lang:2014zoa
+Warning--empty title in Bellm:2016rhh
+Warning--empty title in Actis:2012qn
+Warning--empty title in Actis:2016mpe
+Warning--empty title in Berends:1994pv
+Warning--empty title in Denner:1999gp
+Warning--empty title in Dittmaier:2002ap
+Warning--empty title in Denner:2005fg
+Warning--empty title in Gleisberg:2008ta
+Warning--empty title in Gleisberg:2003xi
+Warning--empty title in Gleisberg:2007md
+Warning--empty title in Schumann:2007mg
+Warning--empty title in Hoeche:2009xc
+Warning--empty title in Biedermann:2017yoi
+Warning--empty title in Hoeche:2009rj
+Warning--empty title in Hoche:2010kg
+Warning--empty title in Gleisberg:2008fv
+Warning--empty title in Krauss:2001iv
+Warning--empty title in Boos:2001cv
+Warning--empty title in Alwall:2006yp
+Warning--empty title in Ball:2014uwa
+Warning--empty title in Buckley:2014ana
+Warning--empty title in deFlorian:2016spz
+Warning--empty title in Bardin:1988xt
+Warning--empty title in Denner:2000bj
+Warning--empty author in CMS-PAS-SMP-14-008
+Warning--empty title in CMS-PAS-SMP-14-008
+Warning--empty title in Cacciari:2008gp
+Warning--empty title in Buckley:2010ar
+Warning--empty title in Khachatryan:2015pea
+Warning--empty title in Skands:2014pea
+You've used 56 entries,
+            2120 wiz_defined-function locations,
+            891 strings with 13305 characters,
+and the built_in function-call counts, 17162 in all, are:
+= -- 1610
+> -- 600
+< -- 1
++ -- 220
+- -- 164
+* -- 1515
+:= -- 2346
+add.period$ -- 59
+call.type$ -- 56
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 114
+duplicate$ -- 948
+empty$ -- 1665
+format.name$ -- 164
+if$ -- 4389
+int.to.chr$ -- 0
+int.to.str$ -- 56
+missing$ -- 207
+newline$ -- 173
+num.names$ -- 55
+pop$ -- 238
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 659
+stack$ -- 0
+substring$ -- 719
+swap$ -- 418
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 58
+while$ -- 118
+width$ -- 58
+write$ -- 550
+(There were 58 warnings)
