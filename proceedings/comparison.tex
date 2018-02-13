@@ -5,8 +5,7 @@ The fiducial volume is the one described in Eqs.~\eqref{cut:1}-\eqref{cut:4}.
 The results are documented in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn}.
 There, the cross sections for both processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at fixed and dynamical scales are presented.
 The predictions are clearly not in statistical agreement but they usually agree within about one per cent apart from {\sc MG5\_aMC}.
-For the later, the difference can probably be attributed to a miss configuration of the run.
-In general, too aggressive estimations of the statistical errors as well as miss-configurations of the run cannot be excluded.
+For the later, the difference can probably be attributed to a misconfiguration of the run.
 
 \begin{table}
 \begin{center} 
@@ -21,7 +20,6 @@ In general, too aggressive estimations of the statistical errors as well as miss
 \end{tabular}
 \end{center}
 \caption{
-\KL{There is a consistent bias low in my MG numbers. Since it is clearly correlated with low mjj/etajj, any idea what cut might be behaving differently?}
 Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
 The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm~TeV}$.
 The scale used in the simulations is $\mu = \mu_{\rm fix} = M_W$.
@@ -42,7 +40,6 @@ The integration errors of the last digits are given in parentheses.}
 \end{tabular}
 \end{center}
 \caption{
-\KL{Michael has provided dynamic scale results from VBFNLO but I don't think I will have the chance to plot them before the first draft}
 Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
 The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm~TeV}$.
 The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
@@ -50,18 +47,15 @@ The integration errors of the last digits are given in parentheses.}
 \label{table:xsectLOdyn}
 \end{table}
 
-As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, the agreements between the various predictions is usually relatively good in both shape and normalisation.
-There, the invariant mass and rapidity separation of the two tagging jets are displayed.
+As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, the agreement between the various predictions is usually relatively good in both shape and normalisation.
+The invariant mass and rapidity separation of the two tagging jets are displayed.
 The larger discrepancy is found in the region of low rapidity-separation between the two jets.
 The difference is the largest between {\sc MoCaNLO}+{\sc Recola}/{\sc VBFNLO} and {\sc MG5\_aMC}.
 This reflects what has already been seen at the level of the cross section.
-This could be explained with low statistics as well as a wrong input in the runs.
-Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO}), it seems that both predictions are well in agreement.
-This support the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for such a comparison for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
+This could be explained with low statistics and/or misconfiguration..
+Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO}), it seems that both predictions are in good agreement.
+This supports the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for similar comparisons for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
 This means that the VBS approximation ({\sc VBFNLO}) seems to approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
-\MP{Michael, maybe you could elaborate on it and state what is implemented in VBFNLO. I guess this is the same as for WW?}
-\MR{For this study I have used the pure VBS approximation, i.e. $t$-/$u$-channel without interference only. I've added some text in the VBFNLO description, this part here then I would leave as-is.}
-\MP{Are the bars, the statistical error? If yes, it should be specified in the text and the caption of the plots.}
 
 \begin{figure}[htbp]
 \begin{center}
@@ -107,8 +101,7 @@ On the other hand, the predictions obtained from {\sc VBFNLO}+{\sc HERWIG7} seem
 \end{center}
 \end{figure}
 
-These differences are more explicit in Fig.~\ref{vbs_fig_shower_1b}.
-There, the Zeppenfeld variable for the three charged leptons and the third jet as well as the number of jets is displayed.
+These differences are more pronounced in Fig.~\ref{vbs_fig_shower_1b} that displays the Zeppenfeld variable for the three charged leptons and the third jet as well as the number of jets.
 The Zeppenfeld variable for a given particle $X$ is defined as
 
 \begin{equation}
@@ -118,8 +111,8 @@ The Zeppenfeld variable for a given particle $X$ is defined as
 where $y_{{\rm j}_{1/2}}$ are the rapidity of the first and second hardest jet, respectively.
 The Zeppenfeld variable of the third jet, as well as the number of jets beyond two, are observables that are not defined at LO,
 and are only non-zero thanks to the emissions of the parton shower.
-It is thus expected that these feature an even worse agreement that the previously discussed observables, as 
-significantly different algorithms are imployed by the parton shower generators we consider. 
+It is thus expected that these feature an even worse agreement than the previously discussed observables, as 
+significantly different algorithms are employed by the parton shower generators we consider. 
 We note that even where there are similarities, we have not taken care to tune the parameters
 of the shower but rather consider the spread of predictions as reflective of the uncertainty 
 of the parton shower dominated observables. While variables such as the Zeppenfeld of the third jet
@@ -137,17 +130,17 @@ are considered. A similar argument holds for a veto on extra jet activity.
                 Zeppenfeld variable for the three leptons~(top left),
                 Zeppenfeld variable for the third jet~(top right)
                 number of jets~(bottom).
-                \MP{Range of the number of jets not correct.}}
+                }
 \label{vbs_fig_shower_1b}
 \end{center}
 \end{figure}
 
-In Figs.~\ref{vbs_fig_shower_2a} and \ref{vbs_fig_shower_2b} results are compared between fixed scale $\mu = M_{\rm W}$ and dynamic scale $\mu = {\rm Max}\left[p_{\rm T, j}\right]$.
+In Figs.~\ref{vbs_fig_shower_2a} and \ref{vbs_fig_shower_2b} results obtained using the fixed scale $\mu = M_{\rm W}$ and dynamic scale $\mu = {\rm Max}\left[p_{\rm T, j}\right]$ are compared.
 In particular, predictions for {\sc Sherpa} and {\sc MG5\_aMC} for both scales are presented.
-The observables displayed are the same as for the previous comparison.
-For the invariant mass of the two jets as well as the transverse momentum of the anti-muon--muon system, we see that for both generators, the use of fixed scale enhance the predictions toward high transverse momentum.
+The observables displayed are the same as the ones used for the previous comparison.
+For the invariant mass of the two jets as well as the transverse momentum of the anti-muon--muon system, for both generators, the use of fixed scale enhance the predictions toward high transverse momentum.
 For the rapidity separation of the two jets as well as the distance between the two jets, the shape difference between fixed and dynamical scale is not present for {\sc MG5\_aMC}.
-On the other hand, in {\sc Sherpa}, the use of fixed scale enhance the predictions for small separations.
+On the other hand, in {\sc Sherpa}, the use of fixed scale enhances the predictions for small separations.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -166,10 +159,10 @@ On the other hand, in {\sc Sherpa}, the use of fixed scale enhance the predictio
 \end{center}
 \end{figure}
 
-Concerning the last set of observables (Zeppenfeld variable of the three leptons and third jet as well as the number of jets) in Fig.~\ref{vbs_fig_shower_2b}, the use of fixed or dynamical scale does not seem to have a large impact.
-The only clearly visible differences between fixed and dynamical scale is the normalisation.
-This effect was already observed at the level of the fiducial cross section in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn}.
-There the effect of the different scale amount to a change in normalisation of about $12\%$ for both ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ processes.
+Concerning the last set of observables (Zeppenfeld variable of the three leptons and third jet as well as the number of jets) in Fig.~\ref{vbs_fig_shower_2b}, the use of fixed or dynamical scale does not have a large impact.
+The only clearly visible difference between fixed and dynamical scale is the normalisation.
+This effect is already observed at the level of the fiducial cross section in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn}.
+The effect of the different scale amounts to a change in normalisation of about $12\%$ for both ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ processes.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -181,7 +174,6 @@ There the effect of the different scale amount to a change in normalisation of a
                 Zeppenfeld variable for the third jet~(top right)
                 number of jets~(bottom).
                 In the lower plots, the predictions are normalised to the ones of {\sc Sherpa} with dynamical scale.
-                \MP{Range of the number of jets not correct.}
                 }
 \label{vbs_fig_shower_2b}
 \end{center}
