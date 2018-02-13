@@ -182,7 +182,7 @@ In the following, the codes used for the predictions are briefly described.
 > output WpZJJToENu2MuJJ_bis
 \end{verbatim}
   with the version 2.5.1.
-  These command gave for the cross section with our common set-up: $0.2861(8)$~fb.
+  These commands gave for the cross section with our common set-up: $0.2861(8)$~fb.
   This results is in much better agreement with other predictions than the default generation procedure.
   Unfortunately, we have not been able to resolve the differences between these two generation procedures.
   
@@ -426,7 +426,9 @@ The fiducial volume is the one described in Eqs.~\eqref{cut:1}-\eqref{cut:4}.
 The results are documented in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn}.
 There, the cross sections for both processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at fixed and dynamical scales are presented.
 The predictions are clearly not in statistical agreement but they usually agree within about one per cent apart from {\sc MG5\_aMC}.
-For the later, the difference can probably be attributed to a misconfiguration of the run.
+The discrepances between {\sc MG5\_aMC} and \VBFNLO /\MoCaNLO\!+\Recola depend on the process
+definition in the {\sc MG5\_aMC} configuration, as mentioned in the
+description of the generator setup. These differences have been investigated but are not yet fully understood.
 
 \begin{table}
 \begin{center} 
@@ -472,8 +474,7 @@ As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, the agreement between the v
 The invariant mass and rapidity separation of the two tagging jets are displayed.
 The larger discrepancy is found in the region of low rapidity-separation between the two jets.
 The difference is the largest between {\sc MoCaNLO}+{\sc Recola}/{\sc VBFNLO} and {\sc MG5\_aMC}.
-This reflects what has already been seen at the level of the cross section.
-This could be explained with low statistics and/or misconfiguration.
+This reflects what has already been seen at the level of the cross section. 
 Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO}), both predictions are in good agreement.
 This supports the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for similar comparisons for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
 This means that the VBS approximation ({\sc VBFNLO}) seems to approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
