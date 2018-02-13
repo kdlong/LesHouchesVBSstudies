@@ -1,8 +1,8 @@
 #!/bin/sh
 # add 
 #MGCENTRAL="'Title={MG5_aMC}:LineColor=red:ErrorBandColor=red:ErrorBands=1:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
-#scale factor for MAXPTJ 1000*0.00032898427/0.00166447
-MGEMMMAXPTJ="'Scale=197.651:Title={MG5_aMC $\mu=max(p_{Tj})$}:LineColor=red:ErrorBandColor=red:ErrorBands=1:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
+#scale factor for MAXPTJ 1000*0.000272477/0.00166447
+MGEMMMAXPTJ="'Scale=163.702:Title={MG5_aMC $\mu=max(p_{Tj})$}:LineColor=red:ErrorBandColor=red:ErrorBands=1:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
 MGEMMFIXED="'Scale=1000:Title={MG5_aMC+Pythia8}:LineColor=green:ErrorBandColor=green:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
 VBFNLOPY="'Scale=1000:Title={VBFNLO+Pythia8}:LineColor=blue:ErrorBandColor=blue:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
 VBFNLOHW="'Scale=1000:Title={VBFNLO+Herwig7}:LineColor=magenta:ErrorBandColor=magenta:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
