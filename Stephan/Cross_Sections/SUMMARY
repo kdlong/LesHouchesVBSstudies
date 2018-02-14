@@ -1,0 +1,20 @@
+Summary of the cross sections
+Generator: Sherpa
+
+Scale: fixed at M_W
+e- channel: p p -> e- nub_e mu- mu+ j j (without b quarks)
+Cross_section: 0.000166989 pb +- 1.66852e-07 pb
+
+Scale: fixed at M_W
+e+ channel: p p -> e+ nu_e mu- mu+ j j (without b quarks)
+Cross_section: 0.000288459 pb +- 1.89546e-07 pb
+
+For dyn. scale cross sections the relevant information is in the created yoda files, in the observable /MC_XS/XS.
+Scale: dynamical, max pT of two tagging jets.
+e- channel: p p -> e- nub_e mu- mu+ j j (without b quarks)
+Cross_section: 1.499759e-04 pb +- 5.940098e-08 pb
+
+Scale: dynamical, max pT of two tagging jets.
+e+ channel: p p -> e+ nu_e mu- mu+ j j (without b quarks)
+Cross_section: 2.574097e-04 pb +- 1.051276e-07 pb
+

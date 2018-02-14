@@ -1,0 +1,95 @@
+(run){
+ ANALYSIS=Rivet;
+ EVENTS 1M;
+ EW_SCHEME=3; #G_F scheme?
+ WIDTHSCHEME=CMS; # CMS scheme?!
+ GF = 0.000011663787;
+ BEAM_1 2212;
+ BEAM_2 2212;
+ BEAM_ENERGY_1 6500;
+ BEAM_ENERGY_2 6500;
+ #K_PERP_MEAN_1 0.0; #already included in BEAM_REMNANTS 0
+ #K_PERP_MEAN_2 0.0; #already included in BEAM_REMNANTS 0
+ #K_PERP_SIGMA_1 0.0; #already included in BEAM_REMNANTS 0
+ #K_PERP_SIGMA_2 0.0; #already included in BEAM_REMNANTS 0
+ #BEAM_REMNANTS 0;
+
+ PDF_LIBRARY LHAPDFSherpa;
+ PDF_SET NNPDF30_lo_as_0130_nf_4;
+ USE_PDF_ALPHAS=1;
+
+ MODEL SM;
+ #MASS[11] = 0.0; #electron mass?
+ #MASS[13] = 0.0; #muon mass?
+ #MASS[15] = 0.0;
+ MASSIVE[11] 0;
+ MASSIVE[13] 0;
+ MASSIVE[15] 0;
+ MASS[23] = 91.1534806191827;
+ MASS[24] = 80.3579736098775;
+ MASS[25] = 125.;
+ #MASS[1] = 0.0;
+ #MASS[2] = 0.0;
+ #MASS[3] = 0.0;
+ #MASS[4] = 0.0;
+ #MASS[5] = 0.0;
+ MASSIVE[1] 0;
+ MASSIVE[2] 0;
+ MASSIVE[3] 0;
+ MASSIVE[4] 0;
+ MASSIVE[5] 0;
+ MASS[6] = 173.21;
+
+ WIDTH[5] = 0.0;
+ WIDTH[6] = 0.0;
+ #WIDTH[15] = 0.0;
+ WIDTH[23] = 2.494266378772824;
+ WIDTH[24] = 2.084298998278219;
+ WIDTH[25] = 0.00407;
+ YUKAWA[25] = 125.; #Yukawa 125GeV?!
+
+ PARTICLE_CONTAINER 901 light_jet 1 -1 2 -2 3 -3 4 -4 21;
+
+ ME_SIGNAL_GENERATOR Comix Amegic;
+ EVENT_GENERATION_MODE Weighted;
+ #SCALES VAR{80.3579736098775*80.3579736098775}{80.3579736098775*80.3579736098775}{80.3579736098775*80.3579736098775};
+ SCALES FASTJET[A:antikt,PT:30,R:0.4,Eta:4.7]{PPerp2(p[6])};
+ #ME_QED Off;
+
+ ERROR 0.01;
+ PSI_ITMIN 10000;
+ #FINISH_OPTIMIZATION Off; #wrong syntax in Mathieus run card but unimportant
+ #MI_HANDLER None;
+ #FRAGMENTATION Off;
+ #SHOWER_GENERATOR None;
+}(run);
+
+(processes){
+ Process 901 901 -> 11 -12 -13 13 901 901;
+ Order (0,6);
+ ME_Generator Comix;
+ End Process;
+}(processes);
+
+(selector){
+ NJetFinder 2 20 0 0.4 -1 4.7 0; #NJetFinder <n> <ptmin> <etmin> <D parameter> [<exponent>] [<eta max>] [<mass max>]
+ PT 11 10 E_CMS;
+ PT 13 10 E_CMS;
+ PT -13 10 E_CMS;
+ PseudoRapidity 11 -3.5 3.5;
+ PseudoRapidity 13 -3.5 3.5;
+ PseudoRapidity -13 -3.5 3.5;
+ DeltaR 901 11 0.3 1000000; 
+ DeltaR 901 13 0.3 1000000; 
+ DeltaR 901 -13 0.3 1000000; 
+ DeltaEta 901 901 1.75 1000000;
+ Mass 901 901 300 E_CMS;
+ Mass 13 -13 66 116;
+}(selector);
+
+(analysis){
+ BEGIN_RIVET {
+  USE_HEPMC_SHORT 1;
+  -a WZVBS_LesHouchesStudy;
+ } END_RIVET;
+}(analysis);
