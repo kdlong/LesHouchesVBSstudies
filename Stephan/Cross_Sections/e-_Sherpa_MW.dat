@@ -1,0 +1,872 @@
+Sender: LSF System <lsfadmin@gwdc008>
+Subject: Job 7376878: <VBS_LO_e^-> in cluster <gwd_hpc> Done
+
+Job <VBS_LO_e^-> was submitted from host <gwdu101> by user <sbraeue> in cluster <gwd_hpc>.
+Job was executed on host(s) <16*gwdc008>, in queue <mpi>, as user <sbraeue> in cluster <gwd_hpc>.
+</usr/users/sbraeue> was used as the home directory.
+</usr/users/sbraeue/Projects/LesHouches_VBS_WZ/e-_channel> was used as the working directory.
+Started at Results reported on 
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+B#!/bin/sh
+#BSUB -q mpi
+#BSUB -a openmpi
+#BSUB -J VBS_LO_e^-
+#BSUB -W 48:00
+#BSUB -o phasespace_integration.out
+#BSUB -n 16
+#BSUB -R scratch
+#BSUB -R span[ptile='!']
+#BSUB -R same[model]
+
+/usr/users/sbraeue/rel-2-2-4/bin/Sherpa -f Run.dat LOOPGEN:=Recola -e0
+
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :                                   161517.31 sec.
+    Max Memory :                                 66 MB
+    Average Memory :                             64.64 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                8
+    Run time :                                   161233 sec.
+    Turnaround time :                            459288 sec.
+
+The output (if any) follows:
+
+/usr/users/sbraeue/.lsbatch/1517492141.7376878.shell: Zeile 1: B#!/bin/sh: Datei oder Verzeichnis nicht gefunden
+Welcome to Sherpa, Stephan Braeuer. Initialization of framework underway.
+The local time is Mon Feb  5 01:23:28 2018.
+Run_Parameter::Init(): Seed mode '*'
+Run_Parameter::Init(): Setting memory limit to 62.7907 GB.
+Random::SetSeed(): Seed set to 1234
+-----------------------------------------------------------------------------
+-----------    Event generation run with SHERPA started .......   -----------
+-----------------------------------------------------------------------------
+................................................ |       +                   
+................................................ ||  |       +  +            
+...................................        ....  | |         /   +           
+................. ................   _,_ |  ....  ||         +|  +  +        
+...............................  __.'  ,\|  ...  ||    /    +|          +    
+.............................. (  \    \   ...  | |  |   + + \         +   
+.............................  (    \   -/  .... ||       +    |          +  
+........ ...................  <S   /()))))~~~~~~~~##     +     /\    +       
+............................ (!H   (~~)))))~~~~~~#/     +  +    |  +         
+................ ........... (!E   (~~~)))))     /|/    +         +          
+............................ (!R   (~~~)))))   |||   + +            +        
+..... ...................... (!P    (~~~~)))   /|  + +          +            
+............................ (!A>    (~~~~~~~~~##        + +        +        
+............................. ~~(!    '~~~~~~~ \       +     + +      +      
+...............................  `~~~QQQQQDb //   |         + + +        +   
+........................ ..........   IDDDDP||     \  + + + + +             +
+....................................  IDDDI||       \                      + 
+.................................... IHD HD||         \ + +  + + + + +      +
+...................................  IHD ##|            :-) + +\          +  
+......... ............... ......... IHI ## /      /   +  + + + +\       +    
+................................... IHI/ /       /      + + + +        +     
+................................... ## | | /    / + +      + + /      +      
+....................... /TT\ .....  ##/ ///  / + + + + + + +/       +        
+......................./TTT/T\ ... /TT\/\\\ / + + + + + + +/   \         +   
+....................../TTT/TTTT\...|TT/T\\\/   +    ++  + /              
+-----------------------------------------------------------------------------
+
+     SHERPA version 2.2.4 (Cho Oyu)
+                                                                             
+     Authors:        Enrico Bothmann, Stefan Hoeche, Frank Krauss,           
+                     Silvan Kuttimalai, Marek Schoenherr, Holger Schulz,     
+                     Steffen Schumann, Frank Siegert, Korinna Zapp           
+     Former Authors: Timo Fischer, Tanju Gleisberg, Hendrik Hoeth,           
+                     Ralf Kuhn, Thomas Laubrich, Andreas Schaelicke,         
+                     Jan Winter                                              
+                                                                             
+     This program uses a lot of genuine and original research work           
+     by other people. Users are encouraged to refer to                       
+     the various original publications.                                      
+                                                                             
+     Users are kindly asked to refer to the documentation                    
+     published under JHEP 02(2009)007                                        
+                                                                             
+     Please visit also our homepage                                          
+                                                                             
+       http://sherpa.hepforge.org                                            
+                                                                             
+     for news, bugreports, updates and new releases.                         
+                                                                             
+-----------------------------------------------------------------------------
+
+SVN branch branches/rel-2-2-4, revision 31115.
+===> AMEGIC++/Main has revision 31115M, first seen was 31115 <===
+===> PHASIC++/Scales has revision 31115M, first seen was 31115 <===
+
+Beam_Spectra_Handler : 
+   type = Monochromatic*Monochromatic
+   for    P+  ((6500,0,0,6500))
+   and    P+  ((6500,0,0,-6500))
+PDF set 'NNPDF30_lo_as_0130_nf_4' loaded for beam 1 (P+).
+PDF set 'NNPDF30_lo_as_0130_nf_4' loaded for beam 2 (P+).
+Initialized the ISR: (SF)*(SF)
+One_Running_AlphaS::One_Running_AlphaS() {
+  Setting \alpha_s according to PDF
+  perturbative order 0
+  \alpha_s(M_Z) = 0.254402
+}
+One_Running_AlphaS::One_Running_AlphaS() {
+  Setting \alpha_s according to PDF
+  perturbative order 0
+  \alpha_s(M_Z) = 0.254402
+}
+ List of Particle Data 
+  IDName     kfc  MASS[<kfc>]   WIDTH[<kfc>]  STABLE[<kfc>] MASSIVE[<kfc>]  ACTIVE[<kfc>]  YUKAWA[<kfc>]
+       d       1            0              0              1              0              1              0
+       u       2            0              0              1              0              1              0
+       s       3            0              0              1              0              1              0
+       c       4            0              0              1              0              1              0
+       b       5            0              0              1              0              1              0
+       t       6       173.21              0              0              1              1         173.21
+      e-      11            0              0              1              0              1              0
+      ve      12            0              0              1              0              1              0
+     mu-      13            0              0              1              0              1              0
+     vmu      14            0              0              1              0              1              0
+    tau-      15            0              0              0              0              1              0
+    vtau      16            0              0              1              0              1              0
+       G      21            0              0              1              0              1              0
+       P      22            0              0              1              0              1              0
+       Z      23      91.1535        2.49427              0              1              1        91.1535
+      W+      24       80.358         2.0843              0              1              1         80.358
+      h0      25          125        0.00407              0              1              1            125
+
+ List of Particle Containers 
+    IDName     kfc     Constituents
+         l      90     {e-,e+,mu-,mu+,tau-,tau+}
+         v      91     {ve,veb,vmu,vmub,vtau,vtaub}
+         j      93     {d,db,u,ub,s,sb,c,cb,b,bb,G}
+         Q      94     {d,db,u,ub,s,sb,c,cb,b,bb}
+ light_jet      95     {d,db,u,ub,s,sb,c,cb,G}
+         r      99     {d,db,u,ub,s,sb,c,cb,b,bb,G}
+
+Shower_Handler::Shower_Handler(): No shower selected.
+Shower_Handler::Shower_Handler(): No shower selected.
+Initialized the Shower_Handler.
++-----------------------------------------+
+|   X   X   X XXXX  XXX  XXX  XXX         |
+|  X X  XX XX X    X      X  X     X   X  |
+| X   X X X X XXX  X XXX  X  X    XXX XXX |
+| XXXXX X   X X    X   X  X  X     X   X  |
+| X   X X   X XXXX  XXX  XXX  XXX         |
++-----------------------------------------+
+| please cite: JHEP 0202:044,2002         |
++-----------------------------------------+
+ME_Generator_Base::SetPSMasses(): Massive PS flavours for Comix: (<no entry>)
++----------------------------------+
+|                                  |
+|      [31mCCC[0m  [32mOOO[0m  [34mM[0m   [34mM[0m I [33mX[0m   [33mX[0m     |
+|     [31mC[0m    [32mO[0m   [32mO[0m [34mMM[0m [34mMM[0m I  [33mX[0m [33mX[0m      |
+|     [31mC[0m    [32mO[0m   [32mO[0m [34mM[0m [34mM[0m [34mM[0m I   [33mX[0m       |
+|     [31mC[0m    [32mO[0m   [32mO[0m [34mM[0m   [34mM[0m I  [33mX[0m [33mX[0m      |
+|      [31mCCC[0m  [32mOOO[0m  [34mM[0m   [34mM[0m I [33mX[0m   [33mX[0m     |
+|                                  |
++==================================+
+|  Color dressed  Matrix Elements  |
+|     http://comix.freacafe.de     |
+|   please cite  JHEP12(2008)039   |
++----------------------------------+
+ME_Generator_Base::SetPSMasses(): Massive PS flavours for Amegic: (<no entry>)
+Amegic::Initialize(): Set gauge 1.
+Matrix_Element_Handler::BuildProcesses(): Looking for processes .............................................. done ( 35 MB, 6s / 6s ).
+Matrix_Element_Handler::InitializeProcesses(): Performing tests 
+  Amplitude::GaugeTest(): Large deviation {
+         5.00839804679e-34
+     vs  5.00839880652e-34
+     => -1.51690524697e-07
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+          9.6482598644e-35
+     vs  9.64825987042e-35
+     => -6.24253870818e-10
+  }
+..
+  Amplitude::GaugeTest(): Large deviation {
+         1.12302237529e-33
+     vs  1.12302237422e-33
+     =>  9.48050526972e-10
+  }
+.....
+  Amplitude::GaugeTest(): Large deviation {
+         9.14348202116e-32
+     vs  9.14348202059e-32
+     =>  6.29136742702e-11
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         3.98193815441e-31
+     vs  3.98193815702e-31
+     => -6.53807896711e-10
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+          6.3492253841e-33
+     vs  6.34922538151e-33
+     =>  4.07584854756e-10
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         4.62263639673e-32
+     vs  4.62263640313e-32
+     => -1.38472422417e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         1.25898865261e-31
+     vs   1.2589886551e-31
+     => -1.98194405332e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         1.77905231574e-32
+     vs  1.77905231869e-32
+     => -1.65663094354e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         5.90761176576e-34
+     vs  5.90761176546e-34
+     =>  5.13817877135e-11
+  }
+..
+  Amplitude::GaugeTest(): Large deviation {
+         5.19989107739e-29
+     vs   5.1998910775e-29
+     => -2.20107265747e-11
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         1.36153836947e-32
+     vs  1.36153836981e-32
+     => -2.51915932559e-10
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         7.87099458937e-34
+     vs  7.87099457583e-34
+     =>  1.72107461616e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+          2.5326069699e-31
+     vs  2.53260696988e-31
+     =>  8.03512811842e-12
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+          7.2847855893e-31
+     vs  7.28478559628e-31
+     => -9.58181978206e-10
+  }
+..
+  Amplitude::GaugeTest(): Large deviation {
+         4.59186348243e-32
+     vs  4.59186348514e-32
+     => -5.91396043248e-10
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         7.25959051824e-32
+     vs  7.25959052614e-32
+     => -1.08742881366e-09
+  }
+.....
+  Amplitude::GaugeTest(): Large deviation {
+         1.63814523677e-33
+     vs  1.63814523699e-33
+     => -1.38609568268e-10
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+           3.317437193e-34
+     vs  3.31743719128e-34
+     =>  5.18955989293e-10
+  }
+..
+  Amplitude::GaugeTest(): Large deviation {
+         1.66288530946e-31
+     vs  1.66288530944e-31
+     =>  1.36826106001e-11
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         9.63162417204e-33
+     vs  9.63162413922e-33
+     =>  3.40776606933e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         2.77146007848e-34
+     vs  2.77146007707e-34
+     =>  5.09061681697e-10
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         3.87602195764e-34
+     vs  3.87602193018e-34
+     =>   7.0859274004e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         4.01061711837e-33
+     vs  4.01061709052e-33
+     =>  6.94224966402e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         1.68595748321e-34
+     vs  1.68595748091e-34
+     =>  1.36418365493e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         6.89722476463e-33
+     vs  6.89722476523e-33
+     => -8.72334426916e-11
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         3.45641849693e-33
+     vs  3.45641848939e-33
+     =>  2.18232831806e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         7.79510594195e-35
+     vs  7.79510592759e-35
+     =>  1.84210957599e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         2.94518071841e-33
+     vs    2.945180807e-33
+     => -3.00824103405e-08
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         1.80839835594e-30
+     vs   1.8083983517e-30
+     =>  2.34559749401e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         2.18631348496e-34
+     vs   2.1863134847e-34
+     =>  1.20172760631e-10
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         2.56597550512e-32
+     vs  2.56597549903e-32
+     =>  2.37654051993e-09
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         1.23580781743e-32
+     vs  1.23580781732e-32
+     =>   8.5958795637e-11
+  }
+.
+  Amplitude::GaugeTest(): Large deviation {
+         2.10843088184e-32
+     vs  2.10843088129e-32
+     =>  2.63739474704e-10
+  }
+. done ( 35 MB, 0s / 0s ).
+Initialized the Matrix_Element_Handler for the hard processes.
+Beam_Remnant_Handler::Beam_Remnant_Handler(): Set remnants 0.
+Initialized the Beam_Remnant_Handler.
+Process_Group::CalculateTotalXSec(): Calculate xs for '2_6__light_jet__light_jet__e-__mu-__mu+__veb__light_jet__light_jet' (Comix)
+Phase_Space_Integrator::Phase_Space_Integrator(): Set n_{it,min} = 10000.
+Starting the calculation at 01:23:35. Lean back and enjoy ... .
+[34m0.00015812 pb[0m +- ( [31m1.01787e-05 pb = 6.43733 %[0m ) 10000 ( 975713 -> 1 % )
+full optimization:  ( 3m 17s elapsed / 8h 27m left ) [01:26:53]   
+[34m0.000162097 pb[0m +- ( [31m8.32501e-06 pb = 5.13582 %[0m ) 20000 ( 1320733 -> 2.8 % )
+full optimization:  ( 5m 35s elapsed / 7h 8m 12s left ) [01:29:12]   
+[34m0.000160694 pb[0m +- ( [31m7.2336e-06 pb = 4.50146 %[0m ) 30000 ( 1535641 -> 4.6 % )
+full optimization:  ( 7m 31s elapsed / 6h 21m 28s left ) [01:31:08]   
+[34m0.000160005 pb[0m +- ( [31m6.56024e-06 pb = 4.10002 %[0m ) 40000 ( 1705967 -> 5.8 % )
+full optimization:  ( 9m 16s elapsed / 5h 49m 56s left ) [01:32:53]   
+[34m0.000161292 pb[0m +- ( [31m6.10654e-06 pb = 3.78603 %[0m ) 50000 ( 1848221 -> 7 % )
+full optimization:  ( 10m 53s elapsed / 5h 26m 34s left ) [01:34:30]   
+[34m0.000161883 pb[0m +- ( [31m5.82571e-06 pb = 3.59873 %[0m ) 60000 ( 1941390 -> 10.7 % )
+full optimization:  ( 12m 19s elapsed / 5h 6m 9s left ) [01:35:57]   
+[34m0.000163243 pb[0m +- ( [31m4.95291e-06 pb = 3.03407 %[0m ) 110000 ( 2289021 -> 14.3 % )
+full optimization:  ( 19m 5s elapsed / 4h 9m 58s left ) [01:42:43]   
+[34m0.000163529 pb[0m +- ( [31m4.36383e-06 pb = 2.66853 %[0m ) 160000 ( 2600563 -> 16 % )
+full optimization:  ( 25m 46s elapsed / 3h 43m 57s left ) [01:49:25]   
+[34m0.000163944 pb[0m +- ( [31m3.94612e-06 pb = 2.40699 %[0m ) 210000 ( 2877813 -> 18 % )
+full optimization:  ( 32m 20s elapsed / 3h 26m 26s left ) [01:55:59]   
+[34m0.000164084 pb[0m +- ( [31m3.63067e-06 pb = 2.21269 %[0m ) 260000 ( 3129432 -> 19.8 % )
+full optimization:  ( 38m 50s elapsed / 3h 12m 44s left ) [02:02:29]   
+[34m0.000164272 pb[0m +- ( [31m3.37874e-06 pb = 2.0568 %[0m ) 310000 ( 3364213 -> 21.2 % )
+full optimization:  ( 45m 19s elapsed / 3h 1m 19s left ) [02:08:59]   
+[34m0.000164547 pb[0m +- ( [31m3.17247e-06 pb = 1.928 %[0m ) 360000 ( 3584345 -> 22.7 % )
+full optimization:  ( 51m 46s elapsed / 2h 51m 10s left ) [02:15:26]   
+[34m0.000164593 pb[0m +- ( [31m2.99815e-06 pb = 1.82155 %[0m ) 410000 ( 3794028 -> 23.8 % )
+full optimization:  ( 58m 11s elapsed / 2h 41m 49s left ) [02:21:52]   
+[34m0.000164643 pb[0m +- ( [31m2.84776e-06 pb = 1.72965 %[0m ) 460000 ( 3995642 -> 24.7 % )
+full optimization:  ( 1h 4m 35s elapsed / 2h 33m 3s left ) [02:28:16]   
+[34m0.000164702 pb[0m +- ( [31m2.71285e-06 pb = 1.64713 %[0m ) 510000 ( 4195610 -> 25 % )
+full optimization:  ( 1h 11m 1s elapsed / 2h 24m 50s left ) [02:34:42]   
+[34m0.000164772 pb[0m +- ( [31m2.59427e-06 pb = 1.57447 %[0m ) 560000 ( 4388623 -> 25.9 % )
+full optimization:  ( 1h 17m 26s elapsed / 2h 16m 54s left ) [02:41:07]   
+[34m0.000164952 pb[0m +- ( [31m2.48846e-06 pb = 1.50859 %[0m ) 610000 ( 4576527 -> 26.6 % )
+full optimization:  ( 1h 23m 49s elapsed / 2h 9m 11s left ) [02:47:31]   
+[34m0.000165064 pb[0m +- ( [31m2.3922e-06 pb = 1.44926 %[0m ) 660000 ( 4761981 -> 26.9 % )
+full optimization:  ( 1h 30m 13s elapsed / 2h 1m 39s left ) [02:53:55]   
+[34m0.000165184 pb[0m +- ( [31m2.304e-06 pb = 1.39481 %[0m ) 710000 ( 4945552 -> 27.2 % )
+full optimization:  ( 1h 36m 35s elapsed / 1h 54m 16s left ) [03:00:18]   
+[34m0.000165297 pb[0m +- ( [31m2.22292e-06 pb = 1.3448 %[0m ) 760000 ( 5127248 -> 27.5 % )
+full optimization:  ( 1h 42m 59s elapsed / 1h 47m 4s left ) [03:06:42]   
+Phase_Space_Integrator::AddPoint() {
+[1m  Memory usage increased by 17 MB, now 57 MB.
+[31m  This might indicate a memory leak!
+  Please monitor this process closely.
+[0m}
+[34m0.000165237 pb[0m +- ( [31m2.14839e-06 pb = 1.30018 %[0m ) 810000 ( 5306336 -> 27.9 % )
+full optimization:  ( 1h 49m 23s elapsed / 1h 39m 56s left ) [03:13:06]   
+[34m0.000165255 pb[0m +- ( [31m2.07998e-06 pb = 1.25865 %[0m ) 860000 ( 5482060 -> 28.4 % )
+full optimization:  ( 1h 55m 45s elapsed / 1h 32m 52s left ) [03:19:29]   
+[34m0.000165223 pb[0m +- ( [31m2.01646e-06 pb = 1.22045 %[0m ) 910000 ( 5655940 -> 28.7 % )
+full optimization:  ( 2h 2m 4s elapsed / 1h 25m 51s left ) [03:25:48]   
+[34m0.000165278 pb[0m +- ( [31m1.95735e-06 pb = 1.18428 %[0m ) 960000 ( 5828009 -> 29 % )
+full optimization:  ( 2h 8m 22s elapsed / 1h 18m 54s left ) [03:32:07]   
+[34m0.00016532 pb[0m +- ( [31m1.90195e-06 pb = 1.15046 %[0m ) 1010000 ( 5999128 -> 29.2 % )
+full optimization:  ( 2h 14m 38s elapsed / 1h 11m 59s left ) [03:38:23]   
+[34m0.000165348 pb[0m +- ( [31m1.8499e-06 pb = 1.1188 %[0m ) 1060000 ( 6169259 -> 29.3 % )
+integration time:  ( 2h 20m 57s elapsed / 1h 5m 9s left ) [03:44:42]   
+[34m0.000165467 pb[0m +- ( [31m1.75494e-06 pb = 1.0606 %[0m ) 1160000 ( 6505893 -> 29.5 % )
+integration time:  ( 2h 33m 28s elapsed / 51m 36s left ) [03:57:14]   
+Phase_Space_Integrator::AddPoint() {
+[1m  Memory usage increased by 17 MB, now 74 MB.
+[31m  This might indicate a memory leak!
+  Please monitor this process closely.
+[0m}
+[34m0.000165587 pb[0m +- ( [31m1.66865e-06 pb = 1.00772 %[0m ) 1260000 ( 6845434 -> 29.5 % )
+integration time:  ( 2h 45m 59s elapsed / 1h 28m 15s left ) [04:09:47]   
+[34m0.000165592 pb[0m +- ( [31m1.59063e-06 pb = 0.960572 %[0m ) 1360000 ( 7184228 -> 29.5 % )
+integration time:  ( 2h 58m 30s elapsed / 1h 56m 46s left ) [04:22:19]   
+[34m0.000165708 pb[0m +- ( [31m1.52009e-06 pb = 0.917333 %[0m ) 1460000 ( 7520882 -> 29.5 % )
+integration time:  ( 3h 11m 1s elapsed / 2h 18m 9s left ) [04:34:50]   
+[34m0.000165763 pb[0m +- ( [31m1.45525e-06 pb = 0.877915 %[0m ) 1560000 ( 7859339 -> 29.5 % )
+integration time:  ( 3h 23m 33s elapsed / 2h 33m 54s left ) [04:47:23]   
+[34m0.000165846 pb[0m +- ( [31m1.39588e-06 pb = 0.841674 %[0m ) 1660000 ( 8197258 -> 29.5 % )
+integration time:  ( 3h 36m 5s elapsed / 2h 45m 24s left ) [04:59:55]   
+[34m0.000165843 pb[0m +- ( [31m1.34092e-06 pb = 0.808547 %[0m ) 1760000 ( 8536881 -> 29.5 % )
+integration time:  ( 3h 48m 37s elapsed / 2h 53m 12s left ) [05:12:28]   
+[34m0.000165931 pb[0m +- ( [31m1.29054e-06 pb = 0.777759 %[0m ) 1860000 ( 8873949 -> 29.5 % )
+integration time:  ( 4h 1m 8s elapsed / 2h 58m left ) [05:25:01]   
+[34m0.000165935 pb[0m +- ( [31m1.24351e-06 pb = 0.749395 %[0m ) 1960000 ( 9213618 -> 29.5 % )
+integration time:  ( 4h 13m 40s elapsed / 3h 47s left ) [05:37:34]   
+[34m0.000165936 pb[0m +- ( [31m1.19989e-06 pb = 0.723102 %[0m ) 2060000 ( 9552640 -> 29.5 % )
+integration time:  ( 4h 26m 12s elapsed / 3h 1m 18s left ) [05:50:06]   
+[34m0.000166035 pb[0m +- ( [31m1.15939e-06 pb = 0.69828 %[0m ) 2160000 ( 9890790 -> 29.5 % )
+integration time:  ( 4h 38m 43s elapsed / 3h 27s left ) [06:02:38]   
+[34m0.000166057 pb[0m +- ( [31m1.12152e-06 pb = 0.675384 %[0m ) 2260000 ( 10229149 -> 29.5 % )
+integration time:  ( 4h 51m 15s elapsed / 2h 58m 10s left ) [06:15:11]   
+[34m0.000166079 pb[0m +- ( [31m1.08613e-06 pb = 0.653984 %[0m ) 2360000 ( 10566952 -> 29.5 % )
+integration time:  ( 5h 3m 46s elapsed / 2h 54m 31s left ) [06:27:43]   
+[34m0.000166154 pb[0m +- ( [31m1.05298e-06 pb = 0.633739 %[0m ) 2460000 ( 10904429 -> 29.5 % )
+integration time:  ( 5h 16m 17s elapsed / 2h 50m 10s left ) [06:40:15]   
+[34m0.000166202 pb[0m +- ( [31m1.02169e-06 pb = 0.614729 %[0m ) 2560000 ( 11243352 -> 29.5 % )
+integration time:  ( 5h 28m 49s elapsed / 2h 44m 49s left ) [06:52:48]   
+[34m0.000166207 pb[0m +- ( [31m9.92271e-07 pb = 0.59701 %[0m ) 2660000 ( 11581528 -> 29.5 % )
+integration time:  ( 5h 41m 23s elapsed / 2h 38m 33s left ) [07:05:22]   
+[34m0.000166212 pb[0m +- ( [31m9.64485e-07 pb = 0.580272 %[0m ) 2760000 ( 11920176 -> 29.5 % )
+integration time:  ( 5h 53m 57s elapsed / 2h 31m 38s left ) [07:17:57]   
+[34m0.000166182 pb[0m +- ( [31m9.38125e-07 pb = 0.564517 %[0m ) 2860000 ( 12260340 -> 29.5 % )
+integration time:  ( 6h 6m 31s elapsed / 2h 24m 23s left ) [07:30:32]   
+[34m0.000166217 pb[0m +- ( [31m9.13281e-07 pb = 0.549451 %[0m ) 2960000 ( 12599404 -> 29.5 % )
+integration time:  ( 6h 19m 1s elapsed / 2h 16m 42s left ) [07:43:03]   
+[34m0.000166234 pb[0m +- ( [31m8.89785e-07 pb = 0.53526 %[0m ) 3060000 ( 12937892 -> 29.5 % )
+integration time:  ( 6h 31m 33s elapsed / 2h 8m 50s left ) [07:55:35]   
+[34m0.000166303 pb[0m +- ( [31m8.67583e-07 pb = 0.521688 %[0m ) 3160000 ( 13274788 -> 29.5 % )
+integration time:  ( 6h 44m 4s elapsed / 2h 15s left ) [08:08:07]   
+[34m0.000166318 pb[0m +- ( [31m8.46373e-07 pb = 0.508887 %[0m ) 3260000 ( 13613343 -> 29.5 % )
+integration time:  ( 6h 56m 40s elapsed / 1h 51m 26s left ) [08:20:44]   
+[34m0.000166353 pb[0m +- ( [31m8.26286e-07 pb = 0.496706 %[0m ) 3360000 ( 13950344 -> 29.5 % )
+integration time:  ( 7h 9m 22s elapsed / 1h 42m 22s left ) [08:33:28]   
+[34m0.000166351 pb[0m +- ( [31m8.07063e-07 pb = 0.485157 %[0m ) 3460000 ( 14288680 -> 29.5 % )
+integration time:  ( 7h 22m 4s elapsed / 1h 32m 57s left ) [08:46:11]   
+[34m0.000166347 pb[0m +- ( [31m7.8877e-07 pb = 0.474172 %[0m ) 3560000 ( 14626042 -> 29.5 % )
+integration time:  ( 7h 34m 46s elapsed / 1h 23m 3s left ) [08:58:55]   
+[34m0.000166373 pb[0m +- ( [31m7.71262e-07 pb = 0.463574 %[0m ) 3660000 ( 14964478 -> 29.5 % )
+integration time:  ( 7h 47m 27s elapsed / 1h 13m 4s left ) [09:11:38]   
+[34m0.000166441 pb[0m +- ( [31m7.54624e-07 pb = 0.453388 %[0m ) 3760000 ( 15301413 -> 29.5 % )
+integration time:  ( 8h 8s elapsed / 1h 3m 18s left ) [09:24:21]   
+[34m0.000166427 pb[0m +- ( [31m7.38562e-07 pb = 0.443775 %[0m ) 3860000 ( 15640918 -> 29.5 % )
+integration time:  ( 8h 12m 48s elapsed / 53m 7s left ) [09:37:02]   
+[34m0.000166431 pb[0m +- ( [31m7.23187e-07 pb = 0.434527 %[0m ) 3960000 ( 15980023 -> 29.5 % )
+integration time:  ( 8h 25m 29s elapsed / 42m 20s left ) [09:49:44]   
+[34m0.000166467 pb[0m +- ( [31m7.08544e-07 pb = 0.425637 %[0m ) 4060000 ( 16317179 -> 29.5 % )
+integration time:  ( 8h 38m 10s elapsed / 31m 38s left ) [10:02:27]   
+[34m0.000166479 pb[0m +- ( [31m6.94514e-07 pb = 0.417179 %[0m ) 4160000 ( 16653930 -> 29.5 % )
+integration time:  ( 8h 50m 50s elapsed / 20m 59s left ) [10:15:10]   
+[34m0.000166499 pb[0m +- ( [31m6.80966e-07 pb = 0.408992 %[0m ) 4260000 ( 16992435 -> 29.5 % )
+integration time:  ( 9h 3m 31s elapsed / 9m 57s left ) [10:27:52]   
+[34m0.000166526 pb[0m +- ( [31m6.67971e-07 pb = 0.40112 %[0m ) 4360000 ( 17330278 -> 29.5 % )
+integration time:  ( 9h 16m 10s elapsed / 0s left ) [10:40:33]   
+[34m0.000166533 pb[0m +- ( [31m6.55472e-07 pb = 0.393599 %[0m ) 4460000 ( 17668230 -> 29.5 % )
+integration time:  ( 9h 28m 50s elapsed / 0s left ) [10:53:14]   
+[34m0.000166565 pb[0m +- ( [31m6.43443e-07 pb = 0.386302 %[0m ) 4560000 ( 18006500 -> 29.5 % )
+integration time:  ( 9h 41m 30s elapsed / 0s left ) [11:05:57]   
+[34m0.000166557 pb[0m +- ( [31m6.31866e-07 pb = 0.37937 %[0m ) 4660000 ( 18344199 -> 29.5 % )
+integration time:  ( 9h 54m 9s elapsed / 0s left ) [11:18:38]   
+[34m0.000166585 pb[0m +- ( [31m6.20758e-07 pb = 0.372637 %[0m ) 4760000 ( 18680654 -> 29.5 % )
+integration time:  ( 10h 6m 47s elapsed / 0s left ) [11:31:17]   
+[34m0.000166554 pb[0m +- ( [31m6.09935e-07 pb = 0.366209 %[0m ) 4860000 ( 19019801 -> 29.5 % )
+integration time:  ( 10h 19m 24s elapsed / 0s left ) [11:43:56]   
+[34m0.000166586 pb[0m +- ( [31m5.99541e-07 pb = 0.359899 %[0m ) 4960000 ( 19357699 -> 29.5 % )
+integration time:  ( 10h 32m 1s elapsed / 0s left ) [11:56:35]   
+[34m0.000166612 pb[0m +- ( [31m5.89498e-07 pb = 0.353815 %[0m ) 5060000 ( 19695996 -> 29.5 % )
+integration time:  ( 10h 44m 38s elapsed / 0s left ) [12:09:13]   
+[34m0.000166634 pb[0m +- ( [31m5.7982e-07 pb = 0.34796 %[0m ) 5160000 ( 20033262 -> 29.5 % )
+integration time:  ( 10h 57m 15s elapsed / 0s left ) [12:21:52]   
+[34m0.000166663 pb[0m +- ( [31m5.70453e-07 pb = 0.342279 %[0m ) 5260000 ( 20370796 -> 29.5 % )
+integration time:  ( 11h 9m 52s elapsed / 0s left ) [12:34:31]   
+[34m0.000166677 pb[0m +- ( [31m5.6137e-07 pb = 0.336801 %[0m ) 5360000 ( 20709050 -> 29.5 % )
+integration time:  ( 11h 22m 32s elapsed / 0s left ) [12:47:14]   
+[34m0.000166678 pb[0m +- ( [31m5.52598e-07 pb = 0.331536 %[0m ) 5460000 ( 21046447 -> 29.5 % )
+integration time:  ( 11h 35m 12s elapsed / 0s left ) [12:59:57]   
+[34m0.000166694 pb[0m +- ( [31m5.44078e-07 pb = 0.326393 %[0m ) 5560000 ( 21384791 -> 29.5 % )
+integration time:  ( 11h 47m 52s elapsed / 0s left ) [13:12:39]   
+[34m0.000166708 pb[0m +- ( [31m5.35815e-07 pb = 0.321409 %[0m ) 5660000 ( 21723890 -> 29.5 % )
+integration time:  ( 12h 29s elapsed / 0s left ) [13:25:18]   
+[34m0.000166715 pb[0m +- ( [31m5.27791e-07 pb = 0.316583 %[0m ) 5760000 ( 22063488 -> 29.5 % )
+integration time:  ( 12h 13m 10s elapsed / 0s left ) [13:38:02]   
+[34m0.00016673 pb[0m +- ( [31m5.20028e-07 pb = 0.311898 %[0m ) 5860000 ( 22402363 -> 29.5 % )
+integration time:  ( 12h 25m 51s elapsed / 0s left ) [13:50:45]   
+[34m0.000166749 pb[0m +- ( [31m5.12527e-07 pb = 0.307364 %[0m ) 5960000 ( 22739761 -> 29.5 % )
+integration time:  ( 12h 38m 31s elapsed / 0s left ) [14:03:26]   
+[34m0.000166753 pb[0m +- ( [31m5.05209e-07 pb = 0.302968 %[0m ) 6060000 ( 23078979 -> 29.5 % )
+integration time:  ( 12h 51m 11s elapsed / 0s left ) [14:16:09]   
+[34m0.000166774 pb[0m +- ( [31m4.98149e-07 pb = 0.298697 %[0m ) 6160000 ( 23415602 -> 29.5 % )
+integration time:  ( 13h 3m 50s elapsed / 0s left ) [14:28:50]   
+[34m0.000166794 pb[0m +- ( [31m4.91263e-07 pb = 0.294532 %[0m ) 6260000 ( 23753639 -> 29.5 % )
+integration time:  ( 13h 16m 30s elapsed / 0s left ) [14:41:32]   
+[34m0.000166801 pb[0m +- ( [31m4.84556e-07 pb = 0.2905 %[0m ) 6360000 ( 24092363 -> 29.5 % )
+integration time:  ( 13h 29m 10s elapsed / 0s left ) [14:54:14]   
+[34m0.000166785 pb[0m +- ( [31m4.78029e-07 pb = 0.286613 %[0m ) 6460000 ( 24431610 -> 29.5 % )
+integration time:  ( 13h 41m 51s elapsed / 0s left ) [15:06:55]   
+[34m0.000166785 pb[0m +- ( [31m4.71694e-07 pb = 0.282816 %[0m ) 6560000 ( 24769942 -> 29.5 % )
+integration time:  ( 13h 54m 29s elapsed / 0s left ) [15:19:35]   
+[34m0.000166801 pb[0m +- ( [31m4.65517e-07 pb = 0.279084 %[0m ) 6660000 ( 25109209 -> 29.5 % )
+integration time:  ( 14h 7m 9s elapsed / 0s left ) [15:32:16]   
+[34m0.000166803 pb[0m +- ( [31m4.5952e-07 pb = 0.275487 %[0m ) 6760000 ( 25447560 -> 29.5 % )
+integration time:  ( 14h 19m 48s elapsed / 0s left ) [15:44:57]   
+[34m0.000166808 pb[0m +- ( [31m4.53674e-07 pb = 0.271975 %[0m ) 6860000 ( 25786297 -> 29.5 % )
+integration time:  ( 14h 32m 28s elapsed / 0s left ) [15:57:38]   
+[34m0.00016681 pb[0m +- ( [31m4.48002e-07 pb = 0.26857 %[0m ) 6960000 ( 26123203 -> 29.5 % )
+integration time:  ( 14h 45m 7s elapsed / 0s left ) [16:10:18]   
+[34m0.000166809 pb[0m +- ( [31m4.42443e-07 pb = 0.265239 %[0m ) 7060000 ( 26462871 -> 29.5 % )
+integration time:  ( 14h 57m 47s elapsed / 0s left ) [16:23:00]   
+[34m0.000166824 pb[0m +- ( [31m4.37055e-07 pb = 0.261986 %[0m ) 7160000 ( 26800327 -> 29.5 % )
+integration time:  ( 15h 10m 29s elapsed / 0s left ) [16:35:43]   
+[34m0.000166821 pb[0m +- ( [31m4.31767e-07 pb = 0.25882 %[0m ) 7260000 ( 27139590 -> 29.5 % )
+integration time:  ( 15h 23m 11s elapsed / 0s left ) [16:48:27]   
+[34m0.000166817 pb[0m +- ( [31m4.26613e-07 pb = 0.255737 %[0m ) 7360000 ( 27478655 -> 29.5 % )
+integration time:  ( 15h 35m 53s elapsed / 0s left ) [17:01:11]   
+[34m0.000166807 pb[0m +- ( [31m4.21592e-07 pb = 0.252742 %[0m ) 7460000 ( 27817139 -> 29.5 % )
+integration time:  ( 15h 48m 36s elapsed / 0s left ) [17:13:56]   
+[34m0.000166791 pb[0m +- ( [31m4.16676e-07 pb = 0.24982 %[0m ) 7560000 ( 28156502 -> 29.5 % )
+integration time:  ( 16h 1m 16s elapsed / 0s left ) [17:26:37]   
+[34m0.000166785 pb[0m +- ( [31m4.11908e-07 pb = 0.246969 %[0m ) 7660000 ( 28493825 -> 29.5 % )
+integration time:  ( 16h 13m 57s elapsed / 0s left ) [17:39:19]   
+[34m0.000166775 pb[0m +- ( [31m4.07241e-07 pb = 0.244185 %[0m ) 7760000 ( 28832390 -> 29.5 % )
+integration time:  ( 16h 26m 38s elapsed / 0s left ) [17:52:01]   
+[34m0.000166787 pb[0m +- ( [31m4.02689e-07 pb = 0.241439 %[0m ) 7860000 ( 29170461 -> 29.5 % )
+integration time:  ( 16h 39m 19s elapsed / 0s left ) [18:04:43]   
+[34m0.000166804 pb[0m +- ( [31m3.98245e-07 pb = 0.23875 %[0m ) 7960000 ( 29508766 -> 29.5 % )
+integration time:  ( 16h 52m 1s elapsed / 0s left ) [18:17:27]   
+[34m0.000166808 pb[0m +- ( [31m3.9388e-07 pb = 0.236128 %[0m ) 8060000 ( 29847823 -> 29.5 % )
+integration time:  ( 17h 4m 44s elapsed / 0s left ) [18:30:11]   
+[34m0.000166802 pb[0m +- ( [31m3.89621e-07 pb = 0.233583 %[0m ) 8160000 ( 30186779 -> 29.5 % )
+integration time:  ( 17h 17m 25s elapsed / 0s left ) [18:42:53]   
+[34m0.000166784 pb[0m +- ( [31m3.85438e-07 pb = 0.2311 %[0m ) 8260000 ( 30526592 -> 29.5 % )
+integration time:  ( 17h 30m 7s elapsed / 0s left ) [18:55:36]   
+[34m0.000166786 pb[0m +- ( [31m3.81389e-07 pb = 0.22867 %[0m ) 8360000 ( 30863572 -> 29.5 % )
+integration time:  ( 17h 42m 50s elapsed / 0s left ) [19:08:20]   
+[34m0.00016679 pb[0m +- ( [31m3.77413e-07 pb = 0.22628 %[0m ) 8460000 ( 31201546 -> 29.5 % )
+integration time:  ( 17h 55m 33s elapsed / 0s left ) [19:21:04]   
+[34m0.000166787 pb[0m +- ( [31m3.73506e-07 pb = 0.223942 %[0m ) 8560000 ( 31540939 -> 29.5 % )
+integration time:  ( 18h 8m 15s elapsed / 0s left ) [19:33:47]   
+[34m0.000166776 pb[0m +- ( [31m3.69686e-07 pb = 0.221666 %[0m ) 8660000 ( 31879739 -> 29.5 % )
+integration time:  ( 18h 20m 55s elapsed / 0s left ) [19:46:28]   
+[34m0.000166777 pb[0m +- ( [31m3.65944e-07 pb = 0.219421 %[0m ) 8760000 ( 32218994 -> 29.5 % )
+integration time:  ( 18h 33m 37s elapsed / 0s left ) [19:59:11]   
+[34m0.000166767 pb[0m +- ( [31m3.62274e-07 pb = 0.217234 %[0m ) 8860000 ( 32558499 -> 29.5 % )
+integration time:  ( 18h 46m 15s elapsed / 0s left ) [20:11:50]   
+[34m0.000166774 pb[0m +- ( [31m3.58692e-07 pb = 0.215076 %[0m ) 8960000 ( 32896741 -> 29.5 % )
+integration time:  ( 18h 58m 55s elapsed / 0s left ) [20:24:31]   
+[34m0.00016679 pb[0m +- ( [31m3.55183e-07 pb = 0.212952 %[0m ) 9060000 ( 33235651 -> 29.5 % )
+integration time:  ( 19h 11m 39s elapsed / 0s left ) [20:37:16]   
+[34m0.000166797 pb[0m +- ( [31m3.51755e-07 pb = 0.210888 %[0m ) 9160000 ( 33572720 -> 29.5 % )
+integration time:  ( 19h 24m 21s elapsed / 0s left ) [20:49:59]   
+[34m0.000166792 pb[0m +- ( [31m3.48383e-07 pb = 0.208873 %[0m ) 9260000 ( 33911483 -> 29.5 % )
+integration time:  ( 19h 37m 2s elapsed / 0s left ) [21:02:41]   
+[34m0.000166778 pb[0m +- ( [31m3.45076e-07 pb = 0.206907 %[0m ) 9360000 ( 34249744 -> 29.5 % )
+integration time:  ( 19h 49m 44s elapsed / 0s left ) [21:15:24]   
+[34m0.000166769 pb[0m +- ( [31m3.41852e-07 pb = 0.204985 %[0m ) 9460000 ( 34588441 -> 29.5 % )
+integration time:  ( 20h 2m 27s elapsed / 0s left ) [21:28:07]   
+[34m0.000166793 pb[0m +- ( [31m3.38681e-07 pb = 0.203055 %[0m ) 9560000 ( 34927088 -> 29.5 % )
+integration time:  ( 20h 15m 8s elapsed / 0s left ) [21:40:49]   
+[34m0.000166799 pb[0m +- ( [31m3.35574e-07 pb = 0.201184 %[0m ) 9660000 ( 35264565 -> 29.5 % )
+integration time:  ( 20h 27m 49s elapsed / 0s left ) [21:53:31]   
+[34m0.00016679 pb[0m +- ( [31m3.32518e-07 pb = 0.199363 %[0m ) 9760000 ( 35602751 -> 29.5 % )
+integration time:  ( 20h 40m 33s elapsed / 0s left ) [22:06:16]   
+[34m0.000166795 pb[0m +- ( [31m3.29512e-07 pb = 0.197555 %[0m ) 9860000 ( 35941915 -> 29.5 % )
+integration time:  ( 20h 53m 15s elapsed / 0s left ) [22:19:00]   
+[34m0.000166812 pb[0m +- ( [31m3.26577e-07 pb = 0.195775 %[0m ) 9960000 ( 36279974 -> 29.5 % )
+integration time:  ( 21h 5m 54s elapsed / 0s left ) [22:31:40]   
+[34m0.00016682 pb[0m +- ( [31m3.23692e-07 pb = 0.194037 %[0m ) 10060000 ( 36618120 -> 29.5 % )
+integration time:  ( 21h 18m 34s elapsed / 0s left ) [22:44:21]   
+[34m0.000166814 pb[0m +- ( [31m3.20845e-07 pb = 0.192337 %[0m ) 10160000 ( 36958400 -> 29.5 % )
+integration time:  ( 21h 31m 12s elapsed / 0s left ) [22:57:00]   
+[34m0.000166827 pb[0m +- ( [31m3.18057e-07 pb = 0.190651 %[0m ) 10260000 ( 37297686 -> 29.5 % )
+integration time:  ( 21h 43m 52s elapsed / 0s left ) [23:09:41]   
+[34m0.000166825 pb[0m +- ( [31m3.1533e-07 pb = 0.189018 %[0m ) 10360000 ( 37635456 -> 29.5 % )
+integration time:  ( 21h 56m 33s elapsed / 0s left ) [23:22:22]   
+[34m0.000166851 pb[0m +- ( [31m3.12652e-07 pb = 0.187384 %[0m ) 10460000 ( 37973879 -> 29.5 % )
+integration time:  ( 22h 9m 12s elapsed / 0s left ) [23:35:02]   
+[34m0.000166833 pb[0m +- ( [31m3.10005e-07 pb = 0.185818 %[0m ) 10560000 ( 38312908 -> 29.5 % )
+integration time:  ( 22h 21m 51s elapsed / 0s left ) [23:47:42]   
+[34m0.000166839 pb[0m +- ( [31m3.07413e-07 pb = 0.184257 %[0m ) 10660000 ( 38651618 -> 29.5 % )
+integration time:  ( 22h 34m 32s elapsed / 0s left ) [00:00:25]   
+[34m0.000166845 pb[0m +- ( [31m3.04879e-07 pb = 0.182732 %[0m ) 10760000 ( 38988508 -> 29.5 % )
+integration time:  ( 22h 47m 14s elapsed / 0s left ) [00:13:07]   
+[34m0.000166854 pb[0m +- ( [31m3.02372e-07 pb = 0.18122 %[0m ) 10860000 ( 39328313 -> 29.5 % )
+integration time:  ( 22h 59m 55s elapsed / 0s left ) [00:25:49]   
+[34m0.000166871 pb[0m +- ( [31m2.99919e-07 pb = 0.179731 %[0m ) 10960000 ( 39666225 -> 29.5 % )
+integration time:  ( 23h 12m 36s elapsed / 0s left ) [00:38:32]   
+[34m0.000166873 pb[0m +- ( [31m2.97494e-07 pb = 0.178276 %[0m ) 11060000 ( 40006259 -> 29.5 % )
+integration time:  ( 23h 25m 19s elapsed / 0s left ) [00:51:15]   
+[34m0.000166862 pb[0m +- ( [31m2.95122e-07 pb = 0.176866 %[0m ) 11160000 ( 40343596 -> 29.5 % )
+integration time:  ( 23h 38m 4s elapsed / 0s left ) [01:04:01]   
+[34m0.000166857 pb[0m +- ( [31m2.92781e-07 pb = 0.175468 %[0m ) 11260000 ( 40683309 -> 29.5 % )
+integration time:  ( 23h 50m 44s elapsed / 0s left ) [01:16:42]   
+[34m0.000166864 pb[0m +- ( [31m2.90495e-07 pb = 0.174091 %[0m ) 11360000 ( 41020248 -> 29.5 % )
+integration time:  ( 1d 3m 23s elapsed / 0s left ) [01:29:23]   
+[34m0.000166859 pb[0m +- ( [31m2.88223e-07 pb = 0.172735 %[0m ) 11460000 ( 41359508 -> 29.5 % )
+integration time:  ( 1d 16m 3s elapsed / 0s left ) [01:42:03]   
+[34m0.000166846 pb[0m +- ( [31m2.85995e-07 pb = 0.171412 %[0m ) 11560000 ( 41698230 -> 29.5 % )
+integration time:  ( 1d 28m 42s elapsed / 0s left ) [01:54:43]   
+[34m0.000166849 pb[0m +- ( [31m2.83806e-07 pb = 0.170098 %[0m ) 11660000 ( 42036257 -> 29.5 % )
+integration time:  ( 1d 41m 23s elapsed / 0s left ) [02:07:24]   
+[34m0.000166848 pb[0m +- ( [31m2.81651e-07 pb = 0.168807 %[0m ) 11760000 ( 42374111 -> 29.5 % )
+integration time:  ( 1d 54m 2s elapsed / 0s left ) [02:20:04]   
+[34m0.000166856 pb[0m +- ( [31m2.79542e-07 pb = 0.167535 %[0m ) 11860000 ( 42711541 -> 29.5 % )
+integration time:  ( 1d 1h 6m 43s elapsed / 0s left ) [02:32:46]   
+[34m0.000166851 pb[0m +- ( [31m2.77458e-07 pb = 0.166291 %[0m ) 11960000 ( 43049074 -> 29.5 % )
+integration time:  ( 1d 1h 19m 25s elapsed / 0s left ) [02:45:30]   
+[34m0.000166849 pb[0m +- ( [31m2.75398e-07 pb = 0.165058 %[0m ) 12060000 ( 43388669 -> 29.5 % )
+integration time:  ( 1d 1h 32m 5s elapsed / 0s left ) [02:58:10]   
+[34m0.000166855 pb[0m +- ( [31m2.73383e-07 pb = 0.163844 %[0m ) 12160000 ( 43725678 -> 29.5 % )
+integration time:  ( 1d 1h 44m 44s elapsed / 0s left ) [03:10:51]   
+[34m0.000166854 pb[0m +- ( [31m2.71388e-07 pb = 0.16265 %[0m ) 12260000 ( 44064623 -> 29.5 % )
+integration time:  ( 1d 1h 57m 25s elapsed / 0s left ) [03:23:32]   
+[34m0.000166851 pb[0m +- ( [31m2.69431e-07 pb = 0.16148 %[0m ) 12360000 ( 44401468 -> 29.5 % )
+integration time:  ( 1d 2h 10m 4s elapsed / 0s left ) [03:36:12]   
+[34m0.000166842 pb[0m +- ( [31m2.67497e-07 pb = 0.160329 %[0m ) 12460000 ( 44740304 -> 29.5 % )
+integration time:  ( 1d 2h 22m 44s elapsed / 0s left ) [03:48:53]   
+[34m0.000166847 pb[0m +- ( [31m2.65595e-07 pb = 0.159185 %[0m ) 12560000 ( 45078237 -> 29.5 % )
+integration time:  ( 1d 2h 35m 25s elapsed / 0s left ) [04:01:36]   
+[34m0.000166842 pb[0m +- ( [31m2.63719e-07 pb = 0.158065 %[0m ) 12660000 ( 45416635 -> 29.5 % )
+integration time:  ( 1d 2h 48m 8s elapsed / 0s left ) [04:14:19]   
+[34m0.000166849 pb[0m +- ( [31m2.61875e-07 pb = 0.156953 %[0m ) 12760000 ( 45755389 -> 29.5 % )
+integration time:  ( 1d 3h 51s elapsed / 0s left ) [04:27:04]   
+[34m0.000166842 pb[0m +- ( [31m2.6005e-07 pb = 0.155866 %[0m ) 12860000 ( 46094446 -> 29.5 % )
+integration time:  ( 1d 3h 13m 32s elapsed / 0s left ) [04:39:45]   
+[34m0.00016685 pb[0m +- ( [31m2.58267e-07 pb = 0.15479 %[0m ) 12960000 ( 46430736 -> 29.5 % )
+integration time:  ( 1d 3h 26m 15s elapsed / 0s left ) [04:52:29]   
+[34m0.000166861 pb[0m +- ( [31m2.56505e-07 pb = 0.153724 %[0m ) 13060000 ( 46770476 -> 29.5 % )
+integration time:  ( 1d 3h 38m 58s elapsed / 0s left ) [05:05:13]   
+[34m0.000166864 pb[0m +- ( [31m2.54764e-07 pb = 0.152678 %[0m ) 13160000 ( 47108518 -> 29.5 % )
+integration time:  ( 1d 3h 51m 40s elapsed / 0s left ) [05:17:57]   
+[34m0.000166871 pb[0m +- ( [31m2.53041e-07 pb = 0.151639 %[0m ) 13260000 ( 47448747 -> 29.5 % )
+integration time:  ( 1d 4h 4m 22s elapsed / 0s left ) [05:30:39]   
+[34m0.00016687 pb[0m +- ( [31m2.5135e-07 pb = 0.150626 %[0m ) 13360000 ( 47786494 -> 29.5 % )
+integration time:  ( 1d 4h 17m 3s elapsed / 0s left ) [05:43:22]   
+[34m0.000166882 pb[0m +- ( [31m2.49684e-07 pb = 0.149616 %[0m ) 13460000 ( 48124455 -> 29.5 % )
+integration time:  ( 1d 4h 29m 44s elapsed / 0s left ) [05:56:04]   
+[34m0.000166868 pb[0m +- ( [31m2.48027e-07 pb = 0.148636 %[0m ) 13560000 ( 48464704 -> 29.5 % )
+integration time:  ( 1d 4h 42m 26s elapsed / 0s left ) [06:08:46]   
+[34m0.000166863 pb[0m +- ( [31m2.46394e-07 pb = 0.147662 %[0m ) 13660000 ( 48804930 -> 29.5 % )
+integration time:  ( 1d 4h 55m 7s elapsed / 0s left ) [06:21:29]   
+[34m0.000166863 pb[0m +- ( [31m2.44797e-07 pb = 0.146705 %[0m ) 13760000 ( 49142085 -> 29.5 % )
+integration time:  ( 1d 5h 7m 47s elapsed / 0s left ) [06:34:10]   
+[34m0.000166859 pb[0m +- ( [31m2.43217e-07 pb = 0.145762 %[0m ) 13860000 ( 49479858 -> 29.5 % )
+integration time:  ( 1d 5h 20m 27s elapsed / 0s left ) [06:46:50]   
+[34m0.000166858 pb[0m +- ( [31m2.41654e-07 pb = 0.144827 %[0m ) 13960000 ( 49819028 -> 29.5 % )
+integration time:  ( 1d 5h 33m 6s elapsed / 0s left ) [06:59:30]   
+[34m0.000166855 pb[0m +- ( [31m2.4012e-07 pb = 0.143909 %[0m ) 14060000 ( 50157701 -> 29.5 % )
+integration time:  ( 1d 5h 45m 47s elapsed / 0s left ) [07:12:12]   
+[34m0.00016685 pb[0m +- ( [31m2.386e-07 pb = 0.143002 %[0m ) 14160000 ( 50496184 -> 29.5 % )
+integration time:  ( 1d 5h 58m 30s elapsed / 0s left ) [07:24:57]   
+[34m0.000166846 pb[0m +- ( [31m2.37101e-07 pb = 0.142108 %[0m ) 14260000 ( 50834511 -> 29.5 % )
+integration time:  ( 1d 6h 11m 12s elapsed / 0s left ) [07:37:39]   
+[34m0.000166854 pb[0m +- ( [31m2.35633e-07 pb = 0.141221 %[0m ) 14360000 ( 51171268 -> 29.5 % )
+integration time:  ( 1d 6h 23m 52s elapsed / 0s left ) [07:50:21]   
+[34m0.000166853 pb[0m +- ( [31m2.3417e-07 pb = 0.140345 %[0m ) 14460000 ( 51511057 -> 29.5 % )
+integration time:  ( 1d 6h 36m 32s elapsed / 0s left ) [08:03:01]   
+[34m0.000166848 pb[0m +- ( [31m2.32724e-07 pb = 0.139483 %[0m ) 14560000 ( 51851060 -> 29.5 % )
+integration time:  ( 1d 6h 49m 14s elapsed / 0s left ) [08:15:44]   
+[34m0.000166847 pb[0m +- ( [31m2.31306e-07 pb = 0.138633 %[0m ) 14660000 ( 52189803 -> 29.5 % )
+integration time:  ( 1d 7h 1m 54s elapsed / 0s left ) [08:28:26]   
+[34m0.000166861 pb[0m +- ( [31m2.29906e-07 pb = 0.137783 %[0m ) 14760000 ( 52528967 -> 29.5 % )
+integration time:  ( 1d 7h 14m 36s elapsed / 0s left ) [08:41:09]   
+[34m0.000166865 pb[0m +- ( [31m2.28529e-07 pb = 0.136954 %[0m ) 14860000 ( 52866259 -> 29.5 % )
+integration time:  ( 1d 7h 27m 18s elapsed / 0s left ) [08:53:52]   
+[34m0.000166877 pb[0m +- ( [31m2.27167e-07 pb = 0.136128 %[0m ) 14960000 ( 53204367 -> 29.5 % )
+integration time:  ( 1d 7h 40m 5s elapsed / 0s left ) [09:06:40]   
+[34m0.000166876 pb[0m +- ( [31m2.25814e-07 pb = 0.135319 %[0m ) 15060000 ( 53543053 -> 29.5 % )
+integration time:  ( 1d 7h 52m 51s elapsed / 0s left ) [09:19:27]   
+[34m0.000166883 pb[0m +- ( [31m2.24492e-07 pb = 0.13452 %[0m ) 15160000 ( 53879874 -> 29.5 % )
+integration time:  ( 1d 8h 5m 34s elapsed / 0s left ) [09:32:11]   
+[34m0.000166891 pb[0m +- ( [31m2.2318e-07 pb = 0.133728 %[0m ) 15260000 ( 54217399 -> 29.5 % )
+integration time:  ( 1d 8h 18m 18s elapsed / 0s left ) [09:44:56]   
+[34m0.000166893 pb[0m +- ( [31m2.21882e-07 pb = 0.132948 %[0m ) 15360000 ( 54556711 -> 29.5 % )
+integration time:  ( 1d 8h 31m 1s elapsed / 0s left ) [09:57:40]   
+[34m0.000166895 pb[0m +- ( [31m2.20601e-07 pb = 0.13218 %[0m ) 15460000 ( 54894648 -> 29.5 % )
+integration time:  ( 1d 8h 43m 43s elapsed / 0s left ) [10:10:22]   
+[34m0.000166901 pb[0m +- ( [31m2.19337e-07 pb = 0.131417 %[0m ) 15560000 ( 55232485 -> 29.5 % )
+integration time:  ( 1d 8h 56m 26s elapsed / 0s left ) [10:23:07]   
+[34m0.000166909 pb[0m +- ( [31m2.18089e-07 pb = 0.130664 %[0m ) 15660000 ( 55569820 -> 29.5 % )
+integration time:  ( 1d 9h 9m 10s elapsed / 0s left ) [10:35:51]   
+[34m0.000166916 pb[0m +- ( [31m2.16855e-07 pb = 0.129918 %[0m ) 15760000 ( 55907499 -> 29.5 % )
+integration time:  ( 1d 9h 21m 57s elapsed / 0s left ) [10:48:39]   
+[34m0.000166913 pb[0m +- ( [31m2.15631e-07 pb = 0.129188 %[0m ) 15860000 ( 56246637 -> 29.5 % )
+integration time:  ( 1d 9h 34m 44s elapsed / 0s left ) [11:01:27]   
+[34m0.000166916 pb[0m +- ( [31m2.14417e-07 pb = 0.128458 %[0m ) 15960000 ( 56586880 -> 29.5 % )
+integration time:  ( 1d 9h 47m 30s elapsed / 0s left ) [11:14:14]   
+[34m0.000166915 pb[0m +- ( [31m2.13221e-07 pb = 0.127743 %[0m ) 16060000 ( 56926022 -> 29.5 % )
+integration time:  ( 1d 10h 15s elapsed / 0s left ) [11:27:00]   
+[34m0.000166918 pb[0m +- ( [31m2.12047e-07 pb = 0.127037 %[0m ) 16160000 ( 57263380 -> 29.5 % )
+integration time:  ( 1d 10h 13m elapsed / 0s left ) [11:39:45]   
+[34m0.000166923 pb[0m +- ( [31m2.10886e-07 pb = 0.126337 %[0m ) 16260000 ( 57601588 -> 29.5 % )
+integration time:  ( 1d 10h 25m 46s elapsed / 0s left ) [11:52:33]   
+[34m0.000166922 pb[0m +- ( [31m2.09731e-07 pb = 0.125646 %[0m ) 16360000 ( 57940936 -> 29.5 % )
+integration time:  ( 1d 10h 38m 31s elapsed / 0s left ) [12:05:19]   
+[34m0.000166911 pb[0m +- ( [31m2.08589e-07 pb = 0.12497 %[0m ) 16460000 ( 58279420 -> 29.5 % )
+integration time:  ( 1d 10h 51m 17s elapsed / 0s left ) [12:18:06]   
+[34m0.000166904 pb[0m +- ( [31m2.07458e-07 pb = 0.124298 %[0m ) 16560000 ( 58618771 -> 29.5 % )
+integration time:  ( 1d 11h 4m 2s elapsed / 0s left ) [12:30:52]   
+[34m0.00016691 pb[0m +- ( [31m2.06353e-07 pb = 0.123632 %[0m ) 16660000 ( 58955982 -> 29.5 % )
+integration time:  ( 1d 11h 16m 47s elapsed / 0s left ) [12:43:38]   
+[34m0.000166915 pb[0m +- ( [31m2.05257e-07 pb = 0.122971 %[0m ) 16760000 ( 59294446 -> 29.5 % )
+integration time:  ( 1d 11h 29m 30s elapsed / 0s left ) [12:56:22]   
+[34m0.000166914 pb[0m +- ( [31m2.04171e-07 pb = 0.12232 %[0m ) 16860000 ( 59632333 -> 29.5 % )
+integration time:  ( 1d 11h 42m 14s elapsed / 0s left ) [13:09:06]   
+[34m0.000166905 pb[0m +- ( [31m2.03094e-07 pb = 0.121682 %[0m ) 16960000 ( 59970962 -> 29.5 % )
+integration time:  ( 1d 11h 54m 53s elapsed / 0s left ) [13:21:46]   
+[34m0.000166903 pb[0m +- ( [31m2.0203e-07 pb = 0.121046 %[0m ) 17060000 ( 60309559 -> 29.5 % )
+integration time:  ( 1d 12h 7m 36s elapsed / 0s left ) [13:34:31]   
+[34m0.000166905 pb[0m +- ( [31m2.00982e-07 pb = 0.120417 %[0m ) 17160000 ( 60647159 -> 29.5 % )
+integration time:  ( 1d 12h 20m 13s elapsed / 0s left ) [13:47:08]   
+[34m0.000166901 pb[0m +- ( [31m1.99942e-07 pb = 0.119797 %[0m ) 17260000 ( 60985659 -> 29.5 % )
+integration time:  ( 1d 12h 32m 55s elapsed / 0s left ) [13:59:51]   
+[34m0.000166904 pb[0m +- ( [31m1.98918e-07 pb = 0.119181 %[0m ) 17360000 ( 61322759 -> 29.5 % )
+integration time:  ( 1d 12h 45m 34s elapsed / 0s left ) [14:12:31]   
+[34m0.000166902 pb[0m +- ( [31m1.97903e-07 pb = 0.118575 %[0m ) 17460000 ( 61660408 -> 29.5 % )
+integration time:  ( 1d 12h 58m 13s elapsed / 0s left ) [14:25:10]   
+[34m0.000166899 pb[0m +- ( [31m1.96897e-07 pb = 0.117974 %[0m ) 17560000 ( 61999242 -> 29.5 % )
+integration time:  ( 1d 13h 10m 52s elapsed / 0s left ) [14:37:50]   
+[34m0.000166912 pb[0m +- ( [31m1.95909e-07 pb = 0.117373 %[0m ) 17660000 ( 62335642 -> 29.5 % )
+integration time:  ( 1d 13h 23m 29s elapsed / 0s left ) [14:50:29]   
+[34m0.00016691 pb[0m +- ( [31m1.94927e-07 pb = 0.116786 %[0m ) 17760000 ( 62674050 -> 29.5 % )
+integration time:  ( 1d 13h 36m 7s elapsed / 0s left ) [15:03:08]   
+[34m0.000166903 pb[0m +- ( [31m1.93949e-07 pb = 0.116205 %[0m ) 17860000 ( 63012871 -> 29.5 % )
+integration time:  ( 1d 13h 48m 42s elapsed / 0s left ) [15:15:44]   
+[34m0.000166904 pb[0m +- ( [31m1.92983e-07 pb = 0.115625 %[0m ) 17960000 ( 63352530 -> 29.5 % )
+integration time:  ( 1d 14h 1m 18s elapsed / 0s left ) [15:28:20]   
+[34m0.000166901 pb[0m +- ( [31m1.92031e-07 pb = 0.115057 %[0m ) 18060000 ( 63690702 -> 29.5 % )
+integration time:  ( 1d 14h 13m 52s elapsed / 0s left ) [15:40:55]   
+[34m0.000166899 pb[0m +- ( [31m1.91085e-07 pb = 0.114491 %[0m ) 18160000 ( 64029581 -> 29.5 % )
+integration time:  ( 1d 14h 26m 25s elapsed / 0s left ) [15:53:29]   
+[34m0.000166903 pb[0m +- ( [31m1.90156e-07 pb = 0.113932 %[0m ) 18260000 ( 64367160 -> 29.5 % )
+integration time:  ( 1d 14h 38m 59s elapsed / 0s left ) [16:06:04]   
+[34m0.000166905 pb[0m +- ( [31m1.89232e-07 pb = 0.113377 %[0m ) 18360000 ( 64706776 -> 29.5 % )
+integration time:  ( 1d 14h 51m 33s elapsed / 0s left ) [16:18:39]   
+[34m0.000166906 pb[0m +- ( [31m1.88319e-07 pb = 0.11283 %[0m ) 18460000 ( 65044886 -> 29.5 % )
+integration time:  ( 1d 15h 4m 6s elapsed / 0s left ) [16:31:13]   
+[34m0.00016691 pb[0m +- ( [31m1.87418e-07 pb = 0.112287 %[0m ) 18560000 ( 65383122 -> 29.5 % )
+integration time:  ( 1d 15h 16m 40s elapsed / 0s left ) [16:43:48]   
+[34m0.000166916 pb[0m +- ( [31m1.86525e-07 pb = 0.111748 %[0m ) 18660000 ( 65720515 -> 29.5 % )
+integration time:  ( 1d 15h 29m 13s elapsed / 0s left ) [16:56:22]   
+[34m0.000166919 pb[0m +- ( [31m1.85639e-07 pb = 0.111215 %[0m ) 18760000 ( 66058576 -> 29.5 % )
+integration time:  ( 1d 15h 41m 49s elapsed / 0s left ) [17:08:58]   
+[34m0.000166934 pb[0m +- ( [31m1.84767e-07 pb = 0.110683 %[0m ) 18860000 ( 66395495 -> 29.5 % )
+integration time:  ( 1d 15h 54m 23s elapsed / 0s left ) [17:21:34]   
+[34m0.000166928 pb[0m +- ( [31m1.83901e-07 pb = 0.110168 %[0m ) 18960000 ( 66733820 -> 29.5 % )
+integration time:  ( 1d 16h 6m 58s elapsed / 0s left ) [17:34:09]   
+[34m0.000166933 pb[0m +- ( [31m1.83043e-07 pb = 0.109651 %[0m ) 19060000 ( 67072611 -> 29.5 % )
+integration time:  ( 1d 16h 19m 32s elapsed / 0s left ) [17:46:44]   
+[34m0.000166933 pb[0m +- ( [31m1.82197e-07 pb = 0.109144 %[0m ) 19160000 ( 67410207 -> 29.5 % )
+integration time:  ( 1d 16h 32m 6s elapsed / 0s left ) [17:59:19]   
+[34m0.000166931 pb[0m +- ( [31m1.81356e-07 pb = 0.108641 %[0m ) 19260000 ( 67748731 -> 29.5 % )
+integration time:  ( 1d 16h 44m 40s elapsed / 0s left ) [18:11:54]   
+[34m0.000166939 pb[0m +- ( [31m1.80525e-07 pb = 0.108138 %[0m ) 19360000 ( 68086574 -> 29.5 % )
+integration time:  ( 1d 16h 57m 14s elapsed / 0s left ) [18:24:29]   
+[34m0.000166945 pb[0m +- ( [31m1.79702e-07 pb = 0.107642 %[0m ) 19460000 ( 68424829 -> 29.5 % )
+integration time:  ( 1d 17h 9m 45s elapsed / 0s left ) [18:37:00]   
+[34m0.000166945 pb[0m +- ( [31m1.78885e-07 pb = 0.107152 %[0m ) 19560000 ( 68762576 -> 29.5 % )
+integration time:  ( 1d 17h 22m 16s elapsed / 0s left ) [18:49:32]   
+[34m0.000166951 pb[0m +- ( [31m1.78075e-07 pb = 0.106663 %[0m ) 19660000 ( 69101410 -> 29.5 % )
+integration time:  ( 1d 17h 34m 50s elapsed / 0s left ) [19:02:07]   
+[34m0.000166951 pb[0m +- ( [31m1.77276e-07 pb = 0.106185 %[0m ) 19760000 ( 69438718 -> 29.5 % )
+integration time:  ( 1d 17h 47m 23s elapsed / 0s left ) [19:14:41]   
+[34m0.000166952 pb[0m +- ( [31m1.76487e-07 pb = 0.105711 %[0m ) 19860000 ( 69775880 -> 29.5 % )
+integration time:  ( 1d 17h 59m 57s elapsed / 0s left ) [19:27:16]   
+[34m0.000166963 pb[0m +- ( [31m1.75707e-07 pb = 0.105237 %[0m ) 19960000 ( 70112900 -> 29.5 % )
+integration time:  ( 1d 18h 12m 31s elapsed / 0s left ) [19:39:51]   
+[34m0.000166971 pb[0m +- ( [31m1.74934e-07 pb = 0.104769 %[0m ) 20060000 ( 70448712 -> 29.5 % )
+integration time:  ( 1d 18h 25m 5s elapsed / 0s left ) [19:52:25]   
+[34m0.00016698 pb[0m +- ( [31m1.74165e-07 pb = 0.104303 %[0m ) 20160000 ( 70786949 -> 29.5 % )
+integration time:  ( 1d 18h 37m 38s elapsed / 0s left ) [20:04:59]   
+[34m0.000166976 pb[0m +- ( [31m1.73401e-07 pb = 0.103848 %[0m ) 20260000 ( 71124371 -> 29.5 % )
+integration time:  ( 1d 18h 50m 8s elapsed / 0s left ) [20:17:30]   
+[34m0.000166974 pb[0m +- ( [31m1.72646e-07 pb = 0.103397 %[0m ) 20360000 ( 71462019 -> 29.5 % )
+integration time:  ( 1d 19h 2m 38s elapsed / 0s left ) [20:30:01]   
+[34m0.00016697 pb[0m +- ( [31m1.71896e-07 pb = 0.10295 %[0m ) 20460000 ( 71800119 -> 29.5 % )
+integration time:  ( 1d 19h 15m 10s elapsed / 0s left ) [20:42:33]   
+[34m0.000166978 pb[0m +- ( [31m1.71158e-07 pb = 0.102503 %[0m ) 20560000 ( 72136961 -> 29.5 % )
+integration time:  ( 1d 19h 27m 44s elapsed / 0s left ) [20:55:08]   
+[34m0.000166976 pb[0m +- ( [31m1.70421e-07 pb = 0.102063 %[0m ) 20660000 ( 72476145 -> 29.5 % )
+integration time:  ( 1d 19h 40m 18s elapsed / 0s left ) [21:07:44]   
+[34m0.000166977 pb[0m +- ( [31m1.69693e-07 pb = 0.101627 %[0m ) 20760000 ( 72814170 -> 29.5 % )
+integration time:  ( 1d 19h 52m 50s elapsed / 0s left ) [21:20:16]   
+[34m0.000166983 pb[0m +- ( [31m1.68974e-07 pb = 0.101193 %[0m ) 20860000 ( 73151064 -> 29.5 % )
+integration time:  ( 1d 20h 5m 20s elapsed / 0s left ) [21:32:48]   
+[34m0.000166983 pb[0m +- ( [31m1.6826e-07 pb = 0.100765 %[0m ) 20960000 ( 73488663 -> 29.5 % )
+integration time:  ( 1d 20h 17m 52s elapsed / 0s left ) [21:45:20]   
+[34m0.000166988 pb[0m +- ( [31m1.67557e-07 pb = 0.10034 %[0m ) 21060000 ( 73827274 -> 29.5 % )
+integration time:  ( 1d 20h 30m 25s elapsed / 0s left ) [21:57:54]   
+[34m0.000166989 pb[0m +- ( [31m1.66852e-07 pb = 0.0999181 %[0m ) 21160000 ( 74165442 -> 29.5 % )
+integration time:  ( 1d 20h 42m 58s elapsed / 0s left ) [22:10:27]   
+[1m2_6__light_jet__light_jet__e-__mu-__mu+__veb__light_jet__light_jet[0m : [34m[1m0.000166989 pb[0m +- ( [31m1.66852e-07 pb = 0.0999181 %[0m ) [1m exp. eff: [31m0.035378 %[0m
+  reduce max for 2_6__light_jet__light_jet__e-__mu-__mu+__veb__light_jet__light_jet to 0.223654 ( eps = 0.001 ) 
+Return_Value::PrintStatistics(): Statistics {
+  Generated events: 0
+}
+------------------------------------------------------------------------
+[1mPlease cite the publications listed in '[31mSherpa_References.tex[0m[1m'.[0m
+  Extract the bibtex list by running 'get_bibtex Sherpa_References.tex'
+  or email the file to 'slaclib2@slac.stanford.edu', subject 'generate'.
+------------------------------------------------------------------------
+Time: 1d 20h 47m on Tue Feb  6 22:10:28 2018
+ (User: 1d 20h 43m 5s, System: 2m 7s, Children User: 0s, Children System: 0s)
+Thanks for using LHAPDF 6.1.6. Please make sure to cite the paper:
+  Eur.Phys.J. C75 (2015) 3, 132  (http://arxiv.org/abs/1412.7420)

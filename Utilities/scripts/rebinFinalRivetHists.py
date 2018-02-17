@@ -2,12 +2,14 @@
 import yoda
 data_path = "../../Rivet/data"
 
-# WmZ files with fixed scale M_{W}
+# WmZ files with fixed scale M_{W} and dynamic scale maxptj
 filenames = [
     "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda",
     "VBS_WZ_MW_Sherpa.yoda",
     "minus_CUETP8M1.yoda",
     "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda",
+    "VBS_WZ_dyn_Sherpa.yoda",
+    "WmZTo1E1Nu2Mu_MAXPTJ_LHConfig_madgraph-pythia8.yoda"
 ]
     #"WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda",
 binning = {
