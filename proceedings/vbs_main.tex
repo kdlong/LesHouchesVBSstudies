@@ -77,7 +77,7 @@ These processes provide a natural probe of the vector boson quartic couplings, w
 The Higgs boson plays a unique role in these interactions, preventing the cross section from diverging in the high-energy limit and preserving the unitarity of the associated scattering amplitudes.
 Deviations in these channels could therefore indicate physics in the electroweak sector beyond the SM.
 
-Measurements of these processes are particularly challenging due to the high multiplicity of the processes and their small cross sections, and 
+The measurements of these processes are particularly challenging due to the high multiplicity of the processes and their small cross sections, and 
 have only been observed and even measured recently by the experimental collaborations at the LHC.
 The most precise current measurement \cite{Aad:2014zda,Khachatryan:2014sta,Sirunyan:2017ret,Aaboud:2016ffv} concerns the scattering of two same sign W bosons (usually denoted ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$).
 This process has a unique signature due to the same-sign charged leptons in the final state.
@@ -170,21 +170,24 @@ In the following, the codes used for the predictions are briefly described.
       The commands that have been used for the present computation are
 \begin{verbatim}
 > set complex_mass_scheme
-> generate p p > e+(e-) ve(ve~) mu+ mu- QED=6 QCD=0
+> generate p p > e+(e-) ve(ve~) mu+ mu- j j QED=6 QCD=0
 > output WpZJJToENu2MuJJ
 \end{verbatim}
   The version used is 2.6.0.
-  Note that alternatively, we have tested the following commands
-  \begin{verbatim}
-> set gauge Feynman
-> set complex_mass_scheme
-> generate p p > e+  ve  mu+ mu- j j QCD^2==0 QED^2==12
-> output WpZJJToENu2MuJJ_bis
-\end{verbatim}
-  with the version 2.5.1.
-  These commands gave for the cross section with our common set-up: $0.2861(8)$~fb.
-  This results is in much better agreement with other predictions than the default generation procedure.
-  Unfortunately, we have not been able to resolve the differences between these two generation procedures.
+  Note that when using the run\_card.dat to apply event selection and in particular the cut ``deltaeta'' variable, in the ``SubProcesses'' folder, 
+  the file cuts.f has to be edited in order not to enforce that the two jets are in opposite hemisphere.
+  \MP{To be checked by Kenneth.}
+%   Note that alternatively, we have tested the following commands
+%   \begin{verbatim}
+% > set gauge Feynman
+% > set complex_mass_scheme
+% > generate p p > e+  ve  mu+ mu- j j QCD^2==0 QED^2==12
+% > output WpZJJToENu2MuJJ_bis
+% \end{verbatim}
+%   with the version 2.5.1.
+%   These commands gave for the cross section with our common set-up: $0.2861(8)$~fb.
+%   This results is in much better agreement with other predictions than the default generation procedure.
+%   Unfortunately, we have not been able to resolve the differences between these two generation procedures.
   
 \subsubsection*{\protect\Herwig \label{vbs_herwig}}
 
@@ -425,20 +428,21 @@ We start the comparison of the various predictions by a comparison at the level 
 The fiducial volume is the one described in Eqs.~\eqref{cut:1}-\eqref{cut:4}.
 The results are documented in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn}.
 There, the cross sections for both processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at fixed and dynamical scales are presented.
-The predictions are clearly not in statistical agreement but they usually agree within about one per cent apart from {\sc MG5\_aMC}.
-The discrepances between {\sc MG5\_aMC} and \VBFNLO /\MoCaNLO\!+\Recola depend on the process
-definition in the {\sc MG5\_aMC} configuration, as mentioned in the
-description of the generator setup. These differences have been investigated but are not yet fully understood.
+The predictions are not all in statistical agreement but they usually agree within about one per.
+For the fixed scale displayed in Table~\ref{table:xsectLOfix}, the largest difference is between the predictions of \MoCaNLO\!+\Recola and \Sherpa and amounts to $1.2\%$.
+Note also that the predictions of \MoCaNLO\!+\Recola and \VBFNLO are not expected to agree.
+The predictions of \VBFNLO rely on the VBS approximation for the matrix element.
+The difference between the two amounts to $0.6\%$ for the fixed scale.
 
 \begin{table}
 \begin{center} 
 \begin{tabular}{ c | c | c }
  $\mu = \mu_{\rm fix}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
   \hline\hline
-  {\sc MG5\_aMC}                  & $0.2783(3)$     & $0.1615(2)$   \\
-  {\sc MoCaNLO}+{\sc Recola}      & $0.28496(6)$    & $0.16718(3)$  \\
-  {\sc Sherpa}                    & $0.2885(2)$     & $0.1670(2)$   \\
-  {\sc VBFNLO}                    & $0.2867(5)$     & $0.1661(3)$   \\
+  {\sc MG5\_aMC}                  & $0.2857(8)\phantom{0}$     & $0.1615(2)\phantom{0}$   \\
+  {\sc MoCaNLO}+{\sc Recola}      & $0.28496(6)$               & $0.16718(3)$  \\
+  {\sc Sherpa}                    & $0.2885(2)\phantom{0}$     & $0.1670(2)\phantom{0}$   \\
+  {\sc VBFNLO}                    & $0.2867(5)\phantom{0}$     & $0.1661(3)\phantom{0}$   \\
   \hline
 \end{tabular}
 \end{center}
@@ -455,9 +459,9 @@ The integration errors of the last digits are given in parentheses.}
 \begin{tabular}{ c | c | c }
  $\mu = \mu_{\rm dyn}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
   \hline\hline
-  {\sc MG5\_aMC}                  & $0.2479(8)$  & $0.1451(6)$   \\
-  {\sc MoCaNLO}+{\sc Recola}      & $0.25416(6)$  & $0.15003(3)$  \\
-{\sc Sherpa}                      & $0.2574(2)$  & $0.14998(6)$   \\
+  {\sc MG5\_aMC}                  & $0.2479(8)\phantom{0}$  & $0.1451(6)\phantom{0}$   \\
+  {\sc MoCaNLO}+{\sc Recola}      & $0.25416(6)$            & $0.15003(3)$  \\
+{\sc Sherpa}                      & $0.2574(2)\phantom{0}$  & $0.14998(6)$   \\
 %{\sc VBFNLO}                      & $XX$  & $XX$   \\
   \hline
 \end{tabular}
@@ -466,18 +470,21 @@ The integration errors of the last digits are given in parentheses.}
 Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$.
 The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm~TeV}$.
 The scale used in the simulations is $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$.
-The integration errors of the last digits are given in parentheses.}
+The integration errors of the last digits are given in parentheses.
+\MP{MG numbers to be updated by Kenneth.}}
 \label{table:xsectLOdyn}
 \end{table}
 
-As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, the agreement between the various predictions is usually relatively good in both shape and normalisation.
-The invariant mass and rapidity separation of the two tagging jets are displayed.
-The larger discrepancy is found in the region of low rapidity-separation between the two jets.
-The difference is the largest between {\sc MoCaNLO}+{\sc Recola}/{\sc VBFNLO} and {\sc MG5\_aMC}.
-This reflects what has already been seen at the level of the cross section. 
-Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO}), both predictions are in good agreement.
+As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, where the invariant mass and rapidity separation of the two tagging jets are displayed, the agreement between the predictions is good in both shape and normalisation.
+In particular, all predictions agree within statistical uncertainties over the whole range.
+There are no noticeable discrepancies.
+% The larger discrepancy is found in the region of low rapidity-separation between the two jets.
+% The difference is the largest between {\sc MoCaNLO}+{\sc Recola}/{\sc VBFNLO} and {\sc MG5\_aMC}.
+% This reflects what has already been seen at the level of the cross section. 
+
+Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO} for example), both predictions are in good agreement as at the level of the cross section.
 This supports the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for similar comparisons for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
-This means that the VBS approximation ({\sc VBFNLO}) seems to approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
+This means that the VBS approximation ({\sc VBFNLO}) approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
 
 \begin{figure}[htbp]
 \begin{center}
