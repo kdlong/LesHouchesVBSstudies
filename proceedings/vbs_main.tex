@@ -167,16 +167,19 @@ In the following, the codes used for the predictions are briefly described.
 
 {\sc MadGraph5\_aMC@NLO}~\cite{Alwall:2014hca} is an automatic meta-code (a code that generates codes) which makes it possible to simulate any scattering process
       including NLO QCD corrections both at fixed order and including matching to parton showers. 
-      The commands that have been used for the present computation are
+      The commands that have been used for the present computation (for the W$^{-}$ case) are 
 \begin{verbatim}
 > set complex_mass_scheme
-> generate p p > e+(e-) ve(ve~) mu+ mu- j j QED=6 QCD=0
+> set gauge Feynman
+> generate p p > e- ve~ mu+ mu- j j QED=6 QCD=0
 > output WpZJJToENu2MuJJ
 \end{verbatim}
-  The version used is 2.6.0.
-  Note that when using the run\_card.dat to apply event selection and in particular the cut ``deltaeta'' variable, in the ``SubProcesses'' folder, 
-  the file cuts.f has to be edited in order not to enforce that the two jets are in opposite hemisphere.
-  \MP{To be checked by Kenneth.}
+  The version used is 2.6.0. We use the complex mass scheme and Feynman gauge for consistency with MoCaNLO+Recola, but 
+  verify that we obtain equivalent results if they are not explicity specified.
+  We note that the ``deltaeta'' variable in the \MG5\_aMC run\_card also applies a requirement that the two jets
+  have opposite rapidity sign. We do not make this requirement for our fidicual region definition, so we remove this condition for our comparisons.
+  This is accomplished by modifying the cut behaviour in cuts.f in the ``SubProcesses'' folder, and validated by
+  generating events without this condition and applying selections to the LHE-level partons using standalone code.
 %   Note that alternatively, we have tested the following commands
 %   \begin{verbatim}
 % > set gauge Feynman
@@ -186,8 +189,7 @@ In the following, the codes used for the predictions are briefly described.
 % \end{verbatim}
 %   with the version 2.5.1.
 %   These commands gave for the cross section with our common set-up: $0.2861(8)$~fb.
-%   This results is in much better agreement with other predictions than the default generation procedure.
-%   Unfortunately, we have not been able to resolve the differences between these two generation procedures.
+% Results are statistically equivalent and are now understood to be related to the deltaeta cut discussed
   
 \subsubsection*{\protect\Herwig \label{vbs_herwig}}
 
