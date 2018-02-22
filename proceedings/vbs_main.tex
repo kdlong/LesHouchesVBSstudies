@@ -428,19 +428,19 @@ We start the comparison of the various predictions by a comparison at the level 
 The fiducial volume is the one described in Eqs.~\eqref{cut:1}-\eqref{cut:4}.
 The results are documented in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn}.
 There, the cross sections for both processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at fixed and dynamical scales are presented.
-The predictions are not all in statistical agreement but they usually agree within about one per.
-For the fixed scale displayed in Table~\ref{table:xsectLOfix}, the largest difference is between the predictions of \MoCaNLO\!+\Recola and \Sherpa and amounts to $1.2\%$.
-Note also that the predictions of \MoCaNLO\!+\Recola and \VBFNLO are not expected to agree.
-The predictions of \VBFNLO rely on the VBS approximation for the matrix element.
-The difference between the two amounts to $0.6\%$ for the fixed scale.
+In general, the predictions of \MoCaNLO\!+\Recola and \Sherpa are in perfect agreement while the ones of \MGaMC are showing some slight statistical disagreement but only for the fixed scale.
+There, the difference between \MoCaNLO\!+\Recola/\Sherpa and \MGaMC is about a per cent as it can be seed in Table~\ref{table:xsectLOfix}.
+% For the fixed scale displayed in , the largest difference is between the predictions of \MoCaNLO\!+\Recola and \Sherpa and amounts to $1.2\%$.
+On the other hand, the predictions predictions of \VBFNLO are not expected to be in perfect agreement with the others as \VBFNLO is not using full matrix elements but VBS-approximated ones.
+Nonetheless, the difference between the \VBFNLO predictions and the ones of \MoCaNLO\!+\Recola/\Sherpa amounts to $0.6\%$ for the fixed scale.
 
 \begin{table}
 \begin{center} 
 \begin{tabular}{ c | c | c }
  $\mu = \mu_{\rm fix}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
   \hline\hline
-  {\sc MG5\_aMC}                  & $0.2857(8)$     & $0.1657(4)\phantom{0}$   \\
-  {\sc MoCaNLO}+{\sc Recola}      & $0.289(2)\phantom{0}$               & $0.16718(3)$  \\
+  \MGaMC                  & $0.2857(8)$     & $0.1657(4)\phantom{0}$   \\
+  {\sc MoCaNLO}+{\sc Recola}      & $0.2885(1)$     & $0.16718(3)$  \\
   {\sc Sherpa}                    & $0.2885(2)$     & $0.1670(2)\phantom{0}$   \\
   {\sc VBFNLO}                    & $0.2867(5)$     & $0.1661(3)\phantom{0}$   \\
   \hline
@@ -459,9 +459,9 @@ The integration errors of the last digits are given in parentheses.}
 \begin{tabular}{ c | c | c }
  $\mu = \mu_{\rm dyn}$ / $\sigma_{\rm LO}^{\rm EW}$ [fb] & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
   \hline\hline
-  {\sc MG5\_aMC}                  & $0.2550(8)\phantom{0}$  & $0.1492(5)\phantom{0}$ \\
-  {\sc MoCaNLO}+{\sc Recola}      & $0.25416(6)$            & $0.15003(3)$  \\
-{\sc Sherpa}                      & $0.2574(2)\phantom{0}$  & $0.14998(6)$   \\
+  \MGaMC                  & $0.2550(8)$  & $0.1492(5)\phantom{0}$ \\
+  {\sc MoCaNLO}+{\sc Recola}      & $0.2574(2)$  & $0.15003(3)$  \\
+  {\sc Sherpa}                    & $0.2574(2)$  & $0.14998(6)$   \\
 %{\sc VBFNLO}                      & $XX$  & $XX$   \\
   \hline
 \end{tabular}
@@ -475,9 +475,9 @@ The integration errors of the last digits are given in parentheses.}
 \end{table}
 
 As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, where the invariant mass and rapidity separation of the two tagging jets are displayed, the agreement between the predictions is good in both shape and normalisation.
-For the jet rapidity separation, all predictions agree within statistical uncertainties over the whole range, with some small normalisation differences. For the di-jet mass, statistically significant differences are more pronounced towards higher masses between {\sc MG5\_aMC} and other generators. This difference was not fully understood, but could be attributed to undestimation of statistical uncertainties or subtle configuration differences.
+For the jet rapidity separation, all predictions agree within statistical uncertainties over the whole range, with some small normalisation differences. For the di-jet mass, statistically significant differences are more pronounced towards higher masses between \MGaMC and other generators. This difference was not fully understood, but could be attributed to undestimation of statistical uncertainties or subtle configuration differences.
 % The larger discrepancy is found in the region of low rapidity-separation between the two jets.
-% The difference is the largest between {\sc MoCaNLO}+{\sc Recola}/{\sc VBFNLO} and {\sc MG5\_aMC}.
+% The difference is the largest between {\sc MoCaNLO}+{\sc Recola}/{\sc VBFNLO} and \MGaMC.
 % This reflects what has already been seen at the level of the cross section. 
 
 \begin{figure}[htbp]
@@ -488,9 +488,9 @@ For the jet rapidity separation, all predictions agree within statistical uncert
   \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_{\rm W}$: 
                 invariant mass of the two jets~(left),
                 rapidity separation between the two jets~(right).
-                The predictions in the lower plot are normalised to the prediction of {\sc MG5\_aMC}.
+                The predictions in the lower plot are normalised to the prediction of \MGaMC.
 		The shaded bands indicate the relative statistical uncertainty by bin for each sample.
-		The statistical uncertainty on the {\sc MG5\_aMC} sample is shown in grey, other samples
+		The statistical uncertainty on the \MGaMC sample is shown in grey, other samples
 		are indicated in the ratio with the color indicated in the legend.
                 }
 \label{vbs_fig_fixed_order}
@@ -505,10 +505,10 @@ This means that the VBS approximation ({\sc VBFNLO}) approximate rather well the
 
 We stress that such differences of configuration should be considered independently of typical estimates of theoretical uncertainties, especially QCD scale and PDF uncertainties. 
 To illustrate this, we compute the PDF uncertainty for the NNPDF3.0 set and the two scale choices considered here. 
-The PDF uncertainty is evaluated to be 3--5\% using {\sc MG5\_aMC}. 
+The PDF uncertainty is evaluated to be 3--5\% using \MGaMC. 
 Scale uncertainties are evaluated using the typical prescription of varying $\mu_{R}$ and $\mu_{F}$ 
-subject to the constraint $1/2 \le \mu_{F}/\mu_{R} \le 2$, using {\sc MG5\_aMC} and cross-checked with \MoCaNLO+\Recola, 
-and are found to be between 7--10\% for the scale choices considered. The full results obtained with {\sc MG5\_aMC} are shown in Table~\ref{table:xsecWithUnc}
+subject to the constraint $1/2 \le \mu_{F}/\mu_{R} \le 2$, using \MGaMC and cross-checked with \MoCaNLO+\Recola, 
+and are found to be between 7--10\% for the scale choices considered. The full results obtained with \MGaMC are shown in Table~\ref{table:xsecWithUnc}
 
 \begin{table}[htbp]
 \begin{center} 
@@ -522,32 +522,32 @@ and are found to be between 7--10\% for the scale choices considered. The full r
 \end{center}
 \caption{
 Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$ 
-  via {\sc MG5\_aMC}.
+  via \MGaMC.
 The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm~TeV}$.
   Uncertainties are expressed as $\sigma^{+\delta_{\mathrm{scale}}}_{-\delta{\mathrm{scale}}} \pm \mathrm \delta_{\mathrm{PDF}}$.
 }
 \label{table:xsecWithUnc}
 \end{table}
 
-We also compare the effect of configurations changes using the general-purpose generators {\sc Sherpa} and {\sc MG5\_aMC}. 
+We also compare the effect of configurations changes using the general-purpose generators {\sc Sherpa} and \MGaMC. 
 These generators are able to compute arbitrary processes in the standard model, 
 and therefore have default configurations designed to cover a wide range of processes. It is thus advisable
 to explicitly configure settings most appropriate to the process considered. 
 
 Using the same fiducial definition, but with the default parameter settings (defined in param\_card.dat) for 
-{\sc MG5\_aMC}, we obtain a cross section of 0.1561(5) fb for the ${\rm Max}\left[p_{\rm T, j}\right]$
+\MGaMC, we obtain a cross section of 0.1561(5) fb for the ${\rm Max}\left[p_{\rm T, j}\right]$
 scale, an increase of 4\% on our nominal value. The primary source of this difference is the 
-settings of the boson masses and widths, which are set to their LO values by default in {\sc MG5\_aMC}.
+settings of the boson masses and widths, which are set to their LO values by default in \MGaMC.
 Such a setting can be considered appropriate in cases where the partial widths of many decay channels
 must be considered together, but for an explicitly leptonic process we argue that the best measured values are
 more appropriate.\MP{I don't agree with this. It is just some old default of MG and because they mostly do on-shell computations.}
 We do not believe that this $4\%$ difference constitutes an additional uncertainty, but warn that
 careful configuration of such parameters should be considered.
 
-We similarly study the default dynamical scale choices in {\sc Sherpa} and {\sc MG5\_aMC}. In both cases,
+We similarly study the default dynamical scale choices in {\sc Sherpa} and \MGaMC. In both cases,
 this choice is motivated by a desire for broad application to a variety of processes. Sherpa uses the inverted
 parton shower to cluster the matrix element onto a core $2 \to 2$ process. This procedure determines the scales
-and is especially suited for truncated shower merging. For {\sc MG5\_aMC},
+and is especially suited for truncated shower merging. For \MGaMC,
 the default scale depends on the order of the process and shower settings. At LO without
 merging of parton multiplicities, the scale is set to the central $m_{T}$ scale after k$_t$-clustering of the event \MP{Should it not be anti-kt?}.
 The resulting cross section is $5\%$ greater than the ${\rm Max}\left[p_{\rm T, j}\right]$ result.
@@ -569,7 +569,7 @@ In particular, in Fig.~\ref{vbs_fig_shower_1a} several differential distribution
 the invariant mass of the two jets, the rapidity separation between
 the two jets, the transverse momentum of the anti-muon--muon system,
 and the distance between the two jets. The error band in the plots represents the statistical error of the Monte Carlo predictions.  
-The overall picture is that the predictions obtained from {\sc Sherpa}, {\sc VBFNLO}+{\sc PYTHIA8}, and {\sc MG5\_aMC}+{\sc PYTHIA8} agree rather well over the whole kinematic range.
+The overall picture is that the predictions obtained from {\sc Sherpa}, {\sc VBFNLO}+{\sc PYTHIA8}, and \MGaMC+{\sc PYTHIA8} agree rather well over the whole kinematic range.
 On the other hand, the predictions obtained from {\sc VBFNLO}+{\sc HERWIG7} seem to be very different for all type of distributions.
 These differences can probably be attributed to the configuration of the sample obtained from {\sc VBFNLO}+{\sc HERWIG7} which should be further investigated.
 
@@ -625,13 +625,13 @@ are considered. A similar argument holds for a veto on extra jet activity.
 \end{figure}
 
 In Figs.~\ref{vbs_fig_shower_2a} and \ref{vbs_fig_shower_2b} results obtained using the fixed scale $\mu = M_{\rm W}$ and dynamic scale $\mu = {\rm Max}\left[p_{\rm T, j}\right]$ are compared.
-In particular, predictions for {\sc Sherpa} and {\sc MG5\_aMC} for both scales are presented. For
-{\sc MG5\_aMC} this prediction is obtained by reweighting each event for the difference between the matrix-element calculation
+In particular, predictions for {\sc Sherpa} and \MGaMC for both scales are presented. For
+\MGaMC this prediction is obtained by reweighting each event for the difference between the matrix-element calculation
 with the fixed scale and the dynamic scale. The statistical uncertainty is therefore largely
 correlated between the two predictions for this Monte Carlo.  
 The observables displayed are the same as for the previous comparison.
 For the invariant mass of the two jets as well as the transverse momentum of the anti-muon--muon system, for both generators, the use of fixed scale enhances the predictions toward high transverse momentum.
-For the rapidity separation of the two jets as well as the distance between the two jets, the shape difference between fixed and dynamical scale is not present for {\sc MG5\_aMC}.
+For the rapidity separation of the two jets as well as the distance between the two jets, the shape difference between fixed and dynamical scale is not present for \MGaMC.
 On the other hand, in {\sc Sherpa}, the use of fixed scale enhances the predictions for small separations.
 
 \begin{figure}[htbp]
@@ -648,7 +648,7 @@ On the other hand, in {\sc Sherpa}, the use of fixed scale enhances the predicti
                 distance between the two jets~(bottom right).
                 In the lower plots, the predictions are normalised to the prediction of {\sc Sherpa} with
                 dynamical scale. The error band represents
-                the statistical error of the Monte Carlo predictions. For the two {\sc MG5\_aMC}
+                the statistical error of the Monte Carlo predictions. For the two \MGaMC
                 calculations this statistical error is largely correlated, as explained in the text.}
 \label{vbs_fig_shower_2a}
 \end{center}
@@ -669,7 +669,7 @@ The effect of the different scale amounts to a change in normalisation of about 
                 Zeppenfeld variable for the third jet~(top right)
                 number of jets~(bottom).
                 In the lower plots, the predictions are normalised to the predictions of {\sc Sherpa} with dynamical scale. The error band represents
-                the statistical error of the Monte Carlo predictions. For the two {\sc MG5\_aMC}
+                the statistical error of the Monte Carlo predictions. For the two \MGaMC
                 calculations this statistical error is largely correlated, as explained in the text.}
 \label{vbs_fig_shower_2b}
 \end{center}
