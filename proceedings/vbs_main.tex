@@ -505,7 +505,12 @@ Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} v
 This supports the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for similar comparisons for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
 This means that the VBS approximation ({\sc VBFNLO}) approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
 
-We stress that such differences of configuration should be considered in addition to typical estimates of theoretical uncertainties, especially QCD scale PDF uncertainties. Two illustrate this, we compute the PDF uncertainty for the NNPDF3.0 set considered and the scale two scale choices considered here. The PDF uncertainty is evaluated to be 3--5\% using {\sc MG5\_aMC}. Scale uncertainties are evaluated using the typical prescription of varying $\mu_{R}$ and $\mu_{F}$ subject to the constraint $1/2 \le \mu_{F}/\mu_{R} \le 2$, using {\sc MG5\_aMC} and cross-checked with \MoCaNLO+\Recola, and are found to be between 7--10\% for the scale choices considered. The full results obtained with {\sc MG5\_aMC} are shown in Table~\ref{table:xsecWithUnc}
+We stress that such differences of configuration should be considered inpependently to typical estimates of theoretical uncertainties, especially QCD scale and PDF uncertainties. 
+To illustrate this, we compute the PDF uncertainty for the NNPDF3.0 set and the two scale choices considered here. 
+The PDF uncertainty is evaluated to be 3--5\% using {\sc MG5\_aMC}. 
+Scale uncertainties are evaluated using the typical prescription of varying $\mu_{R}$ and $\mu_{F}$ 
+subject to the constraint $1/2 \le \mu_{F}/\mu_{R} \le 2$, using {\sc MG5\_aMC} and cross-checked with \MoCaNLO+\Recola, 
+and are found to be between 7--10\% for the scale choices considered. The full results obtained with {\sc MG5\_aMC} are shown in Table~\ref{table:xsecWithUnc}
 
 \begin{table}[htbp]
 \begin{center} 
@@ -525,6 +530,35 @@ The predictions are expressed in fb and are for the LHC running at a centre-of-m
 }
 \label{table:xsecWithUnc}
 \end{table}
+
+We also compare the effect of configurations changes using the general-purpose generators {\sc Sherpa} and {\sc MG5\_aMC}. 
+These generators are able to compute arbitrary processes in the standard model, 
+and therefore have default configurations designed to cover a wide range of processes. It is thus advisable
+to explicitly configure settings most appropriate to the process considered. 
+
+Using the same fiducial defintion, but with the default parameter settings (defined in param\_card.dat) for 
+{\sc MG5\_aMC}, we obtain a cross section of 0.1561(5) fb for the ${\rm Max}\left[p_{\rm T, j}\right]$
+scale, an increase of 4\% on our nominal value. The primary source of this difference is the 
+settings of the boson masses and widths, which are set to their LO values by default in {\sc MG5\_aMC}.
+Such a setting can be considered appropriate in cases where the partial widths of many decay channels
+must be considered together, but for an explicitly leptonic process we argue that the best measured values are
+more appropriate. We do not believe that this 4\% difference constitues an additional uncertainty, but warn that
+careful configuration of such parameters should be considered.
+
+We similarly study the default dynamical scale choices in {\sc Sherpa} and {\sc MG5\_aMC}. In both cases,
+this choice is motivated by a desire for broad application to a variety of processes. For {\sc MG5\_aMC},
+the default scale depends on the order of the process and shower settings. For LO without
+merging of parton multiplicities, the scale is set to the central $m_{T}$ scale after k$_t$-clustering of the event.
+The resulting cross section is 5\% greater than the ${\rm Max}\left[p_{\rm T, j}\right]$ result.
+Using both the default scale and parameter settings (note however, that we still specify the PDF)
+we obtain a value of $\sigma_{\mathrm{default}}) = 0.1638(5)$ fb, 9\% greater than our configured
+$\mu = {\rm Max}\left[p_{\rm T, j}\right]$ value. We reiterate that this difference, which is
+of comparable size to the phenomonological uncertainties, should not necessarily be considered on equal footing.
+The fact that the functional form of the dynamical scale choice can be signficant compared to the
+usual factor of two variation around a nominal value is well established. One should therefore take care
+to select an appropriately motivated choice. Additional uncertainties may be appropriate,
+but should be considered with care rather than taking a broad envelope of less motivated choices.
+This comparison additionally highlights the advantage of the reduced scale dependency at NLO.
 
 \subsubsection*{Comparisons after parton shower}
 
