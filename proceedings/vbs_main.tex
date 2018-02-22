@@ -172,9 +172,9 @@ In the following, the codes used for the predictions are briefly described.
 > set complex_mass_scheme
 > set gauge Feynman
 > generate p p > e- ve~ mu+ mu- j j QED=6 QCD=0
-> output WpZJJToENu2MuJJ
+> output WmZJJToENu2MuJJ
 \end{verbatim}
-  The version used is 2.6.0. We use the complex mass scheme and Feynman gauge for consistency with MoCaNLO+Recola, but 
+  The version used is 2.6.0. We use the complex mass scheme and Feynman gauge for consistency with \MoCaNLO+\Recola, but 
   verify that we obtain equivalent results if they are not explicity specified.
   We note that the ``deltaeta'' variable in the MG5\_aMC run\_card also applies a requirement that the two jets
   have opposite rapidity sign. We do not make this requirement for our fidicual region definition, so we remove this condition for our comparisons.
@@ -477,15 +477,10 @@ The integration errors of the last digits are given in parentheses.}
 \end{table}
 
 As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, where the invariant mass and rapidity separation of the two tagging jets are displayed, the agreement between the predictions is good in both shape and normalisation.
-In particular, all predictions agree within statistical uncertainties over the whole range.
-There are no noticeable discrepancies.
+for the jet rapidity separation, all predictions agree within statistical uncertainties over the whole range, withe some small normalization differences. For the di-jet mass, statistically significant differences are more pronounced towards higher masses between {\sc MG5\_aMC} and other generators. This difference was not fully understood, but could be attributed to undestimation of statistical uncertainties or subtle configuration differences.
 % The larger discrepancy is found in the region of low rapidity-separation between the two jets.
 % The difference is the largest between {\sc MoCaNLO}+{\sc Recola}/{\sc VBFNLO} and {\sc MG5\_aMC}.
 % This reflects what has already been seen at the level of the cross section. 
-
-Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO} for example), both predictions are in good agreement as at the level of the cross section.
-This supports the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for similar comparisons for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
-This means that the VBS approximation ({\sc VBFNLO}) approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -497,13 +492,39 @@ This means that the VBS approximation ({\sc VBFNLO}) approximate rather well the
                 rapidity separation between the two jets~(right).
                 The predictions in the lower plot are normalised to the prediction of {\sc MG5\_aMC}.
 								The shaded bands indicate the relative statistical uncertainty by bin for each sample.
-								The stastical uncertainty on the {\sc MG5\_aMC} sample is shown in grey, other samples
+								The statistical uncertainty on the {\sc MG5\_aMC} sample is shown in grey, other samples
 								are indicated in the ratio with the color indicated in the legend.
                 }
 \label{vbs_fig_fixed_order}
 \end{center}
 \end{figure}
 
+
+
+Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO} for example), both predictions are in good agreement as at the level of the cross section.
+This supports the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for similar comparisons for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
+This means that the VBS approximation ({\sc VBFNLO}) approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
+
+We stress that such differences of configuration should be considered in addition to typical estimates of theoretical uncertainties, especially QCD scale PDF uncertainties. Two illustrate this, we compute the PDF uncertainty for the NNPDF3.0 set considered and the scale two scale choices considered here. The PDF uncertainty is evaluated to be 3--5\% using {\sc MG5\_aMC}. Scale uncertainties are evaluated using the typical prescription of varying $\mu_{R}$ and $\mu_{F}$ subject to the constraint $1/2 \le \mu_{F}/\mu_{R} \le 2$, using {\sc MG5\_aMC} and cross-checked with \MoCaNLO+\Recola, and are found to be between 7--10\% for the scale choices considered. The full results obtained with {\sc MG5\_aMC} are shown in Table~\ref{table:xsecWithUnc}
+
+\begin{table}[htbp]
+\begin{center} 
+\begin{tabular}{ c | c | c }
+ Scale choice & ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  & ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$  \\
+  \hline\hline
+  $\mu_{R} = \mu_{\rm fix} = m_{\mathrm{W}}$                     & $0.286^{+9.2\%}_{-7.8\%} \pm 3.7\%$  & $0.166^{+9.0\%}_{-7.7\%} \pm 4.3\%$ \\
+  $\mu = \mu_{\rm dyn} = {\rm Max}\left[p_{\rm T, j}\right]$ & $0.255^{+8.0\%}_{-6.9\%} \pm 3.7\%$  & $0.149^{+9.0\%}_{-7.7\%} \pm 4.3\%$  \\
+  \hline
+\end{tabular}
+\end{center}
+\caption{
+Fiducial cross sections at LO for the process ${\rm p}{\rm p}\to{\rm e}^+\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ and ${\rm p}{\rm p}\to{\rm e}^-\bar\nu_{\rm e}\mu^+\mu^-{\rm j}{\rm j}$ at order $\mathcal{O} (\alpha^6)$ 
+  via {\sc MG5\_aMC}.
+The predictions are expressed in fb and are for the LHC running at a centre-of-mass energy of $\sqrt{s}=13 {\rm~TeV}$.
+  Uncertainties are expressed as $\sigma^{+\delta_{\mathrm{scale}}}_{-\delta{\mathrm{scale}}} \pm \mathrm \delta_{\mathrm{PDF}}$.
+}
+\label{table:xsecWithUnc}
+\end{table}
 
 \subsubsection*{Comparisons after parton shower}
 
