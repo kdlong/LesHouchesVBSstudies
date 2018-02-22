@@ -541,11 +541,13 @@ settings of the boson masses and widths, which are set to their LO values by def
 Such a setting can be considered appropriate in cases where the partial widths of many decay channels
 must be considered together, but for an explicitly leptonic process we argue that the best measured values are
 more appropriate.\MP{I don't agree with this. It is just some old default of MG and because they mostly do on-shell computations.}
-We do not believe that this $4\%$ difference constitues an additional uncertainty, but warn that
+We do not believe that this $4\%$ difference constitutes an additional uncertainty, but warn that
 careful configuration of such parameters should be considered.
 
 We similarly study the default dynamical scale choices in {\sc Sherpa} and {\sc MG5\_aMC}. In both cases,
-this choice is motivated by a desire for broad application to a variety of processes. For {\sc MG5\_aMC},
+this choice is motivated by a desire for broad application to a variety of processes. Sherpa uses the inverted
+parton shower to cluster the matrix element onto a core $2 \to 2$ process. This procedure determines the scales
+and is especially suited for truncated shower merging. For {\sc MG5\_aMC},
 the default scale depends on the order of the process and shower settings. At LO without
 merging of parton multiplicities, the scale is set to the central $m_{T}$ scale after k$_t$-clustering of the event \MP{Should it not be anti-kt?}.
 The resulting cross section is $5\%$ greater than the ${\rm Max}\left[p_{\rm T, j}\right]$ result.
