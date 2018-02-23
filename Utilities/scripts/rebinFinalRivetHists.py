@@ -1,4 +1,5 @@
 # coding: utf-8
+from subprocess import call
 import yoda
 data_path = "../../Rivet/data"
 
@@ -7,7 +8,7 @@ filenames = [
     "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda",
     "VBS_WZ_MW_Sherpa.yoda",
     "minus_CUETP8M1.yoda",
-    "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda",
+    "WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_ShowerFix_VBFNLO-Herwig7.yoda",
     "VBS_WZ_dyn_Sherpa.yoda",
     "WmZTo1E1Nu2Mu_MAXPTJ_LHConfig_madgraph-pythia8.yoda"
 ]
@@ -32,3 +33,4 @@ for filename in filenames:
             continue
         hist.rebin(*binning[key])
     yoda.write(hists, fullname.replace(".yoda", "_REBIN.yoda"))
+    call(["./rebin_nJets.sh",fullname.replace(".yoda", "_REBIN")])
