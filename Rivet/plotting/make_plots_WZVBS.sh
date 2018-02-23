@@ -2,7 +2,7 @@
 # add 
 #MGCENTRAL="'Title={MG5_aMC}:LineColor=red:ErrorBandColor=red:ErrorBands=1:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
 #scale factor for MAXPTJ 1000*0.00030049/0.00166447
-MGEMMMAXPTJ="'Scale=180.532:Title={MG5_aMC $\mu=max(p_{Tj})$}:LineColor=red:ErrorBandColor=red:ErrorBands=1:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
+MGEMMMAXPTJ="'Scale=1000:Title={MG5_aMC $\mu=max(p_{Tj})$}:LineColor=red:ErrorBandColor=red:ErrorBands=1:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
 MGEMMFIXED="'Scale=1000:Title={MG5_aMC+Pythia8}:LineColor=green:ErrorBandColor=green:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
 VBFNLOPY="'Scale=1000:Title={VBFNLO+Pythia8}:LineColor=blue:ErrorBandColor=blue:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
 VBFNLOHW="'Scale=1000:Title={VBFNLO+Herwig7}:LineColor=magenta:ErrorBandColor=magenta:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'"
@@ -36,7 +36,7 @@ comm_sherpa="rivet-mkhtml -n5 -o rivet-plots-all-Sherpa -c style_WZVBS_LesHouche
 
 #eval $comm_fixMW
 
-#eval $comm_fixMW_rebin
+eval $comm_fixMW_rebin
 
 #eval $comm_mg_Wm
 
@@ -44,7 +44,7 @@ comm_sherpa="rivet-mkhtml -n5 -o rivet-plots-all-Sherpa -c style_WZVBS_LesHouche
 
 #eval $comm_dyn
 
-#eval $comm_dyn_rebin
+eval $comm_dyn_rebin
 
 # eval $comm_sherpa
 eval $comm_vbfnlo_herwig
