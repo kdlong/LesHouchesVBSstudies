@@ -80,7 +80,7 @@ YLabel=$\text{d}\sigma / \text{d} m_Z$ [fb/GeV]
 XMax=600
 XLabel=$P_T(Z)$ [GeV] 
 YLabel=$\text{d}\sigma / \text{d} P_T(Z)$ [fb/10 GeV]
-YLabelSep=7.3
+YLabelSep=7
 # END PLOT
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/.*ZEta
@@ -92,7 +92,7 @@ YLabel=$\text{d}\sigma / \text{d} \eta(Z)$ [fb/0.3]
 XMin=500
 XLabel=$m_{jj}$ [GeV] 
 YLabel=$\text{d}\sigma / \text{d} m_{jj}$ [fb/200 GeV]
-YLabelSep=7.8
+YLabelSep=7
 # END PLOT
 
 # BEGIN PLOT /WZVBS_LesHouchesStudy/.*dEtajj
@@ -132,6 +132,6 @@ LegendXPos=0.4
 # BEGIN PLOT /WZVBS_LesHouchesStudy/.*zepj3
 XLabel=$\text{Zeppenfeld}(j_3)$  
 YLabel=$\text{d}\sigma / \text{d} \text{z}_{j3}) $ [fb/0.5]
-LegendYPos=-0.05
+LegendYPos=-0.5
 LegendXPos=0.4
 # END PLOT
