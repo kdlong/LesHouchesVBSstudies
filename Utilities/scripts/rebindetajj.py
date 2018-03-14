@@ -2,7 +2,7 @@
 import ROOT
 import math
 
-isSherpa=True
+isSherpa=False
 
 if isSherpa:
     input_file = ROOT.TFile("../../Rivet/data/Sherpa_FO.root")
