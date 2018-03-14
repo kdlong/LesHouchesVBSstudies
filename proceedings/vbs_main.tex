@@ -173,21 +173,11 @@ In the following, the codes used for the predictions are briefly described.
 > output WmZJJToENu2MuJJ
 \end{verbatim}
   The version used is 2.6.0. We use the complex mass scheme and Feynman gauge for consistency with \MoCaNLO+\Recola, but 
-  verify that we obtain equivalent results if they are not explicity specified.
+  verify that we obtain equivalent results if they are not explicitly specified.
   We note that the ``deltaeta'' variable in the MG5\_aMC run\_card also applies a requirement that the two jets
-  have opposite rapidity sign. We do not make this requirement for our fidicual region definition, so we remove this condition for our comparisons.
+  have opposite rapidity sign. We do not make this requirement for our fiducial region definition, so we remove this condition for our comparisons.
   This is accomplished by modifying the cut behaviour in cuts.f in the ``SubProcesses'' folder, and validated by
   generating events without this condition and applying selections to the LHE-level partons using standalone code.
-%   Note that alternatively, we have tested the following commands
-%   \begin{verbatim}
-% > set gauge Feynman
-% > set complex_mass_scheme
-% > generate p p > e+  ve  mu+ mu- j j QCD^2==0 QED^2==12
-% > output WpZJJToENu2MuJJ_bis
-% \end{verbatim}
-%   with the version 2.5.1.
-%   These commands gave for the cross section with our common set-up: $0.2861(8)$~fb.
-% Results are statistically equivalent and are now understood to be related to the deltaeta cut discussed
   
 \subsubsection*{\protect\Herwig \label{vbs_herwig}}
 
@@ -230,7 +220,7 @@ Both of the studied partonic processes are then showered with the default shower
 
 \subsubsection*{\protect\VBFNLO \label{vbs_VBFNLO}}
 \VBFNLO~\cite{Arnold:2008rz,Arnold:2011wj,Baglio:2014uba} is a flexible
-Monte-Carlo event generator for processes with electroweak bosons.
+Monte Carlo event generator for processes with electroweak bosons.
 Besides the Standard Model, selected processes can also be calculated in
 a variety of new-physics models, including effective field theories with
 dimension-6 and dimension-8 operators.
@@ -319,7 +309,7 @@ If the scale used is different, this is explicitly stated in the text.
 
 Photon-induced as well as bottom-induced contributions have been neglected.
 The photon contributions are expected to be small \cite{Biedermann:2017bss} while the bottom-induced contribution can lead to single-top resonant contributions.
-The later can in principle be isolated thanks to kinematical constraints.
+The later can in principle be isolated thanks to kinematic constraints.
 
 \subsubsection*{Event selection}
 
@@ -388,7 +378,7 @@ The integration errors of the last digits are given in parentheses.}
 
 In Fig.~\ref{fig:diffcontr}, several differential distributions are shown.
 In the upper plot the absolute predictions for each component as well as their sum are displayed.
-In the lower plot, each contribution is normalised to their sum and expressed in per cent.
+In the lower plot, each contribution is normalised to their sum and expressed in percent.
 These distributions reflect the same conclusion as for the cross section namely that the processes are largely dominated by QCD-induced contribution.
 The first two observables displayed (top) are the invariant mass and the rapidity difference of the two tagging jets.
 These two observables are used as cuts [see Eq.~\eqref{cut:4}] in order to enhance the EW component over the QCD background.
@@ -398,7 +388,8 @@ It even becomes of the same size as the QCD one for an invariant-mass of $2000{\
 The same holds true for high rapidity separation for the two jets.
 On the other hand, the transverse invariant mass (bottom left) of muon--anti-muon pair does not display significant differences in the different contributions over the whole range.
 Other transverse-momentum distributions display the same pattern.
-Finally, we show the distance between the two jets.
+Finally, we show the distance between the two jets, 
+defined as $\Delta R_{jj} = \sqrt{\Delta\eta(\mathrm{j}_{1}, \mathrm{j}_{2})^2 + \Delta\phi(\mathrm{j}_{1}, \mathrm{j}_{2})^2}$.
 This observable also seems to possess a good discriminating power.
 In particular, for large distances, the EW component becomes dominant but with very low statistics.
 The interference effects are extremely suppressed due to the smallness of the cross section.
@@ -422,16 +413,19 @@ with the contributions at orders $\mathcal{O} (\alpha^6)$ (EW), $\mathcal{O} (\a
 \end{center}
 \end{figure}
 
+
 \subsubsection*{Parton level comparisons}
 
 We start the comparison of the various predictions by a comparison at the level of the cross section.
 The fiducial volume is the one described in Eqs.~\eqref{cut:1}-\eqref{cut:4}.
-The results are documented in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn}.
-There, the cross sections for both processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at fixed and dynamical scales are presented.
-In general, the predictions of \MoCaNLO\!+\Recola and \Sherpa are in perfect agreement while the ones of \MGaMC are showing some slight statistical disagreement but only for the fixed scale.
-There, the difference between \MoCaNLO\!+\Recola/\Sherpa and \MGaMC is about a per cent as it can be seed in Table~\ref{table:xsectLOfix}.
-% For the fixed scale displayed in , the largest difference is between the predictions of \MoCaNLO\!+\Recola and \Sherpa and amounts to $1.2\%$.
-On the other hand, the predictions predictions of \VBFNLO are not expected to be in perfect agreement with the others as \VBFNLO is not using full matrix elements but VBS-approximated ones.
+The results are documented in Tables~\ref{table:xsectLOfix} and \ref{table:xsectLOdyn},
+which give the cross sections for both processes ${\rm p} {\rm p} \to {\rm e}^+  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ and ${\rm p} {\rm p} \to {\rm e}^-  \bar \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at fixed and dynamical scales.
+The predictions of \MoCaNLO\!+\Recola and \Sherpa are generally in perfect agreement, but those of \MGaMC show slight statistical disagreement for fixed scale.
+In this case the difference between \MoCaNLO\!+\Recola/\Sherpa and \MGaMC is about one percent as it can be seen in Table~\ref{table:xsectLOfix}.
+We note that the source of the difference is likely unchanged in the dynamic scale result, where the setup is otherwise unchanged,
+but is not clear due to the higher statistical uncertainty.
+
+The predictions predictions of \VBFNLO are not expected to be in perfect agreement with the others as \VBFNLO is not using full matrix elements but VBS-approximated ones.
 Nonetheless, the difference between the \VBFNLO predictions and the ones of \MoCaNLO\!+\Recola/\Sherpa amounts to $0.6\%$ for the fixed scale.
 
 \begin{table}
@@ -462,7 +456,7 @@ The integration errors of the last digits are given in parentheses.}
   \MGaMC                  & $0.2550(8)$  & $0.1492(5)\phantom{0}$ \\
   {\sc MoCaNLO}+{\sc Recola}      & $0.2574(2)$  & $0.15003(3)$  \\
   {\sc Sherpa}                    & $0.2574(2)$  & $0.14998(6)$   \\
-%{\sc VBFNLO}                      & $XX$  & $XX$   \\
+%{\sc VBFNLO}                      & $XX$  & $0.15714$   \\
   \hline
 \end{tabular}
 \end{center}
@@ -475,10 +469,11 @@ The integration errors of the last digits are given in parentheses.}
 \end{table}
 
 As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, where the invariant mass and rapidity separation of the two tagging jets are displayed, the agreement between the predictions is good in both shape and normalisation.
-for the jet rapidity separation, all predictions agree within statistical uncertainties over the whole range. For the di-jet mass, statistically significant differences are more pronounced towards higher masses between \MGaMC and other generators. This difference was not fully understood, but could be attributed to undestimation of statistical uncertainties or subtle configuration differences.
-% The larger discrepancy is found in the region of low rapidity-separation between the two jets.
-% The difference is the largest between {\sc MoCaNLO}+{\sc Recola}/{\sc VBFNLO} and \MGaMC.
-% This reflects what has already been seen at the level of the cross section. 
+This is particularly true for the jet rapidity separation, where all predictions agree within statistical uncertainties over the whole range.
+On the other hand, for the di-jet invariant mass, statistically significant differences are more pronounced towards higher masses between \MGaMC's predictions and the others. 
+This difference was not fully understood, but could be attributed to underestimation of statistical uncertainties or subtle configuration differences.
+We emphasis that these differences are not due to obvious miss-configurations such as PDF, scales, event selection, or input parameters,
+but we cannot fully exclude more subtle differences.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -488,10 +483,10 @@ for the jet rapidity separation, all predictions agree within statistical uncert
   \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_{\rm W}$: 
                 invariant mass of the two jets~(left),
                 rapidity separation between the two jets~(right).
-                The predictions in the lower plot are normalised to the prediction of \MGaMC.
+                The predictions in the lower plot are normalised to the prediction of \MoCaNLO\!+\Recola.
 		The shaded bands indicate the relative statistical uncertainty by bin for each sample.
-		The statistical uncertainty on the \MGaMC sample is shown in grey, other samples
-		are indicated in the ratio with the color indicated in the legend.
+ 		The statistical uncertainty on the \MoCaNLO\!+\Recola predictions is shown in grey, other samples
+ 		are indicated in the ratio with the color indicated in the legend.
                 }
 \label{vbs_fig_fixed_order}
 \end{center}
@@ -499,16 +494,16 @@ for the jet rapidity separation, all predictions agree within statistical uncert
 
 
 
-Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO} for example), both predictions are in good agreement as at the level of the cross section.
+Concerning the validation of the VBS approximation ({\sc MoCaNLO}+{\sc Recola} vs. {\sc VBFNLO} for example), both predictions are in very good agreement as at the level of the cross section.
 This supports the findings of Ref.~\cite{Anders:2018gfr} where preliminary results for similar comparisons for ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ have been reported.
-This means that the VBS approximation ({\sc VBFNLO}) approximate rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
+This means that the VBS approximation ({\sc VBFNLO}) approximates rather well the full computation ({\sc MoCaNLO}+{\sc Recola}) in the fiducial region chosen.
 
-We stress that such differences of configuration should be considered inpependently of typical estimates of theoretical uncertainties such as QCD scale and PDF uncertainties. 
+We stress that differences of configuration should be considered independently of typical estimates of theoretical uncertainties such as QCD scale and PDF uncertainties. 
 To illustrate this, we compute the PDF uncertainty for the NNPDF3.0 set and the two scale choices considered here. 
 The PDF uncertainty is evaluated to be 3--5\% using \MGaMC. 
 Scale uncertainties are evaluated using the typical prescription of varying $\mu_{R}$ and $\mu_{F}$ 
 subject to the constraint $1/2 \le \mu_{F}/\mu_{R} \le 2$, using \MGaMC and cross-checked with \MoCaNLO+\Recola, 
-and are found to be between 7--10\% for the scale choices considered. The full results obtained with \MGaMC are shown in Table~\ref{table:xsecWithUnc}
+and are found to be between 7--10\% for the scale choices considered. The full results obtained with \MGaMC are shown in Table~\ref{table:xsecWithUnc}.
 
 \begin{table}[htbp]
 \begin{center} 
@@ -535,12 +530,12 @@ and therefore have default configurations designed to cover a wide range of proc
 to explicitly configure settings most appropriate to the process considered. 
 
 Using the same fiducial definition, but with the default parameter settings (defined in param\_card.dat) for 
-\MGaMC, we obtain a cross section of 0.1561(5) fb for the ${\rm Max}\left[p_{\rm T, j}\right]$
-scale, an increase of 4\% on our nominal value. The primary source of this difference is the 
+\MGaMC, we obtain a cross section of $0.1561(5)$ fb for the ${\rm Max}\left[p_{\rm T, j}\right]$
+scale, an increase of $4\%$ from the nominal value. The primary source of this difference is the 
 settings of the boson masses and widths, which are set to their LO values by default in \MGaMC.
 Such a setting can be considered appropriate in cases where the partial widths of many decay channels
-must be considered together, but for an explicitly leptonic process we argue that the best measured values are
-more appropriate.\MP{I don't agree with this. It is just some old default of MG and because they mostly do on-shell computations.}
+must be considered together, but for an explicitly leptonic process where no gauge boson is set on-shell, 
+we argue that the best measured values are more appropriate.
 We do not believe that this $4\%$ difference constitutes an additional uncertainty, but warn that
 careful configuration of such parameters should be considered.
 
@@ -549,10 +544,11 @@ this choice is motivated by a desire for broad application to a variety of proce
 parton shower to cluster the matrix element onto a core $2 \to 2$ process. This procedure determines the scales
 and is especially suited for truncated shower merging. For \MGaMC,
 the default scale depends on the order of the process and shower settings. At LO without
-merging of parton multiplicities, the scale is set to the central $m_{T}$ scale after k$_t$-clustering of the event \MP{Should it not be anti-kt?}.
+merging of parton multiplicities, the scale is set to the central $m_{\rm T}$ scale after k$_{\rm T}$-clustering of the event.
+If the last clustering is a $t$-channel colourless exchange, the scale is set to the last $m_{\rm T}$ values on either side \footnote{The procedure is described at https://cp3.irmp.ucl.ac.be/projects/madgraph/wiki/FAQ-General-13.}.
 The resulting cross section is $5\%$ greater than the ${\rm Max}\left[p_{\rm T, j}\right]$ result.
 Using both the default scale and parameter settings (note however, that we still specify the PDF)
-we obtain a value of $\sigma_{\mathrm{default}}) = 0.1638(5)$ fb, $9\%$ greater than our configured
+we obtain a value of $\sigma_{\mathrm{default}} = 0.1638(5)$ fb, $9\%$ greater than our configured
 $\mu = {\rm Max}\left[p_{\rm T, j}\right]$ value. We reiterate that this difference, which is
 of comparable size to the phenomenological uncertainties, should not necessarily be considered on equal footing.
 The fact that the functional form of the dynamical scale choice can have a significant impact compared to the
@@ -565,13 +561,15 @@ This comparison additionally highlights the advantage of the reduced scale depen
 
 In Figs.~\ref{vbs_fig_shower_1a} and \ref{vbs_fig_shower_1b}, a comparison of results obtained with different
 generators for the process ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO supplemented with parton shower with fixed scaled $\mu =M_W$ is shown. 
-In particular, in Fig.~\ref{vbs_fig_shower_1a} several differential distributions are shown:
+The predictions have been obtained from \VBFNLO and \MGaMC in association with {\sc PYTHIA8}, \VBFNLO with {\sc HERWIG7}, and \Sherpa with its own parton shower.
+In Fig.~\ref{vbs_fig_shower_1a} several differential distributions are shown:
 the invariant mass of the two jets, the rapidity separation between
 the two jets, the transverse momentum of the anti-muon--muon system,
-and the distance between the two jets. The error band in the plots represents the statistical error of the Monte Carlo predictions.  
-The overall picture is that the predictions obtained from {\sc Sherpa}, {\sc VBFNLO}+{\sc PYTHIA8}, and \MGaMC+{\sc PYTHIA8} agree rather well over the whole kinematic range.
-On the other hand, the predictions obtained from {\sc VBFNLO}+{\sc HERWIG7} seem to be very different for all type of distributions.
-These differences can probably be attributed to the configuration of the sample obtained from {\sc VBFNLO}+{\sc HERWIG7} which should be further investigated.
+and the distance between the two jets. 
+The error band in the plots represents the statistical error of the Monte Carlo predictions.  
+The overall picture is that the predictions obtained from \Sherpa, \VBFNLO+{\sc PYTHIA8}, and \VBFNLO+{\sc HERWIG7} agree rather well over the whole kinematic range.
+This is not the case for the predictions of \MGaMC+{\sc PYTHIA8} which differ by up to $20\%$ in certain phase-space regions.
+In particular it seems that they inherit the behaviour already observed at fixed order.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -580,17 +578,19 @@ These differences can probably be attributed to the configuration of the sample 
    \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_ZPt}
    \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_dRjj}
 \caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_{\rm W}$: 
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO supplied with parton shower with fixed scaled $\mu = M_{\rm W}$: 
                 invariant mass of the two jets~(top left),
                 rapidity separation between the two jets~(top right)
                 transverse momentum of the anti-muon--muon system~(bottom left), and
-                distance between the two jets~(bottom right). The error band represents
-                the statistical error of the Monte Carlo prediction. }
+                distance between the two jets~(bottom right). 
+                In the lower plot, the normalisation is done with respect to the \VBFNLO+{\sc PYTHIA8} predictions.
+                The error band represents
+                the statistical error of the Monte Carlo predictions.}
 \label{vbs_fig_shower_1a}
 \end{center}
 \end{figure}
 
-These differences are more pronounced in Fig.~\ref{vbs_fig_shower_1b} where the Zeppenfeld variable for the three charged leptons and the third jet as well as the number of jets are displayed.
+Differences are more pronounced in Fig.~\ref{vbs_fig_shower_1b} where the Zeppenfeld variable for the three charged leptons and the third jet as well as the number of jets are displayed.
 The Zeppenfeld variable for a given particle $X$ is defined as
 
 \begin{equation}
@@ -600,11 +600,15 @@ The Zeppenfeld variable for a given particle $X$ is defined as
 where $y_{{\rm j}_{1/2}}$ are the rapidity of the first and second hardest jet, respectively.
 The Zeppenfeld variable of the third jet, as well as the number of jets beyond two, are observables that are not defined at LO,
 and are only non-zero thanks to the emissions of the parton shower.
-It is thus expected that these feature an even worse agreement than the previously discussed observables, as 
-significantly different algorithms are employed by the parton shower generators considered. 
-We note that even where there are similarities, we have not taken care to tune the parameters
+It is thus expected that these feature a worse agreement than the previously discussed observables, as 
+significantly different algorithms are employed by the parton shower generators considered.
+Here the differences can reach up to $100\%$ in the central region.
+The fact that {\sc Pythia} predicts more central jet activity has already been observed for the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ 
+signature in preliminary results of a comparative study \cite{Anders:2018gfr} but also for the 
+${\rm Z}{\rm j}{\rm j}$ signature \cite{Aaboud:2017emo,Sirunyan:2017jej}, where the predictions are compared with data.
+We note we have not tuned the parameters and algorithms
 of the shower but rather consider the spread of predictions as reflective of the uncertainty 
-of the parton shower dominated observables. While variables such as the Zeppenfeld of the third jet
+of parton shower dominated observables. While variables such as the Zeppenfeld of the third jet
 have known separation power between the EW and QCD induced production, tuning an experimental selection 
 on this observable would introduce large theoretical uncertainties, especially if only LO predictions
 are considered. A similar argument holds for a veto on extra jet activity.
@@ -615,11 +619,13 @@ are considered. A similar argument holds for a veto on extra jet activity.
    \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_zepj3}
    \includegraphics[scale=0.65]{figs/VBFNLO_WmZ_OF_nJets}
 \caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed scaled $\mu = M_{\rm W}$: 
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO supplied with parton shower with fixed scaled $\mu = M_{\rm W}$: 
                 Zeppenfeld variable for the three leptons~(top left),
                 Zeppenfeld variable for the third jet~(top right)
-                number of jets~(bottom). The error band represents
-                the statistical error of the Monte Carlo predictions. }
+                number of jets~(bottom). 
+                In the lower plot, the normalisation is done with respect to the \VBFNLO+{\sc PYTHIA8} predictions.
+                The error band represents
+                the statistical error of the Monte Carlo predictions.}
 \label{vbs_fig_shower_1b}
 \end{center}
 \end{figure}
@@ -641,7 +647,7 @@ On the other hand, in {\sc Sherpa}, the use of fixed scale enhances the predicti
    \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_ZPt}
    \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_dRjj}
 \caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p}
-  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values:  
+  \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO supplied with parton shower with fixed and dynamic scale values:  
                 invariant mass of the two jets~(top left),
                 rapidity separation between the two jets~(top right)
                 transverse momentum of the anti-muon--muon system~(bottom left), and
@@ -664,7 +670,7 @@ The effect of the different scale amounts to a change in normalisation of about 
    \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_zep3l}
    \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_zepj3}
    \includegraphics[scale=0.65]{figs/dyn_WmZ_OF_nJets}
-\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO with fixed and dynamic scale values: 
+\caption{Differential distributions at a centre-of-mass energy $\sqrt{s}=13{\rm TeV}$ at the LHC for ${\rm p} {\rm p} \to {\rm e}^-  \nu_{\rm e}  \mu^+ \mu^- {\rm j} {\rm j}$ at LO supplied with parton shower with fixed and dynamic scale values: 
                 Zeppenfeld variable for the three leptons~(top left),
                 Zeppenfeld variable for the third jet~(top right)
                 number of jets~(bottom).
@@ -678,12 +684,12 @@ The effect of the different scale amounts to a change in normalisation of about 
 \subsection{Conclusions \label{vbs_concl}}
 
 The measurement of the EW component of the ${\rm p}{\rm p} \to {\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$ process constitutes a real challenge for experimental collaborations.
-Such a measurement is complicated for several reasons including the low cross section and the overwhelming irreducible background.
-Therefore, these measurements have to rely on theoretical predictions in order to extract a signal.
-This makes theoretical predictions implemented in various Monte Carlo programs very important.
+Such a measurement is complicated for several reasons including the low cross section and the large irreducible background.
+Therefore, these measurements have to rely on theoretical predictions in order to extract a signal,
+which makes theoretical predictions implemented in various Monte Carlo programs very important.
 It is thus key to have a good control over these predictions.
-To that end we have performed LO comparisons of different theoretical predictions possibly supplemented by parton shower.
-The comparisons have all been performed with pre-defined input values and a generic fiducial region for VBS measurements.
+To that end we have performed LO comparisons of different theoretical predictions with and without shower and hadronisation.
+The comparisons have all been performed with pre-defined input values for the matrix element calcualtion and a generic fiducial region for VBS measurements.
 
 The first finding of the present study is that the EW component is overwhelmingly dominated by its irreducible QCD background.
 In the fiducial region that we have chosen, $80\%$ of the fiducial cross section in accounted by the QCD background.
@@ -692,28 +698,31 @@ Beyond the di-jet invariant mass and the rapidity separation between the two jet
 We also found that interferences between the QCD and EW amplitudes are also negligible in the fiducial region.
 
 In the present proceedings, we have also performed a LO comparison.
-At parton level, the agreement between the various theoretical predictions is reasonably good.
+At parton level, the agreement between the various theoretical predictions is generally very good.
 This statement holds both for the inclusive cross section and differential distributions.
-Nonetheless differences appear.
-These can probably be attributed to the misconfiguration of the runs presented here.
-On the other hand, the differences between a full computation and a VBS-approximated one are relatively small.
-This implies that, as for the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ signature \cite{Anders:2018gfr}, the VBS approximation seems to be good in the typical fiducial regions used by experimental collaborations for their measurements.
+Nonetheless differences appear especially with respect to \MGaMC predictions.
+These can probably be attributed to the subtle miss-configuration of the runs presented here or underestimated statistical errors.
+On the other hand, the differences between the full computations and the VBS-approximated one are relatively small.
+This implies that, as for the ${\rm W}^\pm{\rm W}^\pm{\rm j}{\rm j}$ signature \cite{Anders:2018gfr}, given the present experimental precision, the VBS approximation is satisfactory in the typical fiducial regions used by experimental collaborations for their measurements.
 
 The predictions at LO supplemented with parton shower have relied on the fixed-order configuration.
 No tuning of the parton shower parameters have been performed and the default values have been taken.
 For {\sc PYTHIA8}, the {\sc CUETP8M1} tune \cite{Khachatryan:2015pea} which is based on the Monash tune \cite{Skands:2014pea} has been used. 
-The agreement is in general worse, in particular for observables that are defined only beyond LO, the theoretical predictions diverge significantly.
+The agreement is in general worse, in particular for observables that are defined only beyond LO, where the theoretical predictions diverge significantly.
 Concerning the role of the fixed and dynamical scales, we have found that they can have a rather large influence on the predictions for the inclusive cross section and differential distributions.
-This indicates that the inclusion of higher order predictions may cure this behaviour.
+The inclusion of higher order predictions may cure this behaviour.
 
 Finally, we would like to stress that these results constitute only a preliminary study of theoretical predictions for the process ${\rm p}{\rm p} \to {\rm W}^{\pm}{\rm Z}{\rm j}{\rm j}$.
-In particular, strictly fixed-order computation are expected to give a much better agreement.
-At the level of parton shower, several differences appear and these are not yet fully investigated.
-This demonstrates the difficulty to obtain consistent Monte Carlo predictions.
+In particular, with a strictly fixed-order computation, some differences have been observed.
+These propagate to LO predictions matched to parton shower.
+In addition, for observables defined beyond LO, large differences due to the parton-shower algorithms appear.
+This study demonstrates the difficulty to obtain consistent Monte Carlo predictions.
 In particular, the choice of inputs and configuration can have a large impact on physics results.
-NLO QCD and EW effects have not been studied in this work.
-They should play a significant role in theoretical predictions for VBS and should be taken into account as much as possible in future studies.
-This study thus warrants further efforts in all the above mentioned directions that could not be covered here.
+The effects of NLO QCD and EW corrections have not been studied in this work.
+They play a significant role in theoretical predictions for VBS and should be taken into account as much as possible in future studies.
+Overall, this study presents a benchmark for the performance of leading-order Monte Carlo generators 
+for the simulation of vector boson scattering, and motivates further efforts in the above-mentioned directions that have not 
+been fully addressed here.
 
 %\clearpage
 \bibliography{vbs_bib}
