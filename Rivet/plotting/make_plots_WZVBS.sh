@@ -16,7 +16,7 @@ SHERPA="'Scale=1000:Title={Sherpa}:LineColor=cyan:ErrorBandColor=cyan:ErrorBands
 #MGFIXEDMZ="'Scale=0.431:Title={MG5_aMC $\mu=M_Z$}:LineColor=teal:ErrorBandColor=teal:ErrorBands=1:ErrorBandOpacity=0.3:LineWidth=0.02'" # Scale = 7.595/17.63
 
 # filter the plots with the option -m 
-comm_fixMW="rivet-mkhtml -n5 -o rivet-plots-MG-VBFNLO-FIXEDMW  -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda:$VBFNLOPY ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda:$MGEMMFIXED ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_ShowerFix_VBFNLO-Herwig7.yoda:$VBFNLOHW ../data/VBS_WZ_MW_Sherpa.yoda:$SHERPA"
+comm_fixMW="rivet-mkhtml -n5 -o rivet-plots-MG-VBFNLO-FIXEDMW-norebin  -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/minus_CUETP8M1.yoda:$VBFNLOPY ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda:$MGEMMFIXED ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_ShowerFix_VBFNLO-Herwig7.yoda:$VBFNLOHW ../data/VBS_WZ_MW_Sherpa.yoda:$SHERPA"
 
 comm_fixMW_rebin="rivet-mkhtml -n5 -o rivet-plots-MG-VBFNLO-FIXEDMW  -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/minus_CUETP8M1_REBIN_nJets.yoda:$VBFNLOPY ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8_REBIN_nJets.yoda:$MGEMMFIXED ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_ShowerFix_VBFNLO-Herwig7_REBIN_nJets.yoda:$VBFNLOHW ../data/VBS_WZ_MW_Sherpa_REBIN_nJets.yoda:$SHERPA"
 
@@ -27,14 +27,14 @@ comm_mg_Wm="rivet-mkhtml -n5 -o rivet-plots-MG-Wm -c style_WZVBS_LesHouchesStudy
 
 #comm_mg_all="rivet-mkhtml -n5 -o rivet-plots-MG-all -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/.*" ../data/WLLJJ_EWK-MGLO_CentralSample.yoda:$MGCENTRAL ../data/WLLJJ_EWK-MGLO_FixedScaleMZ.yoda:$MGFIXEDMZ" 
 
-comm_dyn="rivet-mkhtml -n5 -o rivet-plots-dyn -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/WZTo1E1Nu2Mu_MAXPTJ_LHConfig_madgraph-pythia8.yoda:$MGEMMMAXPTJ ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda:$MGEMMFIXED ../data/VBS_OF_dyn_Sherpa_100M.yoda:$SHERPA_DYN" 
+comm_dyn="rivet-mkhtml -n5 -o rivet-plots-dyn-norebin -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/WZTo1E1Nu2Mu_MAXPTJ_LHConfig_madgraph-pythia8.yoda:$MGEMMMAXPTJ ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda:$MGEMMFIXED ../data/VBS_OF_dyn_Sherpa_100M.yoda:$SHERPA_DYN" 
 
 comm_dyn_rebin="rivet-mkhtml -n5 -o rivet-plots-dyn -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*OF.*" ../data/VBS_WZ_dyn_Sherpa_REBIN_nJets.yoda:$SHERPA_DYN ../data/VBS_WZ_MW_Sherpa_REBIN_nJets.yoda:$SHERPA ../data/WmZTo1E1Nu2Mu_MAXPTJ_LHConfig_madgraph-pythia8_REBIN_nJets.yoda:$MGEMMMAXPTJ ../data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_madgraph-pythia8_REBIN_nJets.yoda:$MGEMMFIXED" 
 
 comm_sherpa="rivet-mkhtml -n5 -o rivet-plots-all-Sherpa -c style_WZVBS_LesHouchesStudy.plot  ../data/VBS_WZ_Sherpa_default_settings.yoda:$SHERPA_DEF ../data/VBS_OF_dyn_Sherpa_100M.yoda:$SHERPA_DYN"
 #comm_vbfnlo_tune="rivet-mkhtml -n5 -o rivet-plots-VBFNLO-OF-tune -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/.*OF.*" ../data/WZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda:$VBFNLOPY ../data/vbs_CUETP8M1.yoda:$VBFNLOPYCUET"
 
-#eval $comm_fixMW
+eval $comm_fixMW
 
 eval $comm_fixMW_rebin
 
@@ -47,7 +47,7 @@ eval $comm_fixMW_rebin
 eval $comm_dyn_rebin
 
 # eval $comm_sherpa
-eval $comm_vbfnlo_herwig
+#eval $comm_vbfnlo_herwig
 
 #eval $comm_vbfnlo_tune
 
