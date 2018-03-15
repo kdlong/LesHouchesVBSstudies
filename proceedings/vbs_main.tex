@@ -471,8 +471,8 @@ The integration errors of the last digits are given in parentheses.}
 As it can be seen in Fig.~\ref{vbs_fig_fixed_order}, where the invariant mass and rapidity separation of the two tagging jets are displayed, the agreement between the predictions is good in both shape and normalisation.
 This is particularly true for the jet rapidity separation, where all predictions agree within statistical uncertainties over the whole range.
 On the other hand, for the di-jet invariant mass, subtle but statistically significant differences are more pronounced towards higher masses between \MGaMC's predictions and the others. 
-We do not see such discrapancies in distribution, however, we see that this descrepancy is accentuated when relaxing the cuts applied at generation
-time through the run card and manually applying the selection to the LHE events, as shown in~\ref{vbs_fig_fixed_order_loose}.
+We do not see such discrapancies in other distributions, however, we see that this descrepancy is accentuated when relaxing the cuts applied at generation
+time through the run card and manually applying the selection to the LHE events, as shown in Fig.~\ref{vbs_fig_fixed_order_loose}.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -503,7 +503,7 @@ time through the run card and manually applying the selection to the LHE events,
  		are indicated in the ratio with the color indicated in the legend.
     \MGaMC events are generated using loose selections in the run card before applying the selection on the LHE
     events. The trend of disagreement in high $m_{jj}$ is accentuated for looser generation cuts, pointing 
-    to a possible phase space integration effect.
+    to a possible phase-space integration effect.
                 }
 \label{vbs_fig_fixed_order_loose}
 \end{center}
@@ -585,11 +585,11 @@ and the distance between the two jets.
 The error band in the plots represents the statistical error of the Monte Carlo predictions.  
 The overall picture is that the predictions obtained from \Sherpa, \VBFNLO+{\sc PYTHIA8}, and \VBFNLO+{\sc HERWIG7} agree rather well over the whole kinematic range.
 This is not the case for the predictions of \MGaMC+{\sc PYTHIA8} which differ by up to $20\%$ in certain phase-space regions.
-Due to kinematic changes to jet and lepton kinematics in the shower, it is necessary to generate events with a selection looser than the one 
-used in the fixed-order fiducial definition and applied in the Rivet routine 
-The showered events for \MGaMC are therefore generated with the conditions of Figure~\ref{vbs_fig_fixed_order_loose}.
-The disagreement at high di-jet invariant mass, already seen at fixed-order, is thus not an effect of the shower.
-The normalization differences are also consistent with a reduction in acceptance into the fiducial region
+Because of kinematic changes in jet and lepton kinematics due to the parton shower, it is necessary to generate events with a selection looser than the one 
+used in the fixed-order fiducial definition and applied in the Rivet routine.
+The showered events for \MGaMC are therefore generated with the conditions of Fig.~\ref{vbs_fig_fixed_order_loose}.
+The disagreement at high di-jet invariant mass, already seen at fixed order, is thus not an effect of the parton shower.
+The normalisation differences are also consistent with a reduction in acceptance into the fiducial region
 for the \MGaMC sample due to this trend.
 
 \begin{figure}[htbp]
