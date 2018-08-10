@@ -100,11 +100,14 @@ public:
         bookChannelHist("zepj3", 40, -5, 5);
     }
 
+    // Change to true for CMS tight fiducial definition
+    bool fullFiducial = false;
     void analyze(const Event& event) {
         double weight = event.weight();
         totalEvents++;
     
-        Particles leptons = applyProjection<DressedLeptons>(event, "DressedLeptons").particlesByPt(20*GeV);
+        float leppt_cut = fullFiducial ? 15 : 20;
+        Particles leptons = applyProjection<DressedLeptons>(event, "DressedLeptons").particlesByPt(leppt_cut*GeV);
 
         if (leptons.size() < 3) {
             vetoEvent;
@@ -175,6 +178,8 @@ public:
                 std::iter_swap(leptons.begin(),leptons.begin()+1);
             }
         }
+        if (fullFiducial && (leptons.at(0).pt() < 25 || leptons.at(2).pt() < 20))
+            vetoEvent;
 
         FourMomentum bestZCand = leptons.at(0).momentum() + leptons.at(1).momentum();
         FourMomentum leptonSystem = leptons.at(2).momentum() + bestZCand;
@@ -184,17 +189,18 @@ public:
         sumWeightsZ += weight;
         channelHists_["cut_flow"].fill(CutFlow::passingZconstraint, weight, chanId);
 
+        float jetpt_cut = fullFiducial ? 50 : 30;
         Jets jets;
-        foreach (const Jet& jet, applyProjection<FastJets>(event, "jets").jetsByPt(30.0*GeV) ) {
-        bool isolated = true;
-        foreach (const Particle& lepton, leptons) {
-            if (deltaR(lepton, jet) < 0.4) {
-                isolated = false;
-                break;
+        foreach (const Jet& jet, applyProjection<FastJets>(event, "jets").jetsByPt(jetpt_cut*GeV) ) {
+            bool isolated = true;
+            foreach (const Particle& lepton, leptons) {
+                if (deltaR(lepton, jet) < 0.4) {
+                    isolated = false;
+                    break;
+                }
             }
-        }
-        if (isolated)
-            jets.push_back(jet);
+            if (isolated)
+                jets.push_back(jet);
         }
 
         if (jets.size() < 2) {  
@@ -213,6 +219,8 @@ public:
         sumWeights2j += weight;
 
         if (mjj < 500 || std::abs(dEtajj) < 2.5)
+            vetoEvent;
+        if (fullFiducial && std::abs(zep3l) > 2.5)
             vetoEvent;
 
         sumSelectedWeights += weight;
@@ -270,10 +278,15 @@ public:
         std::cout << "Initial cross section was: " << xsec << std::endl;
         std::cout << "Fiducial cross section is: " << xsec*sumSelectedWeights/sumOfWeights() << std::endl;
         
+        // If you're using scale weights, using the sum of events is correct since the
+        // cross section is associated with the central value (always 1) and the weights 
+        // should not be unitary
+        bool noNegWeights = true;
+        float sumWeights = noNegWeights ? totalEvents : sumOfWeights();
         for (const auto& hist : hists1D_)
-            scale(hist.second, xsec / sumOfWeights());
+            scale(hist.second, xsec / sumWeights);
         for (auto& chanHist : channelHists_) {
-            chanHist.second.Scale(xsec, sumOfWeights());
+            chanHist.second.Scale(xsec, sumWeights);
         }
     }        
 
