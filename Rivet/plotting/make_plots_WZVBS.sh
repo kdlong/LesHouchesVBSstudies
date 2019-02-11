@@ -34,9 +34,9 @@ comm_dyn_rebin="rivet-mkhtml -n5 -o rivet-plots-dyn -c style_WZVBS_LesHouchesStu
 comm_sherpa="rivet-mkhtml -n5 -o rivet-plots-all-Sherpa -c style_WZVBS_LesHouchesStudy.plot  ../data/VBS_WZ_Sherpa_default_settings.yoda:$SHERPA_DEF ../data/VBS_OF_dyn_Sherpa_100M.yoda:$SHERPA_DYN"
 #comm_vbfnlo_tune="rivet-mkhtml -n5 -o rivet-plots-VBFNLO-OF-tune -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/.*OF.*" ../data/WZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Pythia8.yoda:$VBFNLOPY ../data/vbs_CUETP8M1.yoda:$VBFNLOPYCUET"
 
-eval $comm_fixMW
-
-eval $comm_fixMW_rebin
+#eval $comm_fixMW
+#
+#eval $comm_fixMW_rebin
 
 #eval $comm_mg_Wm
 

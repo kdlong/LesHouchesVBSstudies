@@ -26,6 +26,7 @@ namespace Rivet {
 class WZVBS_LesHouchesStudy: public Analysis {
 public:
     enum CutFlow {
+        inSample,
         passingLepAcceptance,
         passingLepVeto,
         passingZconstraint,
@@ -36,6 +37,7 @@ public:
     float sumSelectedWeights = 0;
     float sumWeightsLeps = 0;
     float sumWeights2j = 0;
+    float sumWeightsCR = 0;
     float sumWeightsZ = 0;
     float sumWeightsVeto = 0;
     float selectedEvents = 0;
@@ -74,7 +76,7 @@ public:
         // Bookkeeping variables
         hists1D_["yieldByChannel"] = bookHisto1D("yieldByChannel", 80, -40, 40);
         bookChannelHist("final_xsec", 1, 0, 10);
-        bookChannelHist("cut_flow", 5, 0, 5);
+        bookChannelHist("cut_flow", 6, 0, 6);
 
         bookChannelHist("Zlep1_Pt", 100, 0, 1000);
         bookChannelHist("Zlep1_Eta", 20, -2.5, 2.5);
@@ -84,13 +86,20 @@ public:
         bookChannelHist("Wlep_Eta", 20, -2.5, 2.5);
         bookChannelHist("nJets", 10, 2, 10);
 
+        bookChannelHist("jet1_Pt", 100, 0, 1000);
+        bookChannelHist("jet1_Eta", 20, -4.7, 4.7);
+        bookChannelHist("jet2_Pt", 100, 0, 1000);
+        bookChannelHist("jet2_Eta", 20, -4.7, 4.7);
+        bookChannelHist("jet3_Pt", 100, 0, 1000);
+        bookChannelHist("jet3_Eta", 20, -4.7, 4.7);
+
         // Composite variables
         bookChannelHist("Mass3l", 100, 0, 2000);
         bookChannelHist("Pt3l", 100, 0, 1000);
         bookChannelHist("ZMass", 32, 75, 107);
         bookChannelHist("ZPt", 100, 0, 1000);
         bookChannelHist("ZEta", 20, -3, 3);
-        
+
         // VBS variables
         bookChannelHist("mjj", 100, 0, 4000);
         bookChannelHist("dEtajj", 64, -8, 8);
@@ -98,6 +107,43 @@ public:
         bookChannelHist("dRjj", 60, 0, 15);
         bookChannelHist("zep3l", 40, -5, 5);
         bookChannelHist("zepj3", 40, -5, 5);
+
+
+        // Control region observables
+        hists1D_["CR_yieldByChannel"] = bookHisto1D("CR_yieldByChannel", 80, -40, 40);
+        bookChannelHist("CR_final_xsec", 1, 0, 10);
+
+        bookChannelHist("CR_Zlep1_Pt", 100, 0, 1000);
+        bookChannelHist("CR_Zlep1_Eta", 20, -2.5, 2.5);
+        bookChannelHist("CR_Zlep2_Pt", 50, 0, 250);
+        bookChannelHist("CR_Zlep2_Eta", 20, -2.5, 2.5);
+        bookChannelHist("CR_Wlep_Pt", 50, 0, 500);
+        bookChannelHist("CR_Wlep_Eta", 20, -2.5, 2.5);
+        bookChannelHist("CR_nJets", 10, 2, 10);
+
+        bookChannelHist("CR_jet1_Pt", 100, 0, 1000);
+        bookChannelHist("CR_jet1_Eta", 20, -4.7, 4.7);
+        bookChannelHist("CR_jet2_Pt", 100, 0, 1000);
+        bookChannelHist("CR_jet2_Eta", 20, -4.7, 4.7);
+        bookChannelHist("CR_jet3_Pt", 100, 0, 1000);
+        bookChannelHist("CR_jet3_Eta", 20, -4.7, 4.7);
+
+        // Composite variables
+        bookChannelHist("CR_Mass3l", 100, 0, 2000);
+        bookChannelHist("CR_Pt3l", 100, 0, 1000);
+        bookChannelHist("CR_ZMass", 32, 75, 107);
+        bookChannelHist("CR_ZPt", 100, 0, 1000);
+        bookChannelHist("CR_ZEta", 20, -3, 3);
+
+        // VBS variables
+        bookChannelHist("CR_mjj", 100, 0, 4000);
+        bookChannelHist("CR_dEtajj", 64, -8, 8);
+        bookChannelHist("CR_dPhijj", 64, -8, 8);
+        bookChannelHist("CR_dRjj", 60, 0, 15);
+        bookChannelHist("CR_zep3l", 40, -5, 5);
+        bookChannelHist("CR_zepj3", 40, -5, 5);
+
+
     }
 
     // Change to true for CMS tight fiducial definition
@@ -105,6 +151,7 @@ public:
     void analyze(const Event& event) {
         double weight = event.weight();
         totalEvents++;
+        channelHists_["cut_flow"].fill(CutFlow::inSample, weight, 0);
     
         float leppt_cut = fullFiducial ? 15 : 20;
         Particles leptons = applyProjection<DressedLeptons>(event, "DressedLeptons").particlesByPt(leppt_cut*GeV);
@@ -218,41 +265,90 @@ public:
         float zepj3 = jets.size() > 2 ? jets.at(2).eta() - 0.5*(jets.at(0).momentum().eta()  + jets.at(1).momentum().eta()) : -999;
         sumWeights2j += weight;
 
-        if (mjj < 500 || std::abs(dEtajj) < 2.5)
+        // Applied to signal and control region events
+        if (mjj < 100)
             vetoEvent;
-        if (fullFiducial && std::abs(zep3l) > 2.5)
-            vetoEvent;
 
-        sumSelectedWeights += weight;
-        selectedEvents++;
-        channelHists_["cut_flow"].fill(CutFlow::passingAll, weight, chanId);
-        channelHists_["final_xsec"].fill(1, weight, chanId);
-        hists1D_["yieldByChannel"]->fill(chanId, weight);
+        if (mjj > 500 && std::abs(dEtajj) > 2.5 && !(fullFiducial && std::abs(zep3l) > 2.5)) {
+            sumSelectedWeights += weight;
+            selectedEvents++;
+            channelHists_["cut_flow"].fill(CutFlow::passingAll, weight, chanId);
+            channelHists_["final_xsec"].fill(1, weight, chanId);
+            hists1D_["yieldByChannel"]->fill(chanId, weight);
 
-        // Primitive variables
-        channelHists_["Zlep1_Pt"].fill(leptons.at(0).pt(), weight, chanId);
-        channelHists_["Zlep1_Eta"].fill(leptons.at(0).eta(), weight, chanId);
-        channelHists_["Zlep2_Pt"].fill(leptons.at(1).pt(), weight, chanId);
-        channelHists_["Zlep2_Eta"].fill(leptons.at(1).eta(), weight, chanId);
-        channelHists_["Wlep_Pt"].fill(leptons.at(2).pt(), weight, chanId);
-        channelHists_["Wlep_Eta"].fill(leptons.at(2).eta(), weight, chanId);
+            // Primitive variables
+            channelHists_["Zlep1_Pt"].fill(leptons.at(0).pt(), weight, chanId);
+            channelHists_["Zlep1_Eta"].fill(leptons.at(0).eta(), weight, chanId);
+            channelHists_["Zlep2_Pt"].fill(leptons.at(1).pt(), weight, chanId);
+            channelHists_["Zlep2_Eta"].fill(leptons.at(1).eta(), weight, chanId);
+            channelHists_["Wlep_Pt"].fill(leptons.at(2).pt(), weight, chanId);
+            channelHists_["Wlep_Eta"].fill(leptons.at(2).eta(), weight, chanId);
+            channelHists_["nJets"].fill(jets.size(), weight, chanId);
 
-        // Composite variables
-        channelHists_["Mass3l"].fill(leptonSystem.mass(), weight, chanId);
-        channelHists_["Pt3l"].fill(leptonSystem.pt(), weight, chanId);
-        channelHists_["ZMass"].fill(bestZCand.mass(), weight, chanId);
-        channelHists_["ZPt"].fill(bestZCand.pt(), weight, chanId);
-        channelHists_["ZEta"].fill(bestZCand.eta(), weight, chanId);
-        channelHists_["nJets"].fill(jets.size(), weight, chanId);
-        
-        // VBS variables
-        channelHists_["mjj"].fill(mjj, weight, chanId);
-        channelHists_["dEtajj"].fill(dEtajj, weight, chanId);
-        channelHists_["dRjj"].fill(dRjj, weight, chanId);
-        channelHists_["dPhijj"].fill(dPhijj, weight, chanId);
-        channelHists_["zep3l"].fill(zep3l, weight, chanId);
-        if (zepj3 != -999)
-            channelHists_["zepj3"].fill(zepj3, weight, chanId);
+            channelHists_["jet1_Pt"].fill(jets.at(0).pt(), weight, chanId);
+            channelHists_["jet1_Eta"].fill(jets.at(0).eta(), weight, chanId);
+            channelHists_["jet2_Pt"].fill(jets.at(1).pt(), weight, chanId);
+            channelHists_["jet2_Eta"].fill(jets.at(1).eta(), weight, chanId);
+
+            // Composite variables
+            channelHists_["Mass3l"].fill(leptonSystem.mass(), weight, chanId);
+            channelHists_["Pt3l"].fill(leptonSystem.pt(), weight, chanId);
+            channelHists_["ZMass"].fill(bestZCand.mass(), weight, chanId);
+            channelHists_["ZPt"].fill(bestZCand.pt(), weight, chanId);
+            channelHists_["ZEta"].fill(bestZCand.eta(), weight, chanId);
+
+            // VBS variables
+            channelHists_["mjj"].fill(mjj, weight, chanId);
+            channelHists_["dEtajj"].fill(dEtajj, weight, chanId);
+            channelHists_["dRjj"].fill(dRjj, weight, chanId);
+            channelHists_["dPhijj"].fill(dPhijj, weight, chanId);
+            channelHists_["zep3l"].fill(zep3l, weight, chanId);
+            if (zepj3 != -999) {
+                channelHists_["zepj3"].fill(zepj3, weight, chanId);
+                channelHists_["jet3_Pt"].fill(jets.at(2).pt(), weight, chanId);
+                channelHists_["jet3_Eta"].fill(jets.at(2).eta(), weight, chanId);
+            }
+        } 
+        // All events with mjj > 100 GeV but faiing mjj, dEtajj, or zep3l in CR
+        else {
+            sumWeightsCR += weight;
+            channelHists_["CR_final_xsec"].fill(1, weight, chanId);
+            hists1D_["CR_yieldByChannel"]->fill(chanId, weight);
+
+            // Primitive variables
+            channelHists_["CR_Zlep1_Pt"].fill(leptons.at(0).pt(), weight, chanId);
+            channelHists_["CR_Zlep1_Eta"].fill(leptons.at(0).eta(), weight, chanId);
+            channelHists_["CR_Zlep2_Pt"].fill(leptons.at(1).pt(), weight, chanId);
+            channelHists_["CR_Zlep2_Eta"].fill(leptons.at(1).eta(), weight, chanId);
+            channelHists_["CR_Wlep_Pt"].fill(leptons.at(2).pt(), weight, chanId);
+            channelHists_["CR_Wlep_Eta"].fill(leptons.at(2).eta(), weight, chanId);
+            channelHists_["CR_nJets"].fill(jets.size(), weight, chanId);
+
+            channelHists_["CR_jet1_Pt"].fill(jets.at(0).pt(), weight, chanId);
+            channelHists_["CR_jet1_Eta"].fill(jets.at(0).eta(), weight, chanId);
+            channelHists_["CR_jet2_Pt"].fill(jets.at(1).pt(), weight, chanId);
+            channelHists_["CR_jet2_Eta"].fill(jets.at(1).eta(), weight, chanId);
+
+            // Composite variables
+            channelHists_["CR_Mass3l"].fill(leptonSystem.mass(), weight, chanId);
+            channelHists_["CR_Pt3l"].fill(leptonSystem.pt(), weight, chanId);
+            channelHists_["CR_ZMass"].fill(bestZCand.mass(), weight, chanId);
+            channelHists_["CR_ZPt"].fill(bestZCand.pt(), weight, chanId);
+            channelHists_["CR_ZEta"].fill(bestZCand.eta(), weight, chanId);
+
+            // VBS variables
+            channelHists_["CR_mjj"].fill(mjj, weight, chanId);
+            channelHists_["CR_dEtajj"].fill(dEtajj, weight, chanId);
+            channelHists_["CR_dRjj"].fill(dRjj, weight, chanId);
+            channelHists_["CR_dPhijj"].fill(dPhijj, weight, chanId);
+            channelHists_["CR_zep3l"].fill(zep3l, weight, chanId);
+            if (zepj3 != -999) {
+                channelHists_["CR_zepj3"].fill(zepj3, weight, chanId);
+                channelHists_["CR_jet3_Pt"].fill(jets.at(2).pt(), weight, chanId);
+                channelHists_["CR_jet3_Eta"].fill(jets.at(2).eta(), weight, chanId);
+            }
+
+        }
     }
 
     void finalize() {
@@ -272,6 +368,8 @@ public:
         std::cout << "    cross section = " << sumWeightsZ*xsec/sumOfWeights() << endl;
         std::cout << "Sum weights passing 2j selection = " << sumWeights2j << endl;
         std::cout << "    cross section = " << sumWeights2j*xsec/sumOfWeights() << endl;
+        std::cout << "Sum weights passing control region selection = " << sumWeightsCR << endl;
+        std::cout << "    cross section = " << sumWeightsCR*xsec/sumOfWeights() << endl;
         std::cout << std::endl << "Selected Events = " << selectedEvents << ", Total= " << totalEvents << endl;
         std::cout << "Efficiency = " << efficiency << endl;    
         
@@ -281,8 +379,7 @@ public:
         // If you're using scale weights, using the sum of events is correct since the
         // cross section is associated with the central value (always 1) and the weights 
         // should not be unitary
-        bool noNegWeights = true;
-        float sumWeights = noNegWeights ? totalEvents : sumOfWeights();
+        float sumWeights = sumOfWeights();
         for (const auto& hist : hists1D_)
             scale(hist.second, xsec / sumWeights);
         for (auto& chanHist : channelHists_) {
@@ -293,7 +390,7 @@ public:
 private:
     // Label = sum{abs(pdgid)}*sign(sum{pdgid})
     // For now we don't distiguish between e/m states
-    std::map <int, std::string> channels_ = {
+    const std::map <int, std::string> channels_ = {
         { 35 , "WmZ_OF"},
         { 37 , "WmZ_OF"},
         { 33 , "WmZ_SF"},
@@ -317,10 +414,18 @@ private:
                 hists_[channel] = hist;
             };
 
+            Histo1DPtr GetHist(int channel) {
+                if (hists_.find(channel) != hists_.end())
+                    return hists_[channel];
+                return nullptr;
+            };
+
             void Scale(double xsec, double sumWeights) {
-                for (const auto& hist : hists_) {
-                    analysis_->scale(hist.second, xsec / sumWeights);
-                }
+                std::set<Histo1DPtr> unique_hists;
+                for (const auto& hist : hists_)
+                    unique_hists.insert(hist.second);
+                for (const auto& hist : unique_hists)
+                    analysis_->scale(hist, xsec / sumWeights);
             };
 
             std::vector<Histo1DPtr> GetEmpty() {
@@ -351,9 +456,17 @@ private:
         // Central hist
         channelHists_[histname].SetHist(bookHisto1D(histname, bins, binlow, binhigh), 0);
 
+        std::map<std::string, int> uniqueNames;
         for (auto& channel : channels_) {
             const std::string chanHistName = channel.second + "_" + histname;
-            channelHists_[histname].SetHist(bookHisto1D(chanHistName, bins, binlow, binhigh), channel.first);
+            if (uniqueNames.find(chanHistName) == uniqueNames.end()) {
+                channelHists_[histname].SetHist(bookHisto1D(chanHistName, bins, binlow, binhigh), channel.first);
+                uniqueNames[chanHistName] = channel.first;
+            }
+            // Get the existing histogram if channels share a histogram (i.e., they're combined into one)
+            else
+                channelHists_[histname].SetHist(
+                    channelHists_[histname].GetHist(uniqueNames[chanHistName]), channel.first);
         }
     };
     void removeEmptyHists () {

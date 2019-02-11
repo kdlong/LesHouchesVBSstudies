@@ -8,7 +8,7 @@ VBFNLOHW="'Title={VBFNLO+HERWIG Wm}:ErrorBands=1:ErrorBandOpacity=0.1:LineWidth=
 #MGFIXEDMZ="'Scale=1.0:Title={MadGraph_aMC@NLO fixed $\mu=m_Z$}:ErrorBands=1:ErrorBandColor=teal:LineColor=teal:ErrorBandOpacity=0.1:LineWidth=0.02'"
 
 # filter the plots with the option -m 
-comm="rivet-mkhtml -n5 -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/.*" data/WLLJJ_EWK-MGLO_CentralSample.yoda:$MGCENTRAL data/VBFNLO_PYTHIA8_80M.yoda:$VBFNLOPY"
+comm="rivet-mkhtml -n5 -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/.*" data/WZJJ_EW_MadGraphCentralSample_CMSTight_withCR.yoda:$MGCENTRAL -o ~/www/Rivet/CMS_SMP_18_001"
 #comm="rivet-mkhtml -n5 -c style_WZVBS_LesHouchesStudy.plot  -m ".*/WZVBS_LesHouchesStudy/Wm.*" data/WmZTo1E1Nu2Mu_FixedScaleMW_LHConfig_VBFNLO-Herwig7.yoda:$VBFNLOHW data/WZTo1E2Mu_FixedScaleMW_LHConfig_madgraph-pythia8.yoda:$MGEMMFIXED"
 
 eval $comm
