@@ -30,6 +30,7 @@ public:
         passingLepAcceptance,
         passingLepVeto,
         passingZconstraint,
+        passingM3lconstraint,
         passing2jselection,
         passingAll
     };
@@ -76,7 +77,7 @@ public:
         // Bookkeeping variables
         hists1D_["yieldByChannel"] = bookHisto1D("yieldByChannel", 80, -40, 40);
         bookChannelHist("final_xsec", 1, 0, 10);
-        bookChannelHist("cut_flow", 6, 0, 6);
+        bookChannelHist("cut_flow", 7, 0, 7);
 
         bookChannelHist("Zlep1_Pt", 100, 0, 1000);
         bookChannelHist("Zlep1_Eta", 20, -2.5, 2.5);
@@ -235,6 +236,12 @@ public:
             vetoEvent;
         sumWeightsZ += weight;
         channelHists_["cut_flow"].fill(CutFlow::passingZconstraint, weight, chanId);
+
+        if (leptonSystem.mass() < 100) {
+            vetoEvent;
+            std::cout << "Failed m3l!" << std::endl;
+        }
+        channelHists_["cut_flow"].fill(CutFlow::passingM3lconstraint, weight, chanId);
 
         float jetpt_cut = fullFiducial ? 50 : 30;
         Jets jets;
